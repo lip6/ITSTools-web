@@ -1,6 +1,0 @@
-<area shape="rect" id="node3" href="$classnsMLHom_1_1Add.html" title="{nsMLHom::Add\n|&#45; parameters\l|+ Add()\l+ operator==()\l+ clone()\l+ hash()\l+ skip_variable()\l+ eval()\l}" alt="" coords="5,286,123,458">
-<area shape="rect" id="node5" href="$classnsMLHom_1_1ConstantUp.html" title="{nsMLHom::ConstantUp\n|&#45; up\l&#45; down\l|+ ConstantUp()\l+ operator==()\l+ clone()\l+ hash()\l+ skip_variable()\l+ eval()\l}" alt="" coords="147,277,307,467">
-<area shape="rect" id="node7" href="$classnsMLHom_1_1GHomAdapter.html" title="{nsMLHom::GHomAdapter\n|&#45; h\l|+ GHomAdapter()\l+ operator==()\l+ hash()\l+ clone()\l+ skip_variable()\l+ eval()\l}" alt="" coords="331,286,501,458">
-<area shape="rect" id="node9" href="$classnsMLHom_1_1Identity.html" title="{nsMLHom::Identity\n||+ Identity()\l+ shouldCache()\l+ operator==()\l+ hash()\l+ clone()\l+ skip_variable()\l+ eval()\l}" alt="" coords="525,277,656,467">
-<area shape="rect" id="node11" href="$classnsMLHom_1_1LeftConcat.html" title="{nsMLHom::LeftConcat\n|&#45; left\l&#45; h\l|+ LeftConcat()\l+ operator==()\l+ clone()\l+ hash()\l+ skip_variable()\l+ eval()\l}" alt="" coords="680,277,832,467">
-<area shape="rect" id="node13" href="$classStrongMLHom.html" title="{StrongMLHom\n||+ operator==()\l+ operator==()\l+ eval()\l+ phi()\l}" alt="" coords="856,303,960,441">

@@ -2,8 +2,8 @@
   <div id="sectionLinks">
     <h3>Links</h3>
     <ul>
-      <li><a href="#">Home Page </a></li>
-      <li><a href="#">Documentation</a></li>
-      <li><a href="#">Downloads</a></li>
+      <li>[Home Page ](#)</li>
+      <li>[Documentation](#)</li>
+      <li>[Downloads](#)</li>
     </ul>
   </div>

@@ -26,18 +26,18 @@
   
 <h2><a name="sec:Install"></a>1. Install </h2>
 
-<p>Please follow <a href="itstools.php#sec:modinst">these guidelines</a> to install ITS modeler.</p>
+<p>Please follow [these guidelines](itstools.md#sec:modinst) to install ITS modeler.</p>
 
 <p>Once ITS Modeler is installed, create a new GAL model like this: <br />
    File &rarr; New &rarr; File &rarr; Coloane &rarr; Gal file...</p>
    <p>In any project, you can simply create a file with the extension .gal, and so you can model using the GAL language.</p>
 
-   <p> These <a href="files/gal.zip">GAL examples</a> translated from the BEEM distribution can help get started as well.</p>
+   <p> These [GAL examples](files/gal.zip) translated from the BEEM distribution can help get started as well.</p>
 
 	
  <p><h2><a name="package-presentation"></a>2. GAL overview </h2></p>
    
-   This page presents the concrete syntax of GAL, please read <a href="./files/gal.pdf">this document</a> for a more formal overview of GAL
+   This page presents the concrete syntax of GAL, please read [this document](./files/gal.pdf) for a more formal overview of GAL
    semantics and some of their applications.
    
 	<h3><a name="what-is-gal"></a>2.1 An example GAL system </h3>
@@ -58,7 +58,7 @@
 	This interleaving semantic is adapted to modeling of concurrent systems. Semantics for 
 	interleaving of GAL transitions are similar to semantics of Petri nets. The effect of each transition is atomic,
 	i.e. reachable states are those obtained after each computing all effects of the transition 
-	(modulo the <a href="#transient"> transient state definition</a> that allows to skip some states)</p>
+	(modulo the [ transient state definition](#transient) that allows to skip some states)</p>
   
 	<h3><a name="what-is-gal"></a>2.2 What is GAL ? </h3>
 	<p>GAL is an acronym for <strong>Guarded Action Language,</strong> a modelling language dedicated
@@ -221,7 +221,7 @@
 	
 	<p>Transitions can optionally define one or more parameters that allow a more concise and readable representation
 	of a complex transition relation. Parameters have a type that is defined as a range of integers,
-	introduced at the system level using a <a href="#paramType">typedef</a>.
+	introduced at the system level using a [typedef](#paramType).
 	Semantically, each parameter can be replaced in the transition effects by each of the possible values in its type, producing 
 	several alternative transitions from a single transition that bears parameters.
 	</p>
@@ -499,7 +499,7 @@ or list actions (removal or addition) on lists: <span class="galElement">pop()</
 		Note that this is convergence of the set of successor states, i.e. fixpoint returns a set of states
 		such that applying the body of the fixpoint statement to this set yields the set itself. This operator is similar
 		to Kleene-star closure of langage theory. It can be used to simulate mu (least fixpoint) and nu (greatest fixpoint)
-		 operators of <a href="https://en.wikipedia.org/wiki/Modal_%CE%BC-calculus">modal mu-calculi</a>.    
+		 operators of [modal mu-calculi](https://en.wikipedia.org/wiki/Modal_%CE%BC-calculus).    
 	</p>
 	<p>
 	The fixpoint statement is a powerfult tool to create abstractions of a state-space while preserving some target properties.
@@ -688,9 +688,9 @@ This factored representation would not be efficient without the ability of symbo
 One may see this transform as a manner of delaying the computation of the combinatorial number of instantiations until symbolic evaluation time, where the symbolic data structures help with the combinatorics.
 </p>
 
-<p> This example transition of a colored Petri net taken from <a href="http://mcc.lip6.fr/pdf/DrinkVendingMachine-form.pdf">this VendingMachine example</a> of the <a href="http://mcc.lip6.fr">Model checking contest at Petri nets</a> shows how this reduction works in practice.</p>
+<p> This example transition of a colored Petri net taken from [this VendingMachine example</a> of the <a href="http://mcc.lip6.fr">Model checking contest at Petri nets](http://mcc.lip6.fr/pdf/DrinkVendingMachine-form.pdf) shows how this reduction works in practice.</p>
 
-<p> This is an extract of the <a href="galfiles/drink-vending-2-col.gal">full model</a>. Before separation, we have many independent parameters.
+<p> This is an extract of the [full model](galfiles/drink-vending-2-col.gal). Before separation, we have many independent parameters.
 In fact here all parameters are independent, since no statement simultaneously uses two parameters. Furthermore parameters $o1 $o2 and $o3 play a very symmetric role.  </p>
 	<?php
 	printGalFile('galfiles/vendingsimple.gal');
@@ -701,7 +701,7 @@ In fact here all parameters are independent, since no statement simultaneously u
 	printGalFile('galfiles/vendingsimple.sep.gal');
 	?>
 	
-	<p>This model when instantiated is still compact as shown here. Compare to what a <a href="galfiles/vendingsimple.inst.gal">plain instantiation </a> obtains; obviously
+	<p>This model when instantiated is still compact as shown here. Compare to what a [plain instantiation ](galfiles/vendingsimple.inst.gal) obtains; obviously
 	when applicable this approach helps to scale as it can avoid exponential blowups in specification size.</p> 
 
 	<?php
@@ -785,5 +785,5 @@ To replace an variable $tab$ by its $hotbit(r)$ encoding, for each transition $t
     <p>The GAL editor plugin was initially developed as part of the M1 student project and subsequent internship of KOUADIO Yao Louis Stephane Armel, SELLOU Hakim and
 ABKA Faycal, made in the MoVe team (Modeling and Verification) of Laboratory of Computer Science at the University Pierre et Marie Curie (LIP6), in the year 2012, under the supervision of Yann Thierry-Mieg. The aim of the internship was to implement an Eclipse plugin that allows editing of GAL files. This plugin harnesses all the power of Eclipse, including auto-completion, or quick-fix.</p>
 	<p>To achieve the goals, we used Eclipse and Xtext (<a href="http://www.eclipse.org/Xtext/" target="_blank">http://www.eclipse.org/Xtext/</a>), an Eclipse plugin that allows you to define grammars for languages dedicated to a specific domain (<strong>D</strong>omain <strong>S</strong>pecific <strong>L</strong>anguage) in all its aspects, and this in a comprehensive manner.</p>
-    <p>The GAL plugin was developed using collaborative development tools, such as SVN for version control (public depot available with login/pass "anonymous/anonymous" at <a href="https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL" target="_blank">svn co https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL</a>), as well as a server for continuous integration (<a href="http://teamcity-systeme.lip6.fr/">TeamCity</a>).</p>
+    <p>The GAL plugin was developed using collaborative development tools, such as SVN for version control (public depot available with login/pass "anonymous/anonymous" at <a href="https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL" target="_blank">svn co https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL</a>), as well as a server for continuous integration ([TeamCity](http://teamcity-systeme.lip6.fr/)).</p>
     <p>Essentially all developments since 2012 (metamodel updates, enhancements, rewritings...) are the work of Yann Thierry-Mieg.</p>

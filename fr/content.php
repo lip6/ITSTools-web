@@ -131,7 +131,7 @@
 	<h3><a name="utilite-gal"></a>4.2 A quoi sert-il ? </h3>
 	<p>&nbsp;</p>
 	<p>Le GAL est un assembleur s&eacute;mantique adapt&eacute; &agrave; la v&eacute;rification formelle,  &agrave; l'aide de m&eacute;thodes symboliques ; c'est donc un DSL (Domain Specific Language),  qui permet de noter des automates avec un niveau d'abstraction &eacute;l&eacute;v&eacute; (manipulation des expressions enti&egrave;res, des entiers, etc...).</p>
-	<p>Il est aussi utilis&eacute; pour la mod&eacute;lisation de syst&egrave;mes concurrents en vue de leur v&eacute;rification par model-checking, et peut servir pour la manipulation d'ensemble d'&eacute;tats &agrave; l'aide de diagrammes de d&eacute;cision  (<a href="http://ddd.lip6.fr">ddd.lip6.fr</a>) </p>
+	<p>Il est aussi utilis&eacute; pour la mod&eacute;lisation de syst&egrave;mes concurrents en vue de leur v&eacute;rification par model-checking, et peut servir pour la manipulation d'ensemble d'&eacute;tats &agrave; l'aide de diagrammes de d&eacute;cision  ([ddd.lip6.fr](http://ddd.lip6.fr)) </p>
 	<p>&nbsp;</p>
 </div>
 <div class="story">
@@ -406,13 +406,13 @@
 <div class="story">	
 	<h3><a name="fonctionnalites-editeur" ></a>4.4  Fonctionnalit&eacute;s de l'&eacute;diteur GAL</h3>
 	<p>
-	Le plugin Eclipse GAL hérite des fonctionnalités d'édition de l'IDE Eclipse et ceci facilite l'écriture des systèmes concurrents.	</p>
+	Le plugin Eclipse GAL hï¿½rite des fonctionnalitï¿½s d'ï¿½dition de l'IDE Eclipse et ceci facilite l'ï¿½criture des systï¿½mes concurrents.	</p>
 	<p><img src="images/captures/1_.png"  /></p>
 </div>
 
 
 <div class="story">	
-	<h4><a name="autocompletion" ></a>4.4.1  Auto-complétion</h4>
+	<h4><a name="autocompletion" ></a>4.4.1  Auto-complï¿½tion</h4>
 	<p>L&rsquo;une des fonctionnalit&eacute;s d&rsquo;Eclipse les plus connues est l'auto-compl&eacute;tion, en appuyant simultan&eacute;ment sur<em> CTRL + ESPACE</em>, le GAL propose une liste d'&eacute;l&eacute;ments susceptibles de compl&eacute;ter le mot en fonction des caract&egrave;res d&eacute;j&agrave; &eacute;crits, ou sinon les &eacute;l&eacute;ments qui peuvent &ecirc;tre plac&eacute;s &agrave; l&rsquo;endroit o&ugrave; le curseur est plac&eacute;.</p>
 	<p> Voici un exemple d&rsquo;auto-compl&eacute;tion propos&eacute;:<br />
     </p>
@@ -515,22 +515,22 @@
         <span class="codeDescription">Retourne le nom du syst&egrave;me GAL </span></td>
       </tr>
       <tr>
-        <td valign="top"><code><a href="#desc-istate">IState</a></code></td>
+        <td valign="top"><code>[IState](#desc-istate)</code></td>
         <td valign="top"><code>getInitState()</code> <br />
         <br />
 		<span class="codeDescription"> Retourne l'&eacute;tat initial du syst&egrave;me. L'&eacute;tat initial contient toutes les variables (entiers, tableaux, listes) et les valeurs auquelles ils ont &eacute;t&eacute; associ&eacute;s &agrave; l'initialisation.</span></td>
       </tr>
       <tr>
-        <td valign="top"><code>List&lt;<a href="#desc-itransition">ITransition</a>&gt;</code></td>
+        <td valign="top"><code>List&lt;[ITransition](#desc-itransition)&gt;</code></td>
         <td valign="top"><code>getTransitions() </code><br />
         <br />
-		<span class="codeDescription">Retourne la liste de toutes les transitions du système GAL</span>
+		<span class="codeDescription">Retourne la liste de toutes les transitions du systï¿½me GAL</span>
 		</td>
       </tr>
 	  
 	   <tr>
         <td valign="top"><code>boolean</code></td>
-        <td valign="top"><code>getTransient(<a href="#desc-istate">IState</a> entryState) </code><br />
+        <td valign="top"><code>getTransient([IState](#desc-istate) entryState) </code><br />
         <br />
 		<span class="codeDescription">Retourne la valeur bool&eacute;enne de l'instruction TRANSIENT. <code>entryState</code> est l'&eacute;tat dans lequel seront consult&eacute;es les valeurs des variables. </span>
 		</td>
@@ -553,13 +553,13 @@
       </tr>
       <tr>
         <td valign="top"><code>boolean</code></td>
-        <td valign="top"><code>guard(<a href="#desc-istate">IState</a> entryState)</code> <br />
+        <td valign="top"><code>guard([IState](#desc-istate) entryState)</code> <br />
             <br />
         <span class="codeDescription"> Retourne la valeur bool&eacute;enne de la garde de la transition. <code>entryState</code> est l'&eacute;tat dans lequel seront consult&eacute;es les valeurs des variables. </span></td>
       </tr>
       <tr>
         <td valign="top"><code>IState</code></td>
-        <td valign="top"><code>successor(<a href="#desc-istate">IState</a> entryState) </code><br />
+        <td valign="top"><code>successor([IState](#desc-istate) entryState) </code><br />
             <br />
         <span class="codeDescription">Evalue le corps de la transition, et retourne un &eacute;tat dans lequel les variables ont &eacute;t&eacute; modifi&eacute;es. <code>entryState</code> est l'&eacute;tat dans lequel seront consult&eacute;es les valeurs des variables. </span> </td>
       </tr>

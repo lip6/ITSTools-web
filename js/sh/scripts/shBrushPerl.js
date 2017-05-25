@@ -59,7 +59,7 @@
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),	css: 'keyword' }
 		    ];
 
-		this.forHtmlScript(SyntaxHighlighter.regexLib.phpScriptTags);
+		this.forHtmlScript(SyntaxHighlighter.regexLib.mdScriptTags);
 	}
 
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();

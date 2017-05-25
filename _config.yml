@@ -1,1 +1,4 @@
 theme: jekyll-theme-architect
+title: [ITS Tools]
+description: [A multi-formalism multi-solver model-checker]
+show_downloads: ["true"]

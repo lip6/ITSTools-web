@@ -26,7 +26,7 @@
   
 <h2><a name="sec:Install"></a>I. Install </h2>
 
-<p>Please follow <a href="itstools.php#sec:modinst">these guidelines</a> to install ITS modeler.</p>
+<p>Please follow [these guidelines](itstools.md#sec:modinst) to install ITS modeler.</p>
   <p> Build a new Project to get started, then create a "new->Coloane->GAL file".</p>
 
 
@@ -36,7 +36,7 @@
     File &rarr; New &rarr; File &rarr; Coloane &rarr; Gal file...</p>
     <p>In any project, you can simply create a file with the extension .gal, and so you can model using the GAL language.</p>
 
-	<p> These <a href="files/gal.zip">GAL examples</a> translated from the BEEM distribution can help get started as well.</p>
+	<p> These [GAL examples](files/gal.zip) translated from the BEEM distribution can help get started as well.</p>
 
 	
     <p><h3><a name="package-presentation"></a>3.1 Package presentation</h3></p>
@@ -69,7 +69,7 @@
 	<p>GAL is a semantic assembly language suited to formal verification, using symbolic methods (such as Data Decision Diagrams). 
 	It offers a high level of expressivity (manipulation of integer expressions, integers, etc...). 
 	It is used as an intermediate language for modeling concurrent systems for verification by model-checking, and can be manipulated
-	symbolically using decision diagrams (<a href="http://ddd.lip6.fr">ddd.lip6.fr</a>) </p>
+	symbolically using decision diagrams ([ddd.lip6.fr](http://ddd.lip6.fr)) </p>
 	<h3><a name="concepts-gal"></a>4.3 GAL concepts  </h3>
 
 
@@ -499,13 +499,13 @@ or list actions (removal or addition) on lists: <span class="galElement">pop()</
         <span class="codeDescription">Returns the name of the GAL system. </span></td>
       </tr>
       <tr>
-        <td valign="top"><code><a href="#desc-istate">IState</a></code></td>
+        <td valign="top"><code>[IState](#desc-istate)</code></td>
         <td valign="top"><code>getInitState()</code> <br />
         <br />
 		<span class="codeDescription"> Returns the initial state of the system. 	 The initial state contains all variables and their values assigned at initialization.</span></td>
       </tr>
       <tr>
-        <td valign="top"><code>List&lt;<a href="#desc-itransition">ITransition</a>&gt;</code></td>
+        <td valign="top"><code>List&lt;[ITransition](#desc-itransition)&gt;</code></td>
         <td valign="top"><code>getTransitions() </code><br />
         <br />
 		<span class="codeDescription">Returns the list of all transitions of the GAL system</span>		</td>
@@ -513,7 +513,7 @@ or list actions (removal or addition) on lists: <span class="galElement">pop()</
 	  
 	   <tr>
         <td valign="top"><code>boolean</code></td>
-        <td valign="top"><code>getTransient(<a href="#desc-istate">IState</a> entryState) </code><br />
+        <td valign="top"><code>getTransient([IState](#desc-istate) entryState) </code><br />
         <br />
 		<span class="codeDescription">Returns the boolean value of the TRANSIENT statement. <code>entryState</code> is the state in which variables values will be retrieved</span>		</td>
       </tr>
@@ -535,13 +535,13 @@ or list actions (removal or addition) on lists: <span class="galElement">pop()</
       </tr>
       <tr>
         <td valign="top"><code>boolean</code></td>
-        <td valign="top"><code>guard(<a href="#desc-istate">IState</a> entryState)</code> <br />
+        <td valign="top"><code>guard([IState](#desc-istate) entryState)</code> <br />
             <br />
         <span class="codeDescription"> Returns the boolean value of a transition guard.. <code>entryState</code> is the state in which variables values will be retrieved. </span></td>
       </tr>
       <tr>
         <td valign="top"><code>IState</code></td>
-        <td valign="top"><code>successor(<a href="#desc-istate">IState</a> entryState) </code><br />
+        <td valign="top"><code>successor([IState](#desc-istate) entryState) </code><br />
             <br />
         <span class="codeDescription">Evaluate the body of the transition, and returns a state in which variables have been 	  modified.. <code>entryState</code> is </span> the state in which variables values will be retrived</td>
       </tr>
@@ -676,9 +676,9 @@ or list actions (removal or addition) on lists: <span class="galElement">pop()</
 -->
 
     <h2><a name="introduction"></a>Credits</h2>
-    <p>This project was developed as part of the M1 student project and subsequent internship of KOUADIO Yao Louis Stéphane Armel, SELLOU Hakim and
+    <p>This project was developed as part of the M1 student project and subsequent internship of KOUADIO Yao Louis Stï¿½phane Armel, SELLOU Hakim and
 ABKA Faycal, made in the MoVe team (Modeling and Verification) of Laboratory of Computer Science at the University Pierre et Marie Curie (LIP6), in the year 2012, under the supervision of Yann Thierry-Mieg. The aim of the internship was to implement an Eclipse plugin that allows editing of GAL files. This plugin harnesses all the power of Eclipse, including auto-completion, or quick-fix.</p>
     <p>To achieve the goals, we used Eclipse and Xtext (<a href="http://www.eclipse.org/Xtext/" target="_blank">http://www.eclipse.org/Xtext/</a>), an Eclipse plugin that allows you to define grammars for languages dedicated to a specific domain (<strong>D</strong>omain <strong>S</strong>pecific <strong>L</strong>anguage) in all its aspects, and this in a comprehensive manner.</p>
-    <p>The GAL plugin was developed using collaborative development tools, such as SVN for version control (public depot available with login/pass "anonymous/anonymous" at <a href="https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL" target="_blank">svn co https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL</a>), as well as a server for continuous integration (<a href="http://teamcity-systeme.lip6.fr/">TeamCity</a>).</p>
+    <p>The GAL plugin was developed using collaborative development tools, such as SVN for version control (public depot available with login/pass "anonymous/anonymous" at <a href="https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL" target="_blank">svn co https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL</a>), as well as a server for continuous integration ([TeamCity](http://teamcity-systeme.lip6.fr/)).</p>
 
 

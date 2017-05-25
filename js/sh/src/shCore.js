@@ -1061,7 +1061,7 @@ function processUrls(code)
 			suffix = match[2];
 		}
 		
-		return '<a href="' + m + '">' + m + '</a>' + suffix;
+		return '[' + m + '](' + m + ')' + suffix;
 	});
 };
 
