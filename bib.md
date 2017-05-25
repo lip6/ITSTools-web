@@ -55,8 +55,8 @@ In <em> Tools and Algorithms for the Construction and Analysis of
 [[.pdf](files/manuscrit_ahamez.pdf) ]
 [[Presentation slides (pdf)](files/transparents_soutenance_ahamez.pdf) ]
 
-Case Studies and applications of ITS-tools
-==========================================
+Case Studies and applications
+=============================
 
 
 
