@@ -1,0 +1,4 @@
+<area shape="rect" id="node2" href="$class__GHom.html" title="The concrete data class for Homomorphisms." alt="" coords="5,6,123,351">
+<area shape="rect" id="node9" href="$classGHom.html" title="This class is the base class representing a homomorphism over DDD." alt="" coords="65,558,183,1181">
+<area shape="rect" id="node4" href="$classGDDD.html" title="This class is the base class representing a Data Decision Diagram." alt="" coords="241,419,364,1319">
+<area shape="rect" id="node6" href="$class__GDDD.html" title="{_GDDD\n|+ variable\l+ valuation\l+ refCounter\l+ marking\l|+ _GDDD()\l+ _GDDD()\l+ operator==()\l+ mark()\l+ clone()\l+ hash()\l}" alt="" coords="251,67,355,291">

@@ -1,0 +1,34 @@
+/* =====   Boolean expressions ===== */
+enum ComparisonOperators:
+	GT='>' | // Greater Thean
+	LT='<' | // Lower Than
+	GE='>=' | // Greater or Equal
+	LE='<=' | // Lower or Equal
+	EQ='==' | // Equal
+	NE='!='; // Not Equal
+	
+Or returns BooleanExpression:
+	(And ({Or.left=current} ->'||' right=And)*);
+
+And returns BooleanExpression:
+	Not ({And.left=current} ->'&&' right=Not)*;
+
+Not returns BooleanExpression:
+	(->'!' {Not} value=PrimaryBool) | PrimaryBool;
+
+PrimaryBool returns BooleanExpression:
+	True | False | => Comparison | ('(' Or ')');
+
+Comparison:
+	(left=BitOr
+	->operator=ComparisonOperators
+	right=BitOr);
+
+True:
+	{True}
+	'true';
+
+False:
+	{False}
+	'false';
+

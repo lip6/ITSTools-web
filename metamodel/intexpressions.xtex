@@ -1,0 +1,50 @@
+/* =====   Arithmetic expressions ===== */
+
+/* ====== Bitwise operators ======= */
+// by order of increasing precedence
+BitOr returns IntExpression:
+	BitXor ({BinaryIntExpression.left=current} op='|' right=BitXor)*;
+
+BitXor returns IntExpression:
+	BitAnd ({BinaryIntExpression.left=current} op='^' right=BitAnd)*;
+
+BitAnd returns IntExpression:
+	BitShift ({BinaryIntExpression.left=current} op='&' right=BitShift)*;
+
+BitShift returns IntExpression:
+	Addition ({BinaryIntExpression.left=current} op=('<<' | '>>') right=Addition)*;
+
+Addition returns IntExpression:
+	Multiplication ({BinaryIntExpression.left=current} op=('+' | '-') right=Multiplication)*;
+
+Multiplication returns IntExpression:
+	UnaryExpr ({BinaryIntExpression.left=current} op=('/' | '*' | '%') right=UnaryExpr)*;
+
+UnaryExpr returns IntExpression :
+	BitComplement | UnaryMinus | Power
+;
+
+UnaryMinus returns IntExpression:
+    {UnaryMinus} '-' value=UnaryExpr;
+    
+BitComplement returns IntExpression:
+	{BitComplement} '~' value=UnaryExpr ;
+
+Power returns IntExpression:
+	Primary ({BinaryIntExpression.left=current} op=('**') right=Primary)*;
+
+Primary returns IntExpression:
+	Reference |
+	ConstRef |
+	(=> ('(' BitOr ')') | ('(' WrapBoolExpr ')'));
+
+ConstRef returns IntExpression:
+	Constant |
+	ParamRef ;
+	
+
+WrapBoolExpr:
+	value=Or;
+
+Constant:
+	value=INT;

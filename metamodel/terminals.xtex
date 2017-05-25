@@ -1,0 +1,28 @@
+
+// This means a quoted "arbitrary #d%$ string"
+Label :
+	name=STRING
+;
+
+// Our qualified name may have integer at any position except first one
+FullyQualifiedName:
+	ID ( '.' (ID|INT))*
+;
+
+// semantic comments that can be added to model elements
+// can span multiple lines
+terminal COMMENT :
+	'/**' -> '*/' 
+;
+
+// Note that SL_COMMENT, i.e. "// to \n"
+// comments to end of line
+
+// Start with $ and build an ID
+terminal PARAMNAME:
+	'$'  ('^')?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
+// although we shoudl support parse of negative int, they will produce errors if output.
+// please wrap any negative Constant value int in UnaryMinus.
+Integer returns ecore::EInt:
+	('-')? INT;

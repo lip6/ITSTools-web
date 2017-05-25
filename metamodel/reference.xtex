@@ -1,0 +1,13 @@
+Reference :
+VariableReference 
+		(
+			(-> ':' {QualifiedReference.qualifier=current} next=Reference )
+			
+		)? 	
+;
+
+
+VariableReference :
+	ref=[NamedDeclaration|FullyQualifiedName] 
+		(-> '[' index=BitOr ']' )?
+;

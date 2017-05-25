@@ -1,0 +1,6 @@
+<area shape="rect" id="node2" href="$class__SDED.html" title="{_SDED\n||+ ~_SDED()\l+ hash()\l+ operator==()\l+ clone()\l+ eval()\l}" alt="" coords="5,965,109,1120">
+<area shape="rect" id="node4" href="$classGShom.html" title="This class is the base class for Homomorphisms over SDD." alt="" coords="133,584,288,1501">
+<area shape="rect" id="node7" href="$class__GShom.html" title="The concrete data class for Homomorphisms." alt="" coords="152,6,269,351">
+<area shape="rect" id="node9" href="$classGSDD.html" title="This class is the base class representing a hierarchical Set Decision Diagram." alt="" coords="347,419,469,1666">
+<area shape="rect" id="node11" href="$classDataSet.html" title="This class is an abstraction of a set of data." alt="" coords="320,41,443,317">
+<area shape="rect" id="node13" href="$class__GSDD.html" title="{_GSDD\n|+ variable\l+ valuation\l+ refCounter\l+ height\l+ marking\l|+ _GSDD()\l+ _GSDD()\l+ ~_GSDD()\l+ _GSDD()\l+ clone()\l+ operator\&lt;()\l+ operator==()\l+ getHeight()\l+ mark()\l+ hash()\l}" alt="" coords="467,23,571,334">

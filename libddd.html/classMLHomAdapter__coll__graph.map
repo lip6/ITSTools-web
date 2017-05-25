@@ -1,0 +1,3 @@
+<area shape="rect" id="node2" href="$class__GHom.html" title="The concrete data class for Homomorphisms." alt="" coords="5,297,123,642">
+<area shape="rect" id="node4" href="$classMLHom.html" title="{MLHom\n|+ id\l&#45; concret\l|+ MLHom()\l+ MLHom()\l+ MLHom()\l+ MLHom()\l+ MLHom()\l+ MLHom()\l+ MLHom()\l+ ~MLHom()\l+ operator\&lt;()\l+ operator==()\l+ hash()\l+ eval()\l+ operator()()\l+ garbage()\l}" alt="" coords="147,305,251,633">
+<area shape="rect" id="node7" href="$class__MLHom.html" title="{_MLHom\n|&#45; refCounter\l&#45; marking\l|+ _MLHom()\l+ shouldCache()\l+ ~_MLHom()\l+ eval()\l+ hash()\l+ operator==()\l+ clone()\l&#45; mark()\l}" alt="" coords="140,5,257,229">

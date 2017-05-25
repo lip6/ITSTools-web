@@ -1,0 +1,88 @@
+
+// transitions bear statements parsed with GalStatement rule
+Transition:
+	(comment=COMMENT)? 
+	'transition' name=FullyQualifiedName 
+	('(' params+=Parameter 	( ',' params+=Parameter)* ')')? 
+	'[' guard=Or ']' 
+	('label' label=Label)? 
+	'{'
+	(actions+=GalStatement)*
+	'}';
+
+GalStatement returns Statement :
+	GalIte | Abort | Fixpoint | GalFor | SelfCall | Assignment 
+;
+
+// synchronizations use CompStatement rule
+Synchronization:
+	'synchronization' name = ID 
+	('(' params+=Parameter 	( ',' params+=Parameter)* ')')? 	
+	'label' label = Label '{'
+		(actions+=CompStatement)*
+	'}'
+;
+
+CompStatement returns Statement :
+	CompIte | Abort | CompFor | SelfCall  | InstanceCall
+;
+
+// The statements, grammar rules are duplicated in places
+// so that recursive parse into control structure (for, if)
+//enforces type of statements encountered 
+Assignment:
+	(comment=COMMENT)? 	
+   left=VariableReference '=' right=BitOr ';';
+
+InstanceCall:
+		(comment=COMMENT)? 		
+    instance=VariableReference '.' label=[Label|STRING] ';'
+;
+
+GalIte returns Ite:(comment=COMMENT)? 	
+	'if' '(' cond=Or ')' '{' (ifTrue+=GalStatement)* '}'
+	('else'  '{' (ifFalse+=GalStatement)*  '}')?	
+;
+
+CompIte returns Ite:(comment=COMMENT)? 	
+	'if' '(' cond=Or ')' '{' (ifTrue+=CompStatement)* '}'
+	('else'  '{' (ifFalse+=CompStatement)*  '}')?	
+;
+
+Fixpoint:
+	{Fixpoint}
+	(comment=COMMENT)? 	
+	'fixpoint' '{' (actions+=GalStatement)* '}'
+;
+
+
+SelfCall:
+	(comment=COMMENT)? 	
+	'self' '.' label=[Label|STRING] ';';
+
+Abort:
+	{Abort} 
+	(comment=COMMENT)? 	
+	'abort' ';'
+;
+
+GalFor returns For: 
+	(comment=COMMENT)? 		
+	'for' '(' param=ForParameter ')' 
+	'{'
+		(actions+=GalStatement)*
+	'}' 
+;
+
+
+CompFor returns For: 
+	(comment=COMMENT)? 		
+	'for' '(' param=ForParameter ')' 
+	'{'
+		(actions+=CompStatement)*
+	'}' 
+;
+
+ForParameter returns Parameter: 
+	name=PARAMNAME ':' type=[TypedefDeclaration] 
+;

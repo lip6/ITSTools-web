@@ -1,0 +1,64 @@
+CompositeTypeDeclaration :
+	'composite' name=ID 
+	( '<' templateParams+=TemplateTypeDeclaration   ( ',' templateParams +=TemplateTypeDeclaration )*   '>' )?
+	('('
+	params += ConstParameter
+	( ',' params+= ConstParameter)* 
+	')')?
+	'{'
+		(typedefs+=TypedefDeclaration |
+		instances+=InstanceDecl)*
+		(synchronizations+=Synchronization)*
+	'}'
+;
+
+ConstParameter : 
+	name=PARAMNAME '=' value=Integer
+;
+
+TemplateTypeDeclaration  :
+	name=ID 'extends' interfaces+=[Interface] ( ',' interfaces+=[Interface] )* 
+;
+
+// A typedef found in many places (spec, gal, composite)
+TypedefDeclaration: (comment=COMMENT)? 'typedef' name=ID '=' min=BitOr '..' max=BitOr ';';
+
+InstanceDecl :
+	InstanceDeclaration | ArrayInstanceDeclaration
+;
+
+ParamDef :
+	param=[ConstParameter|PARAMNAME] '=' value=Integer 
+;
+
+
+InstanceDeclaration :
+	type = [TypeDeclaration] name = FullyQualifiedName 
+	( '(' paramDefs+=ParamDef  (',' paramDefs+=ParamDef )* ')' )? ';'
+;
+
+ArrayInstanceDeclaration :
+	type = [TypeDeclaration] '[' size=INT ']'  name = FullyQualifiedName 
+	( '(' paramDefs+=ParamDef  (',' paramDefs+=ParamDef )* ')' )? ';'
+;
+
+
+Synchronization:
+	'synchronization' name = ID 
+	('(' params+=Parameter 	( ',' params+=Parameter)* ')')? 	
+	'label' label = Label '{'
+		(actions+=CompStatement)*
+	'}'
+;
+
+
+// A constant defined as type parameter or global specification level
+ConstParameter : 
+	name=PARAMNAME '=' value=Integer
+;
+
+
+// A typedef found in many places (spec, gal, composite)
+TypedefDeclaration: (comment=COMMENT)? 'typedef' name=ID '=' min=BitOr '..' max=BitOr ';';
+
+

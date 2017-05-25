@@ -1,0 +1,40 @@
+
+
+Specification :
+	(interfaces+=Interface
+	| types+=GALOrCompositeTypeDeclaration
+	| typedefs+=TypedefDeclaration
+	| params += ConstParameter ';'
+	)*
+	(
+		'main' main=[TypeDeclaration|FullyQualifiedName] ';'
+	)?
+	(properties+=Property) *
+;
+
+Interface :
+	'interface' name=ID '{'
+		( labels+=Label ';' )*	
+	'}'
+;
+
+//these are the real types
+GALOrCompositeTypeDeclaration returns TypeDeclaration :
+	GALTypeDeclaration
+	| CompositeTypeDeclaration	
+;
+
+//this enforces that a TemplateTypeDeclaration is a legal target for InstanceDecl
+TypeDeclaration :
+	GALTypeDeclaration
+	| CompositeTypeDeclaration
+	| TemplateTypeDeclaration
+;
+
+// A typedef found in many places (spec, gal, composite)
+TypedefDeclaration: (comment=COMMENT)? 'typedef' name=ID '=' min=BitOr '..' max=BitOr ';';
+
+// A constant defined as type parameter or global specification level
+ConstParameter : 
+	name=PARAMNAME '=' value=Integer
+;

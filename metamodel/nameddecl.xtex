@@ -1,0 +1,42 @@
+NamedDeclaration : VarDecl | InstanceDecl ;
+
+
+// GAL referables
+VarDecl :
+	VariableDeclaration | ArrayDeclaration
+;
+
+//Ex: int abc = 10 ; 
+VariableDeclaration returns Variable:
+	(comment=COMMENT)?
+	(hotbit?='hotbit' '(' hottype=[TypedefDeclaration] ')')? 'int' name=FullyQualifiedName '=' value=BitOr ';';
+
+
+	//Ex: array[1] tab = (2) ;
+ArrayDeclaration returns ArrayPrefix:
+	(comment=COMMENT)?
+	(hotbit?='hotbit' '(' hottype=[TypedefDeclaration] ')')? 
+	'array' '[' size=INT ']' name=FullyQualifiedName '=' '(' ( (values+=BitOr) (',' values+=BitOr)* )? ')' ';';
+
+
+// composite referables
+InstanceDecl :
+	InstanceDeclaration | ArrayInstanceDeclaration
+;
+
+InstanceDeclaration :
+	type = [TypeDeclaration] name = FullyQualifiedName 
+	( '(' paramDefs+=ParamDef  (',' paramDefs+=ParamDef )* ')' )? ';'
+;
+
+ArrayInstanceDeclaration :
+	type = [TypeDeclaration] '[' size=INT ']'  name = FullyQualifiedName 
+	( '(' paramDefs+=ParamDef  (',' paramDefs+=ParamDef )* ')' )? ';'
+;
+
+
+// a reference
+VariableReference :
+	ref=[NamedDeclaration|FullyQualifiedName] 
+		(-> '[' index=BitOr ']' )?
+;

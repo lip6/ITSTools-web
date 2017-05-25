@@ -1,0 +1,4 @@
+<area shape="rect" id="node2" href="$class__GShom.html" title="The concrete data class for Homomorphisms." alt="" coords="5,835,123,1181">
+<area shape="rect" id="node4" href="$classGSDD.html" title="This class is the base class representing a hierarchical Set Decision Diagram." alt="" coords="147,385,269,1631">
+<area shape="rect" id="node6" href="$classDataSet.html" title="This class is an abstraction of a set of data." alt="" coords="77,23,200,299">
+<area shape="rect" id="node8" href="$class__GSDD.html" title="{_GSDD\n|+ variable\l+ valuation\l+ refCounter\l+ height\l+ marking\l|+ _GSDD()\l+ _GSDD()\l+ ~_GSDD()\l+ _GSDD()\l+ clone()\l+ operator\&lt;()\l+ operator==()\l+ getHeight()\l+ mark()\l+ hash()\l}" alt="" coords="224,6,328,317">
