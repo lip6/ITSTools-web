@@ -7,7 +7,7 @@ Welcome to [ITS-tools](itstools.md) Homepage
 
 WARNING : these pages are work in progress, we are still migrating from [our older homepage](http://ddd.lip6.fr)
 
-ITS-tools is an easy to use and powerful [model-checker](https://en.wikipedia.org/wiki/Model_checking) supporting Safety, 
+ITS-tools is an easy to use and powerful [award-winning](http://mcc.lip6.fr/) [model-checker](https://en.wikipedia.org/wiki/Model_checking) supporting Safety, 
 [CTL](https://en.wikipedia.org/wiki/Computation_tree_logic) and [LTL](https://en.wikipedia.org/wiki/Linear_temporal_logic) 
 properties for a variety of formalisms. It formally proves system correctness using exhaustive state space exploration.
 
@@ -65,6 +65,8 @@ Running the tools, see also Options and Flags
 
 Using the Petri net editor.
 
+Working with Time Petri nets ([Tina](http://projects.laas.fr/tina/), [Romeo](http://romeo.rts-software.org/))
+
 Working with Timed Automata.
 
 Working with DVE models.
@@ -79,12 +81,31 @@ LibITS our C++ library for symbolic model-checking of ITS and related tools.
 
 Choosing an LTL algorithm
 
+Scientific papers on the tool and its algorithms.
+
+Citing
+------
+
+Please cite our [_Symbolic Model-Checking Using ITS-Tools_](https://link.springer.com/chapter/10.1007/978-3-662-46681-0_20) TACAS'15 paper if you are using the tool currently in your research, or a [more specific paper](bib.md) if you are referring to a specific technique we use. 
+
 Reporting Issues
 ----------------
 
- 
+Please use the [Github integrated issues page](https://github.com/lip6/ITSTools/issues) to report issues you might encounter or [mail me](yann.thierry-mieg@lip6.fr) if you don't have a GitHub account.
 
+Acknowledgments
+---------------
 
+Yann Thierry-Mieg is the main author of these tools, but many contributors have brought important contributions.
+Maximilien Colange and Alexandre Hamez contributed to the symbolic kernel, as well as Jean-Michel Couvreur and Denis Poitrenaud who wrote the original libDDD. 
+Much code was borrowed and adapted (hacked !) from open-source model-checking projects with friendly licenses, such as
+ [LTSmin](http://fmt.cs.utwente.nl/tools/ltsmin/) and [VIS](http://vlsi.colorado.edu/~vis/), to which we are grateful.
+
+We owe a lot also to the Eclipse project and its dedication to open source, we use a large number of FOSS plugins in our code base, notably EMF and XText.  
+
+Much of the Eclipse front-end was prototyped during internships of students at Paris 6 University.
+
+See acknowledgement sections at bottom of the various pages of this site for more detailed acknowledgements, as well as source history publicly visible on GitHub. 
 
 
 

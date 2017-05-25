@@ -1,35 +1,26 @@
-<html>
- <?php include 'header.md'; ?>
+---
+title: Bibliography on ITS-tools
+---
 
-         <h2>GAL and ITS related papers</h2>
+GAL and ITS related papers
+==========================
 
-		 <p>While some of the SDD related papers below present early versions of the formalism, more recent and up to date
-		 definitions relating to ITS and GAL should be taken from this document [.pdf](./files/gal.pdf)</p>
+While some of the SDD related papers below present early versions of the formalism, more recent and up to date
+ definitions relating to ITS and GAL should be taken from this document [.pdf](./files/gal.pdf)
 
-        <ul>
-<!--     <li> (2013) The GAL/Composite ITS paper that defines GAL and composite ITS with the most recent versions of the definitions: <br/> -->
-<!-- Yann Thierry-Mieg, Béatrice Bérard, Maximilien Colange and Fabrice Kordon. -->
-<!-- Data, Time and Component Oriented -->
-<!-- Formal Verification. -->
-<!--   Submitted.<br /> -->
-<!-- [[.pdf](./files/SCP-from-dagstuhl.pdf) ] -->
-<!-- <br /> -->
-<!-- 	</li> -->
-	<li>
-	(2013) A more abstract definition of the mechanisms that allow to evaluate GAL semantics symbolically (no ITS compositions)<br/>
-Maximilien Colange, Souheib Baarir, Fabrice Kordon, and Yann Thierry-Mieg.
- Towards Distributed Software Model-Checking
-using Decision Diagrams.
-  In <em>Proceedings of the International Conference on
-  Computer Aided Verification (CAV'13)</em>, 
-  Lecture Notes in Computer Science</em>, St Petersburg, Russia, July
-  2013. Springer Verlag.<br />
+* (TACAS'2015) General overview of ITS-tools
+
+
+* (CAV'2013) An abstract definition of the mechanisms that allow to evaluate GAL semantics symbolically (no ITS compositions)<br/>
+ _Towards Distributed Software Model-Checking using Decision Diagrams._ 
+ Maximilien Colange, Souheib Baarir, Fabrice Kordon, and Yann Thierry-Mieg.
+  In _Proceedings of the International Conference on Computer Aided Verification (CAV'13)_, 
+  LNCS, 2013. Springer.
 [[.pdf](./files/mlhom.pdf) ]
-<br />
-	</li>
-</ul>
-		 
-        <h2>DDD and SDD Definitions</h2>
+
+### DDD and SDD Definitions
+
+
         <ul>
           <li> (2002) The paper that defines DDD and inductive homomorphisms: <br/>
 Jean-Michel Couvreur, Emmanuelle Encrenaz, Emmanuel Paviot-Adet, Denis
