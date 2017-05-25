@@ -2,34 +2,89 @@
 title: Homepage of ITS-tools
 ---
 
-Welcome to [its-tools](itstools.md) and [libddd](libddd.md)
-=============================================================
+Welcome to [ITS-tools](itstools.md) Homepage
+============================================
 
 WARNING : these pages are work in progress, we are still migrating from [our older homepage](http://ddd.lip6.fr)
 
-ITS-tools is an easy to use and powerful model-checker supporting Safety, CTL and LTL for a variety of formalisms.
+ITS-tools is an easy to use and powerful [model-checker](https://en.wikipedia.org/wiki/Model_checking) supporting Safety, 
+[CTL](https://en.wikipedia.org/wiki/Computation_tree_logic) and [LTL](https://en.wikipedia.org/wiki/Linear_temporal_logic) 
+properties for a variety of formalisms. It formally proves system correctness using exhaustive state space exploration.
 
-It's architecture relies on an abstract contract for formalisms called Instantiable Transition Systems ITS that enables their semantic composition.
+Insert Pic : screenshot : model + eclipse + trace
 
-Our main concrete formalism is the Guarded Action Language, featuring a simple yet user friendly C-like syntax.
-It's semantics are very expressive use the interleaving semantics common to concurrent systems.
+It's architecture relies on an abstract contract for formalisms called Instantiable Transition Systems ITS that enables their semantic composition. An ITS is basically a [labeled Kripke Structure](https://en.wikipedia.org/wiki/Kripke_structure) but they can be _instantiated_ and composed (think [Composite DP](https://en.wikipedia.org/wiki/Composite_pattern)).
 
-Thanks to this powerful pivot, we can support many commonly used [formalisms](formalisms.md).
+Insert pic: GAL, PTNET, ETF, Composite are ITS.
 
-An eclipse front-end offers rich textual editor (or graphical for Petri nets) for these formalisms.
+Our main concrete formalism is the [Guarded Action Language](gal.md) (GAL), featuring a simple yet user friendly C-like syntax.
+It is very expressive and has simple interleaving semantics suitable for modeling concurrent systems of practically any kind.
 
-If you'd prefer to use a command line tool, that is also possible using pre-packaged ITS-tools for Windows, Linux or MacOS.   
+Insert pic: M2M leading to GAL
+
+Thanks to this central pivot and [model to model transformations](https://en.wikipedia.org/wiki/Model_transformation) that leverage [EMF](https://www.eclipse.org/modeling/emf/), we can support many commonly used [formalisms](formalisms.md) in other tools such as [Spin](http://spinroot.com) or [Uppaal](http://www.uppaal.org/). 
+
+Our eclipse front-end offers rich textual editor (or graphical for Petri nets) for these formalisms.
+
+If you'd prefer to use a command line tool, that is also possible using our
+[pre-packaged ITS-tools for Windows, Linux or MacOS](https://yanntm.github.io/ITS-commandline/index.html).   
+
+ITS-tools includes its own symbolic model-checker powered by [Hierarchical Set Decision Diagrams](libddd.md), but can also use an SMT solver such as [Yices](http://yices.csl.sri.com/) or [Z3](https://github.com/Z3Prover/z3) to perform 
+[BMC](https://www.google.com/search?q=An+Analysis+of+SAT-based+Model+Checking+Techniques+in+an+industrial)/
+[K-Induction](https://www.google.com/search?q=Checking+safety+properties+using+induction+and+a+SAT-solver), and export models with fine grain [partial order](https://en.wikipedia.org/wiki/Partial_order_reduction) analysis for use in the excellent multi-core  model-checker [LTSmin](http://fmt.cs.utwente.nl/tools/ltsmin/) that offers its own solution engines.
+
+These varied solution engines, GAL simple syntax, and EMF support make GAL an attractive target in a process targeting verification of a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language). 
+
+Because we are dedicated to [FOSS](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html) we use only free open-source  licenses, 
+depending on files we use [EPL](https://www.eclipse.org/legal/epl-v10.html) and [APL](https://www.apache.org/licenses/LICENSE-2.0) for Java front-end,[GPL](https://www.gnu.org/licenses/gpl-3.0.en.html) for C++ tools using the kernel, [LGPL](https://www.gnu.org/licenses/lgpl-3.0.en.html) for the symbolic kernel libDDD.
+
 
 Getting started 
 ---------------
 
-We cover a couple of different scenarios here.
+We cover a few different scenarios here, if you're unsure just try the eclipse front-end.
 
-[I want to try the graphical tool right now](eclipsestart.md)
+[I want to use the eclipse front-end](eclipsestart.md)
 
 [I want to use the command line only](itscl.md)
 
 [I'm interested in contributing](devstart.md)
+
+Documentation
+-------------
+
+GAL presentation and syntax, see also GAL meta-model for more technical details.
+
+Using the composite formalism in GAL files.
+
+Using parameters in GAL.
+
+Property Syntax in GAL 
+
+Running the tools, see also Options and Flags
+
+Using the Petri net editor.
+
+Working with Timed Automata.
+
+Working with DVE models.
+
+Working with Promela(Spin) models.
+
+Working with LTSmin.
+
+LibDDD our C++ library for Hierarchical Set Decision Diagrams.
+
+LibITS our C++ library for symbolic model-checking of ITS and related tools.
+
+Choosing an LTL algorithm
+
+Reporting Issues
+----------------
+
+ 
+
+
 
 
 
