@@ -63,7 +63,7 @@ Property Syntax in GAL
 
 Running the tools, see also Options and Flags
 
-Using the Petri net editor.
+[Using the (Time) Petri net editor.](tpn.md)
 
 Working with Time Petri nets ([Tina](http://projects.laas.fr/tina/), [Romeo](http://romeo.rts-software.org/))
 
