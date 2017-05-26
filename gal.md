@@ -26,7 +26,13 @@ This page presents the concrete syntax of GAL, please read [this document](./fil
 
 Here is an example of a system written in GAL:
 
+{% highlight ruby %}
+{% include_relative galfiles/sample-1.gal %}
+{% endhighlight %}
+
 This code shows the main elements of the GAL language. A GAL system contains variable declarations and (possibly labeled)transitions that have a guard and an action that is a sequence of assignments.
+
+
 
 GAL have a simple concurrent semantic, given as a labeled Kripke structure. A state is defined as a valuation of the variables. Any transition whose guard is true in the current state can be fired yielding a (set of) successor(s) obtained by executing each assignment of the transition in sequence. This interleaving semantic is adapted to modeling of concurrent systems. Semantics for interleaving of GAL transitions are similar to semantics of Petri nets. The effect of each transition is atomic, i.e. reachable states are those obtained after each computing all effects of the transition (modulo the transient state definition) that allows to skip some states)
 
