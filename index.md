@@ -7,13 +7,13 @@ Welcome to [ITS-tools](itstools.md) Homepage
 
 WARNING : these pages are work in progress, we are still migrating from [our older homepage](http://ddd.lip6.fr)
 
-ITS-tools is an easy to use and powerful [award-winning](http://mcc.lip6.fr/) [model-checker](https://en.wikipedia.org/wiki/Model_checking) supporting Safety, 
+ITS-tools is an easy to use and powerful [award-winning](http://mcc.lip6.fr/2016/results.php) [model-checker](https://en.wikipedia.org/wiki/Model_checking) supporting Safety, 
 [CTL](https://en.wikipedia.org/wiki/Computation_tree_logic) and [LTL](https://en.wikipedia.org/wiki/Linear_temporal_logic) 
 properties for a variety of formalisms. It formally proves system correctness using exhaustive state space exploration.
 
 Insert Pic : screenshot : model + eclipse + trace
 
-It's architecture relies on an abstract contract for formalisms called Instantiable Transition Systems ITS that enables their semantic composition. An ITS is basically a [labeled Kripke Structure](https://en.wikipedia.org/wiki/Kripke_structure) but they can be _instantiated_ and composed (think [Composite DP](https://en.wikipedia.org/wiki/Composite_pattern)).
+Its architecture relies on an abstract contract for formalisms called Instantiable Transition Systems ITS that enables their semantic composition. An ITS is basically a [labeled Kripke Structure](https://en.wikipedia.org/wiki/Kripke_structure) but they can be _instantiated_ and composed (think [Composite DP](https://en.wikipedia.org/wiki/Composite_pattern)).
 
 Insert pic: GAL, PTNET, ETF, Composite are ITS.
 
