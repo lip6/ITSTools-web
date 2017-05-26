@@ -1,3 +1,9 @@
+---
+title: Homepage of ITS-tools
+---
+Working with Time Petri Nets
+============================
+
 # Using ITS modeler to design and analyze systems using discrete Time Petri nets.
 
 The ITS Modeler front-end for its-tools can be used to analyze Time Petri nets, and some effort has been invested in providing a user-friendly GUI and compatibility with the major TPN tools [Tina](http://projects.laas.fr/tina/) and [Romeo](http://romeo.rts-software.org/). ITS tools and the graphical front-end are available for all major platforms (Windows, MacOS X, linux).
