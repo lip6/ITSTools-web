@@ -6,7 +6,6 @@ GAL is a language providing a C-like syntax to describe concurrent systems. We p
 
 **Contents**
 
-<div id="sommaire">
 
 ## <a name="sec:Install"></a>1\. Install
 
@@ -356,5 +355,3 @@ To achieve the goals, we used Eclipse and Xtext ([http://www.eclipse.org/Xtext/]
 The GAL plugin was developed using collaborative development tools, such as SVN for version control (public depot available with login/pass "anonymous/anonymous" at [svn co https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL](https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL)), as well as a server for continuous integration ([TeamCity](http://teamcity-systeme.lip6.fr/)).
 
 Essentially all developments since 2012 (metamodel updates, enhancements, rewritings...) are the work of Yann Thierry-Mieg.
-
-</div>
