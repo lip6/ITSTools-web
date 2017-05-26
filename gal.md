@@ -26,13 +26,9 @@ This page presents the concrete syntax of GAL, please read [this document](./fil
 
 Here is an example of a system written in GAL:
 
-{% highlight C %}
-{% include_relative galfiles/sample-1.gal %}
-{% endhighlight %}
+{% highlight C %}{% include_relative galfiles/sample-1.gal %}{% endhighlight %}
 
 This code shows the main elements of the GAL language. A GAL system contains variable declarations and (possibly labeled)transitions that have a guard and an action that is a sequence of assignments.
-
-
 
 GAL have a simple concurrent semantic, given as a labeled Kripke structure. A state is defined as a valuation of the variables. Any transition whose guard is true in the current state can be fired yielding a (set of) successor(s) obtained by executing each assignment of the transition in sequence. This interleaving semantic is adapted to modeling of concurrent systems. Semantics for interleaving of GAL transitions are similar to semantics of Petri nets. The effect of each transition is atomic, i.e. reachable states are those obtained after each computing all effects of the transition (modulo the transient state definition) that allows to skip some states)
 
@@ -64,11 +60,15 @@ The body (variable and transitions) of the system name are then placed between a
 
 Here is a declaration of an example GAL system named _emptySystem_.
 
+{% highlight C %}{% include_relative galfiles/sample-2.gal %}{% endhighlight %}
+
 #### <a name="sysdecl"></a>b) System parameters
 
 A GAL system declaration can optionally declare one or more _system parameters_. A system parameter essentially declares a symbolic name for an integer constant, that can then be used within the various instructions of the GAL system (including initializations, typedef, guards, statements...). Parameter names start with a $ sign to avoid any confusion with the variables of the system. Parameters are given a value directly after their declaration. Note that within the context of composite ITS, parameters can be given a value (different from the value given in the parameter declaration) when instantiating the GAL, thus simulating a kind of parametric constructor for the GAL.
 
 Syntactically, parameters are given as a parenthesized comma separated list, just after the name of the system. Only integers may be used in parameter initializations.
+
+{% highlight C %}{% include_relative galfiles/sample-param.gal %}{% endhighlight %}
 
 ### <a name="declaration-variables"></a>3.2 Variable declarations
 
@@ -80,6 +80,8 @@ Plain integer variables are introduced with the keyword <span class="galElement"
 
 Below is an example of a system with two GAL variable declarations :
 
+{% highlight C %}{% include_relative galfiles/sample-3.gal %}{% endhighlight %}
+
 ### <a name="declaration-tableaux"></a>3.3 Array declarations
 
 An array declaration allows to declare a fixed size array of integers. Like simple integer variables, each entry in the array needs to be initialized.
@@ -88,6 +90,8 @@ A GAL array variable is declared using the keyword <span class="galElement">arra
 
 Here is an example of a system with a declaration of an array:
 
+{% highlight C %}{% include_relative galfiles/sample-4.gal %}{% endhighlight %}
+
 ### <a name="paramType"></a>3.4 Parameter type definitions
 
 A parameter type definition allows to define a symbolic name for a given range of integers from min to max. These type definitions are used when declaring transition parameters. They allow to define a set of similar transitions in a compact and readable manner.
@@ -95,6 +99,8 @@ A parameter type definition allows to define a symbolic name for a given range o
 Syntactically, a type definition is introduced with the keyword <span class="galElement">typedef</span> followed by a unique name for this type, followed by the actual range specification in the form "= min..max;". min and max are integer expressions built from type parameters and constants only.
 
 Here is an example of a system with some parameter type definitions:
+
+{% highlight C %}{% include_relative galfiles/paramtype.gal %}{% endhighlight %}
 
 ### <a name="transition"></a>3.5 Transitions
 
@@ -106,15 +112,21 @@ Syntactically, a transition is declared with the keyword <span class="galElement
 
 This example system contains two transitions of which one is labeled :
 
+{% highlight C %}{% include_relative galfiles/sample-6.gal %}{% endhighlight %} {% highlight C %}{% include_relative galfiles/sample-6.gal %}{% endhighlight %}
+
 #### <a name="transitionParam"></a>b) Transition parameters
 
-Transitions can optionally define one or more parameters that allow a more concise and readable representation of a complex transition relation. Parameters have a type that is defined as a range of integers, introduced at the system level using a typedef. Semantically, each parameter can be replaced in the transition effects by each of the possible values in its type, producing several alternative transitions from a single transition that bears parameters.
+Transitions can optionally define one or more parameters that allow a more concise and readable representation of a complex transition relation. Parameters have a type that is defined as a range of integers, introduced at the system level using a **typedef**. Semantically, each parameter can be replaced in the transition effects by each of the possible values in its type, producing several alternative transitions from a single transition that bears parameters.
 
 Syntactically, transition parameters are declared in a parenthesized comma separated list just after the transition name, with a syntax reminiscent of arguments for a function or method. Each parameter is defined by giving its type followed by the parameter name which must start with a $ sign and cannot shadow a type (sytem level) parameter name.
 
 This example, already used above when discussing type parameters:
 
+{% highlight C %}{% include_relative galfiles/param.gal %}{% endhighlight %}
+
 Is equivalent to this version that does not use parameter definitions. :
+
+{% highlight C %}{% include_relative galfiles/param.inst.gal %}{% endhighlight %}
 
 ### <a name="expressions"></a>3.6 Expressions
 
@@ -193,6 +205,8 @@ Syntactically, a call is introduced by the keyword <span class="galElement">self
 
 This example shows a use of a call to non deterministically update a variable.
 
+{% highlight C %}{% include_relative galfiles/call.gal %}{% endhighlight %}
+
 #### <a name="ite"></a>c) If-Then-Else action
 
 To ease modeling, GAL provide the if-then-else alternative control structure. As mentioned above this behavior can also be implemented using calls.
@@ -202,6 +216,8 @@ The semantics are those you could expect, if the condition is true the "if" bloc
 The syntax is taken from C or Java, <span class="galElement">if</span> followed by a Boolean condition between parenthesis, followed by a block between curly braces. Optionally, the statement can be completed by an <span class="galElement">else</span> followed by a second block of actions.
 
 This example shows a use of an if then else to invert the value of a Boolean variable.
+
+{% highlight C %}{% include_relative galfiles/ite.gal %}{% endhighlight %}
 
 #### <a name="forloop"></a>d) For loop action
 
@@ -213,7 +229,11 @@ The syntax reminiscent of Java foreach loop, <span class="galElement">for</span>
 
 This example shows a use of a for loop to set values in an array.
 
+{% highlight C %}{% include_relative galfiles/for.gal %}{% endhighlight %}
+
 It is strictly equivalent to this version.
+
+{% highlight C %}{% include_relative galfiles/for.inst.gal %}{% endhighlight %}
 
 #### <a name="abort"></a>e) Abort action
 
@@ -222,6 +242,8 @@ The semantics of GAL (based on ITS definitions) allow a statement to return a se
 The abort statement is mainly used to model transition relations where Boolean conditions with side effects need to be represented. It allows to have a transition with a guard, a few statements then typically an if-then-else or a variant using a call, of which some branches may encounter abort and cancel the transition effect for this branch.
 
 The following example shows a use of abort to model the transition relation of a Time Petri net with two places a and b, and a transition t that moves tokens from a to b, with earliest firing time $eft and latest firing time $lft. Time cannot elapse if an enabled transition has reached its latest firing time, but this test is complex, particularly when there are many transitions. Use of abort allows to concisely represent the semantics.
+
+{% highlight C %}{% include_relative galfiles/abort.gal %}{% endhighlight %}
 
 #### <a name="fixpoint"></a>f) Fixpoint action
 
@@ -232,6 +254,8 @@ The fixpoint statement is a powerfult tool to create abstractions of a state-spa
 The following example shows use of a fixpoint to model the transition relation of a Time Petri net with two places a and b, and a transition t that moves tokens from a to b, with earliest firing time $eft and latest firing time $lft. In this version of the example, we wish to use as successor relation : from a source state s, find all states that can be reached from s by letting time elapse, then fire any enabled discrete transition of the TPN from these states. This abstraction originally proposed by Popova is called "essential states" and preserves marking reachability and branching time temporal properties. It is based on the fact that a transition cannot be disabled in a TPN by letting time elapse.
 
 The example implements a least fixpoint using elapse. The transition "id" allows to keep currently reached states in the fixpoint. if it were removed, the transition relation would become : from a source state s, let time elapse as much as possible, then fire any enabled discrete transition of the TPN from this state. This definition of the transition relation would not preserve many properties of the original system. If we had other transitions in the system, they would all bear label "succ". This example system has only two states : the initial one (a=1,b=0,clock=0) and the state just after firing t (a=0,b=1,t=0).
+
+{% highlight C %}{% include_relative galfiles/fixpoint.gal %}{% endhighlight %}
 
 ### <a name="transient"></a>3.8 Transient predicate
 
@@ -244,6 +268,8 @@ reflects the semantics of the Transient predicate.
 The transient predicate is declared with the keyword <span class="galElement">TRANSIENT</span>, followed by the assignment sign =, followed by a Boolean expression.
 
 This system only has two states, the initial one and the state where i=0 and tab = (0,1,2,3). Intermediate steps of this initialization loop are abstracted away in the semantics of the underlying transition system.
+
+{% highlight C %}{% include_relative galfiles/sample-8.gal %}{% endhighlight %}
 
 ## <a name="fonctionnalites-editeur"></a>4\. GAL Editor features
 
@@ -315,11 +341,15 @@ This example transition of a colored Petri net taken from [this VendingMachine e
 
 This is an extract of the [full model](galfiles/drink-vending-2-col.gal). Before separation, we have many independent parameters. In fact here all parameters are independent, since no statement simultaneously uses two parameters. Furthermore parameters $o1 $o2 and $o3 play a very symmetric role.
 
+{% highlight C %}{% include_relative galfiles/vendingsimple.gal %}{% endhighlight %}
+
 After separation (and fusion of isomorphic effects on $o1 $o2 and $o3) we obtain the following model :
+
+{% highlight C %}{% include_relative galfiles/vendingsimple.sep.gal %}{% endhighlight %}
 
 This model when instantiated is still compact as shown here. Compare to what a [plain instantiation ](galfiles/vendingsimple.inst.gal) obtains; obviously when applicable this approach helps to scale as it can avoid exponential blowups in specification size.
 
-](http://mcc.lip6.fr)
+{% highlight C %}{% include_relative galfiles/vendingsimple.flat.gal %}{% endhighlight %}](http://mcc.lip6.fr)
 
 ### [](http://mcc.lip6.fr)<a name="hotbitrewrite"></a>5.4 Hotbit transformation
 
@@ -339,9 +369,15 @@ The main difficulty to keep good locality properties is the reset of the current
 
 Such a variable, or array, is prefixed by the \emph{hotbit(range)} keyword. This example shows a simple hotbit variable.
 
+{% highlight C %}{% include_relative galfiles/hotbit.gal %}{% endhighlight %}
+
 This is the model resulting from the transformation.
 
+{% highlight C %}{% include_relative galfiles/hotbit.int.gal %}{% endhighlight %}
+
 Note that due to parameter separation and instantiation, the final specification is still quite small. This is the fully instantiated model, after parameter separation and instantiation.
+
+{% highlight C %}{% include_relative galfiles/hotbit.flat.gal %}{% endhighlight %}
 
 In more details, this is the algorithm applied. We suppose here a hotbit array, the simpler integer variable case can be deduced by considering $i=0$. To replace an variable $tab$ by its $hotbit(r)$ encoding, for each transition $t$, we first find all accesses to the variable $tab[i]$.
 
@@ -361,3 +397,4 @@ To achieve the goals, we used Eclipse and Xtext ([http://www.eclipse.org/Xtext/]
 The GAL plugin was developed using collaborative development tools, such as SVN for version control (public depot available with login/pass "anonymous/anonymous" at [svn co https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL](https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL)), as well as a server for continuous integration ([TeamCity](http://teamcity-systeme.lip6.fr/)).
 
 Essentially all developments since 2012 (metamodel updates, enhancements, rewritings...) are the work of Yann Thierry-Mieg.
+
