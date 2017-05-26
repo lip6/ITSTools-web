@@ -369,9 +369,9 @@ More generally, the detection of the parameters to be separated in a given trans
 
 This procedure has low complexity, depending on the size of the parametric GAL. It is applied before instantiation of the parameters. Relying on the distributivity between sequential and parallel composition, it helps producing transition relation expressed as sequences of parallel compositions, yielding much more compact representations than an expanded parallel composition of sequences (such as used by LTSmin). This factored representation would not be efficient without the ability of symbolic operations to deal with parallel composition natively. One may see this transform as a manner of delaying the computation of the combinatorial number of instantiations until symbolic evaluation time, where the symbolic data structures help with the combinatorics.
 
-This example transition of a colored Petri net taken from [this VendingMachine example of the [Model checking contest at Petri nets](http://mcc.lip6.fr/pdf/DrinkVendingMachine-form.pdf) shows how this reduction works in practice.](http://mcc.lip6.fr)
+This example transition of a colored Petri net taken from [this VendingMachine example](http://mcc.lip6.fr/pdf/DrinkVendingMachine-form.pdf) of the 
+[Model checking contest at Petri nets](http://mcc.lip6.fr) shows how this reduction works in practice.
 
-[
 
 This is an extract of the [full model](galfiles/drink-vending-2-col.gal). Before separation, we have many independent parameters. In fact here all parameters are independent, since no statement simultaneously uses two parameters. Furthermore parameters $o1 $o2 and $o3 play a very symmetric role.
 
