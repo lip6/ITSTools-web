@@ -26,7 +26,7 @@ This page presents the concrete syntax of GAL, please read [this document](./fil
 
 Here is an example of a system written in GAL:
 
-{% highlight ruby %}
+{% highlight C %}
 {% include_relative galfiles/sample-1.gal %}
 {% endhighlight %}
 
