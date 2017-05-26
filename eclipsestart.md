@@ -41,12 +41,12 @@ Start Eclipse. To deploy the user interface plugin into eclipse, go into the men
 
 In the "Work with" field, copy paste the following update site address :<url>https://lip6.github.io/ITSTools/</url>
 
-Then select like on this (a bit outdated) screenshot
+Then select like on this screenshot
 <img src="images/update.jpg" alt="download" />
 
-The first category allows to install all the features with a single selection. If you are only interested in some packages, the second category allows to pick and choose what will be installed. 
+The first category allows to install all the features with a single selection. If you are only interested in some packages, the third category allows to pick and choose what will be installed. 
 
-Leave the "Contact all update sites" checkbox marked so necessary dependencies (Xtext if not yet installed) will be downloaded automatically from the eclipse releases official update site.
+Leave the "Contact all update sites" checkbox marked so necessary dependencies (Xtext if not yet installed) will be downloaded automatically from the eclipse releases official update site. 
 Please be a bit patient, eclipse updates are pretty slow. Let eclipse restart when the installation finishes.
 
 If you later want to update, the checkbox "contact all" can be left unchecked, this speeds install considerably.
