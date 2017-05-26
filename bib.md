@@ -77,8 +77,7 @@ BEAUDENON Vincent. Diarammes de décision de données pour la vérification de s
 * (2004) Using DDD to generate an aggregated state space exploiting symmetries &quot;à la&quot; <a href=http://www.di.unito.it/~greatspn/index.html>Well-Formed Nets</a> 
 Y. Thierry-Mieg, J.-M. Ilié, D. Poitrenaud. A Symbolic Symbolic State Space Representation. In <em> 24th International Conference on Formal Techniques for Networked and Distributed Systems (FORTE '04) Lecture Notes in Computer Science (LNCS)</em>,  Madrid, Spain, pp. 276-291, (Springer-Verlag)
 [[.pdf](http://www.lip6.fr/ddd-download/forte04.pdf) ]
-<br />
-[[Presentation slides (ppt)](http://www.lip6.fr/ddd-download/FORTE2004.zip) ]
+[Presentation slides (ppt)](http://www.lip6.fr/ddd-download/FORTE2004.zip)
 * (2004) Using DDD to model-check LfP, a DSL designed for distributed systems: 
 F. Bréant, J.-M. Couvreur, F. Gilliers, F. Kordon, I. Mounier, E. Paviot-Adet, D. Poitrenaud, D. Regep, G. Sutre. 
 Modeling and Verifying Behavioral Aspects", 
