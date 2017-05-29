@@ -1,20 +1,18 @@
-# Welcome to the homepage of GAL
+# GAL : Guarded Action Language
 
-You will find here the official documentation of the Guarded Action Language, including its syntax and a description of the features of the simulator built into the ITS modeler front-end.
+You will find here documentation for the Guarded Action Language, including its syntax and a description of the features of the model-checker built into the ITS modeler front-end.
 
 GAL is a language providing a C-like syntax to describe concurrent systems. We provide a feature-rich editor and full CTL and LTL model-checking of GAL using the its-tools.
-
-**Contents**
 
 
 ## <a name="sec:Install"></a>1\. Install
 
-Please follow [these guidelines](itstools.md#sec:modinst) to install ITS modeler.
+Please follow [these guidelines](eclipsestart.md) to install ITS modeler.
 
 Once ITS Modeler is installed, create a new GAL model like this:
 File → New → File → Coloane → Gal file...
 
-In any project, you can simply create a file with the extension .gal, and so you can model using the GAL language.
+Or simply "New → File" and give it a .gal extension, in any existing project.
 
 These [GAL examples](files/gal.zip) translated from the BEEM distribution can help get started as well.
 
