@@ -55,7 +55,7 @@ If you later want to update, the checkbox "contact all" can be left unchecked, t
 
 **Continous Integration servers**
 
-* We are grateful to <img src="images/GitHub_Logo.png" width="200" height="200" /> [GitHub](https://github.org/) for hosting us and for all the great support it offers to develop collaborative large open source software.
+* We are grateful to <img src="images/GitHub_Logo.png" height="30" /> [GitHub](https://github.org/) for hosting us and for all the great support it offers to develop collaborative large open source software.
 * We are grateful to ![Travis logo](https://cdn.travis-ci.com/images/logos/TravisCI-Full-Color-45e242791b7752b745a7ae53f265acd4.png)[travis-ci](https://travis-ci.org/) for their open-source project support policy, that allows us to use their public
 continuous integration technology in the cloud to build Java, Linux and OSX artifacts.
 * We are grateful to ![AppVeyor Logo](images/appveyor.png)[AppVeyor](https://www.appveyor.com/) for their open-source project support policy, that allows us to use their public
