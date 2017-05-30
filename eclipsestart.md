@@ -73,7 +73,7 @@ With their open-source friendly license policy, they helped us gain orders of ma
 continuous integration technology in the cloud to build Java, Linux and OSX artifacts.
 
 <img src="images/appveyor.png" height="50" />
-* We are grateful to ![AppVeyor Logo](images/appveyor.png)[AppVeyor](https://www.appveyor.com/) for their open-source project support policy, that allows us to use their public
+* We are grateful to [AppVeyor](https://www.appveyor.com/) for their open-source project support policy, that allows us to use their public
 continuous integration technology to build and distribute Windows targets.
 
 <img src="images/logo_teamcity.jpg" height="50" />
