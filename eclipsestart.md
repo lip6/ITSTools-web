@@ -53,25 +53,32 @@ If you later want to update, the checkbox "contact all" can be left unchecked, t
 
 ### Acknowledgement : Companies helping us deliver quality Open-source
 
-**Continous Integration servers**
+** Hosting **
 
-* We are grateful to <img src="images/GitHub_Logo.png" height="30" /> [GitHub](https://github.org/) for hosting us and for all the great support it offers to develop collaborative large open source software.
-* We are grateful to ![Travis logo](https://cdn.travis-ci.com/images/logos/TravisCI-Full-Color-45e242791b7752b745a7ae53f265acd4.png)[travis-ci](https://travis-ci.org/) for their open-source project support policy, that allows us to use their public
-continuous integration technology in the cloud to build Java, Linux and OSX artifacts.
-* We are grateful to ![AppVeyor Logo](images/appveyor.png)[AppVeyor](https://www.appveyor.com/) for their open-source project support policy, that allows us to use their public
-continuous integration technology to build and distribute Windows targets.
-
-* We are still grateful to [JetBrains](http://www.jetbrains.com) and their open-source project support policy, that allowed us to use their excellent
-continuous integration server technology ![teamcity logo](images/logo_teamcity.jpg)[TeamCity](http://www.jetbrains.com/teamcity/) from 2008 to 2016. 
+<img src="images/GitHub_Logo.png" height="50" />
+* We are grateful to [GitHub](https://github.org/) for hosting us and for all the great support it offers to develop collaborative large open source software.
 
 **Profiler**
 
-* ![JProfiler logo](https://www.ej-technologies.com/images/product_banners/jprofiler_large.png) [JProfiler](https://www.ej-technologies.com/products/jprofiler/overview.html) helps us track down and remove performance bottlenecks in our Java code. 
+<img src="https://www.ej-technologies.com/images/product_banners/jprofiler_large.png" height="50" />
+
+* [JProfiler](https://www.ej-technologies.com/products/jprofiler/overview.html) helps us track down and remove performance bottlenecks in our Java code. 
 With ergonomic access to "allocation hot spot" and "call hot spot", easy attach to running JVM, custom filtering, this tool has all you need to professionally optimize code. 
 With their open-source friendly license policy, they helped us gain orders of magnitude in performance on many test cases.
 
- 
+**Continous Integration servers**
 
+<img src="https://cdn.travis-ci.com/images/logos/TravisCI-Full-Color-45e242791b7752b745a7ae53f265acd4.png" height="50" />
+* We are grateful to [travis-ci](https://travis-ci.org/) for their open-source project support policy, that allows us to use their public
+continuous integration technology in the cloud to build Java, Linux and OSX artifacts.
+
+<img src="images/appveyor.png" height="50" />
+* We are grateful to ![AppVeyor Logo](images/appveyor.png)[AppVeyor](https://www.appveyor.com/) for their open-source project support policy, that allows us to use their public
+continuous integration technology to build and distribute Windows targets.
+
+<img src="images/logo_teamcity.jpg" height="50" />
+* We are still grateful to [JetBrains](http://www.jetbrains.com) and their open-source project support policy, that allowed us to use their excellent
+continuous integration server technology [TeamCity](http://www.jetbrains.com/teamcity/) from 2008 to 2016. 
 
 #### (optional) Configure Eclipse to use GraphViz
 
