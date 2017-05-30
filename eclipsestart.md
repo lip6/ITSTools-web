@@ -55,18 +55,18 @@ If you later want to update, the checkbox "contact all" can be left unchecked, t
 
 **Continous Integration servers**
 
-* We are grateful to ![GH logo](https://github.com/) [GitHub](https://github.org/) for hosting us and for all the great support it offers to develop collaborative large open source software.
+* We are grateful to ![GH logo](images/GitHub_Logo.png) [GitHub](https://github.org/) for hosting us and for all the great support it offers to develop collaborative large open source software.
 * We are grateful to ![Travis logo](https://cdn.travis-ci.com/images/logos/TravisCI-Full-Color-45e242791b7752b745a7ae53f265acd4.png)[travis-ci](https://travis-ci.org/) for their open-source project support policy, that allows us to use their public
 continuous integration technology in the cloud to build Java, Linux and OSX artifacts.
 * We are grateful to ![AppVeyor Logo](images/appveyor.png)[AppVeyor](https://www.appveyor.com/) for their open-source project support policy, that allows us to use their public
 continuous integration technology to build and distribute Windows targets.
 
 * We are still grateful to [JetBrains](http://www.jetbrains.com) and their open-source project support policy, that allowed us to use their excellent
-continuous integration server technology ![temacity logo](images/logo_teamcity.jpg)[TeamCity](http://www.jetbrains.com/teamcity/) from 2008 to 2016. 
+continuous integration server technology ![teamcity logo](images/logo_teamcity.jpg)[TeamCity](http://www.jetbrains.com/teamcity/) from 2008 to 2016. 
 
 **Profiler**
 
-* ![JProfiler logo](https://www.ej-technologies.com/images/product_banners/jprofiler_small.png) [JProfiler](https://www.ej-technologies.com/products/jprofiler/overview.html) helps us track down and remove performance bottlenecks in our Java code. 
+* ![JProfiler logo](https://www.ej-technologies.com/images/product_banners/jprofiler_large.png) [JProfiler](https://www.ej-technologies.com/products/jprofiler/overview.html) helps us track down and remove performance bottlenecks in our Java code. 
 With ergonomic access to "allocation hot spot" and "call hot spot", easy attach to running JVM, custom filtering, this tool has all you need to professionally optimize code. 
 With their open-source friendly license policy, they helped us gain orders of magnitude in performance on many test cases.
 
