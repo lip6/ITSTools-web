@@ -22,7 +22,7 @@ Its architecture relies on an abstract contract for formalisms called Instantiab
 Our main concrete formalism is the [Guarded Action Language](gal.md) (GAL), featuring a simple yet user friendly C-like syntax.
 It is very expressive and has simple interleaving semantics suitable for modeling concurrent systems of practically any kind.
 
-![a simple gal example](simplegal.png)
+![a simple gal example](images/simplegal.png)
 
 Thanks to this central pivot and [model to model transformations](https://en.wikipedia.org/wiki/Model_transformation) that leverage [EMF](https://www.eclipse.org/modeling/emf/), we can support many commonly used [formalisms](formalisms.md) in other tools such as [Spin](http://spinroot.com) or [Uppaal](http://www.uppaal.org/). 
 
