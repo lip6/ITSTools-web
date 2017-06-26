@@ -50,38 +50,39 @@ We cover a few different scenarios here, if you're unsure just try the eclipse f
 
 [I'm interested in contributing](devstart.md)
 
-Documentation
--------------
+End user oriented documentation
+-------------------------------
 
-GAL presentation and syntax, see also GAL meta-model for more technical details.
+[GAL presentation and syntax](gal.md), see also [GAL meta-model](galmm.md) for more technical details.
 
-Using the composite formalism in GAL files.
+Using the [composite formalism in GAL](cgal.md) files.
 
-Using parameters in GAL.
+Using [parameters in GAL](pgal.md).
 
-Property Syntax in GAL 
+Writing [properties in GAL](properties.md) for invariants, reachability, bounds, CTL or LTL.
 
-Running the tools, see also Options and Flags
+A quick guide on [Running the tool] and configuring its options.
 
-[Using the (Time) Petri net editor.](tpn.md)
+[Working with Time Petri nets](tpn.md) (compatible with [Tina](http://projects.laas.fr/tina/), [Romeo](http://romeo.rts-software.org/))
 
-Working with Time Petri nets ([Tina](http://projects.laas.fr/tina/), [Romeo](http://romeo.rts-software.org/))
+[Working with Timed Automata.](ta.md)
 
-Working with Timed Automata.
+[Working with DVE models.](dve.md)
 
-Working with DVE models.
+[Working with Promela/Spin models.](promela.md)
 
-Working with Promela(Spin) models.
+[Working with LTSmin.](ltsmin.md)
 
-Working with LTSmin.
+Technical and research documentation
+------------------------------------
 
-LibDDD our C++ library for Hierarchical Set Decision Diagrams.
+[LibDDD our C++ library for Hierarchical Set Decision Diagrams.](libddd.md)
 
-LibITS our C++ library for symbolic model-checking of ITS and related tools.
+[LibITS our C++ library for symbolic model-checking of ITS and related tools.](libits.md)
 
-Choosing an LTL algorithm
+[Choosing an LTL algorithm](ltl_bench.md)
 
-Scientific papers on the tool and its algorithms.
+[Scientific papers on the tool and its algorithms.](bib.md)
 
 Citing
 ------
@@ -96,7 +97,7 @@ Please use the [Github integrated issues page](https://github.com/lip6/ITSTools/
 Acknowledgments
 ---------------
 
-Yann Thierry-Mieg is the main author of these tools, but many contributors have brought important contributions.
+Yann Thierry-Mieg is the main designer and author of these tools, with important contributions from colleagues and students. 
 Maximilien Colange and Alexandre Hamez contributed to the symbolic kernel, as well as Jean-Michel Couvreur and Denis Poitrenaud who wrote the original libDDD. 
 Much code was borrowed and adapted (hacked !) from open-source model-checking projects with friendly licenses, such as
  [LTSmin](http://fmt.cs.utwente.nl/tools/ltsmin/) and [VIS](http://vlsi.colorado.edu/~vis/), to which we are grateful.
@@ -105,61 +106,4 @@ We owe a lot also to the Eclipse project and its dedication to open source, we u
 
 Much of the Eclipse front-end was prototyped during internships of students at Paris 6 University.
 
-See acknowledgement sections at bottom of the various pages of this site for more detailed acknowledgements, as well as source history publicly visible on GitHub. 
-
-
-
-       <h2><a name="sec:what"></a>What is libDDD ?</h2>
-        <p><span style="font-weight: bold">libDDD</span> is a C++ library for manipulation of decision diagrams.</p>
-        <p>Main features include:</p>
-        <ul>
-          <li>Flexible and powerful encoding of operations using inductive homomorphisms<br />
-          </li>
-          <li>Support for hierarchy of the description with SDD</li>
-          <li>Automatic support for saturation style algorithms</li>
-          <li>A priori unbounded integer domain variables</li>
-          <li>Rich expressivity with equiv-split mechanism</li>
-          <li>Weak ordering constraint allowing to store variable length decision paths</li>
-          <li>Supports both Data Decision Diagrams which are integer valued and Hierarchical Set Decision Diagrams.</li>
-        </ul>
-        <p>libDDD is distributed under the terms of [LGPL](http://www.gnu.org/licenses/lgpl.html).</p>
-      
-        <h2>What are ITS tools</h2>
-        <p><span style="font-weight: bold">libITS</span> is a C++ library for model-checking of various formalisms using libDDD. 
-        It defines instantiable transition systems (ITS), a simple labeled transition system semantics, in a symbolic way. The <span style="font-weight: bold">its-tools</span> are built on top
-        of libITS and support model-checking of ITS models.</p>
-        <p>Main features include:</p>
-        <ul>
-          <li>Instantiable Transition System as a framework, allow hierarchical composition of components specified in diverse formalisms.
-          </li>
-          <li>Optimized implementation taking full advantage of the features of libDDD, notably automatic saturation and hierarchy.</li>
-          <li>Support for Petri nets and some of their extensions</li>
-          <li>Support for discrete time in models such as Time Petri nets and their compositions</li>
-          <li>Support for GAL format input which offers rich data manipulation. </li>
-          <li>Support for ETF format input which is produced by the tool LTSmin from diverse formalisms. </li>
-          <li>Support for Divine format input which is native to the tool Divine and used in BEEM models. </li>
-          <li>Support for CTL model checking using forward transition relation.</li>
-          <li>Support for LTL model checking using some classic and some original algorithms that exploit saturation.</li>
-        </ul>
-        <p>The ITS tools are distributed under the terms of [GPL](http://www.gnu.org/licenses/gpl.html).</p>
-
-        <h2>What is ITS modeler</h2>
-        <p><span style="font-weight: bold">ITS modeler</span> is a set of Eclipse plugins, offering access to ITS-tools in a convenient manner for end-users.</p>
-        <p>Main features include:</p>
-        <ul>
-          <li>Guarded Action Language support : rich editor, code completions,...</li>
-          <li>One click install from update site</li>
-          <li>Embedded ITS-tools binary distribution, for most platforms. Reachability and CTL can be invoked from Eclipse.</li> 
-          <li>Graphical modeling support for Petri net variants, using components of [Coloane](http://coloane.lip6.fr).</li>
-          <li>Import/Export to Romeo and Tina formats for Time Petri Nets (discrete time assumptions)</li>
-          <li>Uppaal XTA format editor and translation to GAL, supporting analysis of Timed automata (discrete time).</li>
-          <li>Divine DVE format editor and translation to GAL, supporting analysis of DVE models. </li>
-          <li>Spin Promela format editor and translation to GAL, supporting analysis of Promela models. </li>
-          <li>Analysis and rewriting of GAL specifications : static simplifications, variable domain analysis, control flow analyis, parameter analysis...</li>
-        </ul>
-        <p>The ITS modeling front-end tools are distributed under the terms of [EPL](http://www.eclipse.org/org/documents/epl-v10.md).</p>
-        <p>&nbsp;</p>
-        
-        
- <?php include 'footer.md'; ?>
-</html>
+See acknowledgement sections at bottom of the various pages of this site for more detailed acknowledgments, as well as source history publicly visible on GitHub. 

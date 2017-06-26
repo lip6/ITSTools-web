@@ -8,6 +8,22 @@
 
 
       <h2><a name="sec:what"></a>What is libDDD ?</h2>
+        <p><span style="font-weight: bold">libDDD</span> is a C++ library for manipulation of decision diagrams.</p>
+        <p>Main features include:</p>
+        <ul>
+          <li>Flexible and powerful encoding of operations using inductive homomorphisms<br />
+          </li>
+          <li>Support for hierarchy of the description with SDD</li>
+          <li>Automatic support for saturation style algorithms</li>
+          <li>A priori unbounded integer domain variables</li>
+          <li>Rich expressivity with equiv-split mechanism</li>
+          <li>Weak ordering constraint allowing to store variable length decision paths</li>
+          <li>Supports both Data Decision Diagrams which are integer valued and Hierarchical Set Decision Diagrams.</li>
+        </ul>
+        <p>libDDD is distributed under the terms of [LGPL](http://www.gnu.org/licenses/lgpl.html).</p>
+
+
+      <h2><a name="sec:what"></a>What is libDDD ?</h2>
         <p><span style="font-weight: bold">libDDD</span> is C++ library for manipulation of decision diagrams.</p>
         <p>Main features include:</p>
         <ul>

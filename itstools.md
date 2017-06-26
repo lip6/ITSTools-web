@@ -6,6 +6,27 @@
 
 <?php TableOfContents(__FILE__, 4); ?>
 
+      
+        <h2>What are ITS tools</h2>
+        <p><span style="font-weight: bold">libITS</span> is a C++ library for model-checking of various formalisms using libDDD. 
+        It defines instantiable transition systems (ITS), a simple labeled transition system semantics, in a symbolic way. The <span style="font-weight: bold">its-tools</span> are built on top
+        of libITS and support model-checking of ITS models.</p>
+        <p>Main features include:</p>
+        <ul>
+          <li>Instantiable Transition System as a framework, allow hierarchical composition of components specified in diverse formalisms.
+          </li>
+          <li>Optimized implementation taking full advantage of the features of libDDD, notably automatic saturation and hierarchy.</li>
+          <li>Support for Petri nets and some of their extensions</li>
+          <li>Support for discrete time in models such as Time Petri nets and their compositions</li>
+          <li>Support for GAL format input which offers rich data manipulation. </li>
+          <li>Support for ETF format input which is produced by the tool LTSmin from diverse formalisms. </li>
+          <li>Support for Divine format input which is native to the tool Divine and used in BEEM models. </li>
+          <li>Support for CTL model checking using forward transition relation.</li>
+          <li>Support for LTL model checking using some classic and some original algorithms that exploit saturation.</li>
+        </ul>
+        <p>The ITS tools are distributed under the terms of [GPL](http://www.gnu.org/licenses/gpl.html).</p>
+
+
         <h2><a name="sec:what"></a>I. What are ITS tools</h2>
         <p><span style="font-weight: bold">libITS</span> is C++ library for model-checking of various formalisms using libDDD.</p>
         <p>Main features include:</p>

@@ -4,6 +4,24 @@ title: Homepage of ITS-tools
 Working with Time Petri Nets
 ============================
 
+
+        <h2>What is ITS modeler</h2>
+        <p><span style="font-weight: bold">ITS modeler</span> is a set of Eclipse plugins, offering access to ITS-tools in a convenient manner for end-users.</p>
+        <p>Main features include:</p>
+        <ul>
+          <li>Guarded Action Language support : rich editor, code completions,...</li>
+          <li>One click install from update site</li>
+          <li>Embedded ITS-tools binary distribution, for most platforms. Reachability and CTL can be invoked from Eclipse.</li> 
+          <li>Graphical modeling support for Petri net variants, using components of [Coloane](http://coloane.lip6.fr).</li>
+          <li>Import/Export to Romeo and Tina formats for Time Petri Nets (discrete time assumptions)</li>
+          <li>Uppaal XTA format editor and translation to GAL, supporting analysis of Timed automata (discrete time).</li>
+          <li>Divine DVE format editor and translation to GAL, supporting analysis of DVE models. </li>
+          <li>Spin Promela format editor and translation to GAL, supporting analysis of Promela models. </li>
+          <li>Analysis and rewriting of GAL specifications : static simplifications, variable domain analysis, control flow analyis, parameter analysis...</li>
+        </ul>
+        <p>The ITS modeling front-end tools are distributed under the terms of [EPL](http://www.eclipse.org/org/documents/epl-v10.md).</p>
+        <p>&nbsp;</p>
+
 # Using ITS modeler to design and analyze systems using discrete Time Petri nets.
 
 The ITS Modeler front-end for its-tools can be used to analyze Time Petri nets, and some effort has been invested in providing a user-friendly GUI and compatibility with the major TPN tools [Tina](http://projects.laas.fr/tina/) and [Romeo](http://romeo.rts-software.org/). ITS tools and the graphical front-end are available for all major platforms (Windows, MacOS X, linux).
