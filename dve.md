@@ -2,7 +2,6 @@
 
 ITS-tools is happy to offer support for DVE the original modeling language of Divine. We provide an Xtext based editor (content-assist, correct as you type...) to edit .dve files and transformation(s) to GAL for analysis.
 
-<a name="toc"></a>
 
 ## <a name="sec:Install"></a>I. Install
 
@@ -20,7 +19,6 @@ You can also use "File->New->Example...->Coloane Examples->DVE examples" to get 
 
 You can use Ctrl-space to trigger auto-completion, ... In essence it's just a nice Eclipse look-n-feel coloring editor.
 
-<div class="toplink" align="right">[Start of page ![](images/up.gif)](#toc)</div>
 
 ### <a name="ssec:importDVE"></a>2\. Reading DVE into GAL
 
