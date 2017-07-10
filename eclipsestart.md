@@ -1,18 +1,22 @@
 ---
 title: Getting Started with ITS-tools
+keywords: download
+tags: [getting_started]
+sidebar: main_sidebar
+permalink: eclipsestart.html
+summary: These brief instructions will help you install the ITS-tools front-end.
 ---
 
-Download ITS-tools
-==================
+## Requirements 
 
-Requirements :
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) standard edition (SE)
 
-For quick install into eclipse use the update site **https://lip6.github.io/ITSTools/** to install the _All-In-One_ feature. 
+That's all really, we build statically linked binaries for major platforms (Win, Linux, OSX) and package them in the release.
 
-Step 1 :Install eclipse.
------------------------- 
+If you've done this sort of thing before, you can simply install into eclipse using the update site **https://lip6.github.io/ITSTools/** to install the _All-In-One_ feature. 
 
+## Step 1 :Install eclipse.
+ 
 You can skip this step if you have a recent eclipse (Luna or better), otherwise get the "Eclipse IDE for Java Developers" it's one of the smaller distributions.
 
 [Download the latest version of Eclipse](http://www.eclipse.org/downloads/) for your platform and install it. 
@@ -22,15 +26,6 @@ We recommend you go for an archived release (tgz or zip) rather than automatic i
 
 The back-end model-checking tools are fully integrated in the installer for all major platforms 
 (Mac OS, Windows or Linux and x64 architecture). 
-
-#### (optional) GraphViz
-
-Users of GAL and textual formalisms can skip this step.
-
-This package is optional, but really helps when manipulating large graphical models such as Petri nets. It allows to layout large graphs.
-	
-If you don't already have [graphviz, download it.](http://www.graphviz.org/Download.php).
-It is sometimes already available (linux, MacOS), try the command "dot" at a command line to check.
 
 Step 2 : Eclipse integration with ITS tools.
 --------------------------------------------
@@ -51,14 +46,47 @@ Please be a bit patient, eclipse updates are pretty slow. Let eclipse restart wh
 
 If you later want to update, the checkbox "contact all" can be left unchecked, this speeds install considerably.
 
-## Acknowledgements : Companies helping us deliver quality Open-source
+## Step 3 : Getting started.
 
-**Hosting**
+**That's all, the tool is ready to run now. Right-clicking a .gal file now brings up "Run As...->ITS model-check".**
+
+You can try to "File->New->Example->GAL examples" to get some example GAL models.
+
+You can try to "File->New->Example->Fischer's Mutual exclusion"	to get an example Petri net model.
+
+Or create a "New->General project" to host your own project and create a file with .gal extension to start the editor.
+
+## Optional Step : GraphViz
+
+Users of GAL and textual formalisms can skip this step.
+
+This package is optional, but really helps when manipulating large graphical models such as Petri nets. It allows to layout large graphs.
+	
+### Download Graphviz
+	
+If you don't already have [graphviz, download it.](http://www.graphviz.org/Download.php).
+It is sometimes already available (linux, MacOS), try the command "dot" at a command line to check.
+
+### Configure Eclipse to use GraphViz
+
+This step allows to activate the layout tool, to automatically set positions of Petri net nodes or other graphs. This step is only necessary if "dot" at a command line does not work, i.e. "dot" is not on the PATH.
+
+Inside eclipse, go to "Window Menu->Preferences" then open the category "Coloane -> Layout Preferences"
+
+Use the "browse" button to find the "dot" executable in the "bin" subfolder of your GraphViz distribution.
+
+Your preference screen should look like this :
+
+<img src="images/dotprefs.jpg" alt="download" />
+
+## Acknowledgements : Companies helping us
+
+### Hosting
 
 <img src="images/GitHub_Logo.png" height="50" />
 * We are grateful to [GitHub](https://github.org/) for hosting us and for all the great support it offers to develop collaborative large open source software.
 
-**Profiler**
+### Profiler
 
 <img src="https://www.ej-technologies.com/images/product_banners/jprofiler_large.png" height="50" />
 
@@ -66,7 +94,7 @@ If you later want to update, the checkbox "contact all" can be left unchecked, t
 With ergonomic access to "allocation hot spot" and "call hot spot", easy attach to running JVM, custom filtering, this tool has all you need to professionally optimize code. 
 With their open-source friendly license policy, they helped us gain orders of magnitude in performance on many test cases.
 
-**Continous Integration servers**
+### Continous Integration
 
 <img src="https://cdn.travis-ci.com/images/logos/TravisCI-Full-Color-45e242791b7752b745a7ae53f265acd4.png" height="50" />
 * We are grateful to [travis-ci](https://travis-ci.org/) for their open-source project support policy, that allows us to use their public
@@ -79,32 +107,3 @@ continuous integration technology to build and distribute Windows targets.
 <img src="images/logo_teamcity.jpg" height="50" />
 * We are still grateful to [JetBrains](http://www.jetbrains.com) and their open-source project support policy, that allowed us to use their excellent
 continuous integration server technology [TeamCity](http://www.jetbrains.com/teamcity/) from 2008 to 2016. 
-
-#### (optional) Configure Eclipse to use GraphViz
-
-<p>This step allows to activate the layout tool, to automatically
-	set positions of Petri net nodes or other graphs. This step is only necessary if "dot"
-	at a command line does not work, i.e. "dot" is not on the PATH.</p>
-<p>Inside eclipse, go to "Window Menu->Preferences" then open the
-	category "Coloane -> Layout Preferences"</p>
-
-<p>Use the "browse" button to find the "dot" executable in the "bin"
-	subfolder of your GraphViz distribution.</p>
-<p>Your preference screen should look like this :</p>
-
-<img src="images/dotprefs.jpg" alt="download" />
-
-Step 3 : Getting started.
--------------------------
-
-**That's all, the tool is ready to run now. Right-clicking a .gal file now brings up "Run As...->ITS model-check".**
-
-<p>You can try to "File->New->Example->GAL examples"
-	to get some example GAL models.</p>
-
-<p>You can try to "File->New->Example->Fischer's Mutual exclusion"
-	to get an example Petri net model.</p>
-
-<p>Or create a "New->General project" to host your own project and create a file with .gal extension to start the editor.</p>
-
-
