@@ -1,4 +1,4 @@
-<script type="text/javascript" src="syntaxhighlighter.js"></script>
+<script type="text/javascript" src="js/syntaxhighlighter.js"></script>
 
 # GAL : Guarded Action Language
 
