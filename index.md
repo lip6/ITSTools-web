@@ -2,7 +2,7 @@
 title: Homepage of ITS-tools
 keywords: symbolic model-checking
 tags: [getting_started]
-sidebar: main_sidebar
+sidebar: home_sidebar
 permalink: index.html
 summary: These brief instructions will help you get started with ITS-tools. The other topics in this help provide additional information use sidebars to navigate.
 ---
@@ -46,8 +46,7 @@ Because we are dedicated to [FOSS](https://www.gnu.org/philosophy/open-source-mi
 depending on files we use [EPL](https://www.eclipse.org/legal/epl-v10.html) and [APL](https://www.apache.org/licenses/LICENSE-2.0) for Java front-end,[GPL](https://www.gnu.org/licenses/gpl-3.0.en.html) for C++ tools using the kernel, [LGPL](https://www.gnu.org/licenses/lgpl-3.0.en.html) for the symbolic kernel libDDD.
 
 
-Getting started 
----------------
+## Getting started 
 
 We cover a few different scenarios here, if you're unsure just try the eclipse front-end.
 
@@ -57,8 +56,7 @@ We cover a few different scenarios here, if you're unsure just try the eclipse f
 
 [I'm interested in contributing](devstart.md)
 
-End user oriented documentation
--------------------------------
+## End user oriented documentation
 
 [GAL presentation and syntax](gal.md), see also [GAL meta-model](galmm.md) for more technical details.
 
@@ -80,8 +78,7 @@ A quick guide on [Running the tool] and configuring its options.
 
 [Working with LTSmin.](ltsmin.md)
 
-Technical and research documentation
-------------------------------------
+## Technical and research documentation
 
 [LibDDD our C++ library for Hierarchical Set Decision Diagrams.](libddd.md)
 
@@ -91,18 +88,16 @@ Technical and research documentation
 
 [Scientific papers on the tool and its algorithms.](bib.md)
 
-Citing
-------
+## Citing
+
 
 Please cite our [_Symbolic Model-Checking Using ITS-Tools_](https://link.springer.com/chapter/10.1007/978-3-662-46681-0_20) TACAS'15 paper if you are using the tool currently in your research, or a [more specific paper](bib.md) if you are referring to a specific technique we use. 
 
-Reporting Issues
-----------------
+## Reporting Issues
 
 Please use the [Github integrated issues page](https://github.com/lip6/ITSTools/issues) to report issues you might encounter or [mail me](yann.thierry-mieg@lip6.fr) if you don't have a GitHub account.
 
-Acknowledgments
----------------
+## Acknowledgments
 
 Yann Thierry-Mieg is the main designer and author of these tools, with important contributions from colleagues and students. 
 Maximilien Colange and Alexandre Hamez contributed to the symbolic kernel, as well as Jean-Michel Couvreur and Denis Poitrenaud who wrote the original libDDD. 
