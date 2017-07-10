@@ -2,8 +2,8 @@
 
 entries:
 - title: sidebar
-  product: Jekyll Doc Theme
-  version: 6.0
+  product: ITS tools
+  version: 1.4
   folders:
 
   - title:
@@ -24,16 +24,16 @@ entries:
     folderitems:
 
     - title: Get started
-      url: /index.html
+      url: /eclipse_start.html
       output: web, pdf
       type: homepage
 
-    - title: Introduction
-      url: /mydoc_introduction.html
+    - title: GAL Guarded Action Language
+      url: /gal.html
       output: web, pdf
 
-    - title: Supported features
-      url: /mydoc_supported_features.html
+    - title: GAL Meta-model and Grammar
+      url: /galmm.html
       output: web, pdf
 
     - title: About the theme author
