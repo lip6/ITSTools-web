@@ -1,5 +1,0 @@
-gal intSystem { 
-	// Integer variable declarations...
-	int a = 5 ;
-	int b = - 2 ;
-}
