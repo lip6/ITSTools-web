@@ -8,15 +8,15 @@ entries:
   - title: ITS-tools Documentation
     output: web
     folderitems:
-    - title: ITS and GAL
+    - title: Guarded Action Language
       url: /gal.html
+      output: web
+    - title: ITS Tools front-end
+      url: /p2_landing_page.html
       output: web
     - title: libITS
       url: /libits.html
       output: web
     - title: libDDD
       url: /libddd.html
-      output: web
-    - title: Product 2
-      url: /p2_landing_page.html
       output: web

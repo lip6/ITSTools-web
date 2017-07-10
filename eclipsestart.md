@@ -2,7 +2,7 @@
 title: Getting Started with ITS-tools
 keywords: download
 tags: [getting_started]
-sidebar: main_sidebar
+sidebar: home_sidebar
 permalink: eclipsestart.html
 summary: These brief instructions will help you install the ITS-tools front-end.
 ---
