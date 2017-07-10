@@ -1,0 +1,7 @@
+Model-Checking: "Formal verification approach consisting in exhaustive exploration of the state graph of a system."
+
+symbolic: "Any approach that manipulates sets of states rather than individual states is symbolic. Main examples include decision diagram technology, use of equivalence relation, or SAT technology."
+
+discrete time: "Consider that time elapses in quantums, i.e. one time unit at a time. This assumption in most cases is equivalent to continuous time for properties of interest."
+
+Decision Diagram: "A compact data structure to represent large sets. Used to perform symbolic model-checking."

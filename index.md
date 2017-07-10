@@ -1,9 +1,14 @@
 ---
 title: Homepage of ITS-tools
+keywords: symbolic model-checking
+tags: [getting_started]
+sidebar: main_sidebar
+permalink: index.html
+summary: These brief instructions will help you get started with ITS-tools. The other topics in this help provide additional information use sidebars to navigate.
 ---
 
-Welcome to [ITS-tools](itstools.md) Homepage
-============================================
+
+# Welcome to [ITS-tools](itstools.md) Homepage
 
 WARNING : these pages are work in progress, we are still migrating from [our older homepage](http://ddd.lip6.fr)
 

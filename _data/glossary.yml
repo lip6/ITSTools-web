@@ -1,0 +1,8 @@
+LTL: "Linear-time Temporal Logic."
+
+CTL: "Computation Tree Logic."
+
+stutter-invariant: "A stutter invariant property does not observe immediate successors, allowing simplifications in the model-checking algorithm (such as partial order reduction)."
+
+partial-order reduction: "Approaches that fight combinatorial state-space explosion by exploiting commutativity of actions."
+
