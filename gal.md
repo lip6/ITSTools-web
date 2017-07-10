@@ -26,9 +26,14 @@ This page presents the concrete syntax of GAL, please read [this document](./fil
 
 Here is an example of a system written in GAL:
 
+<pre class='brush: gal;' >
+{% include_relative galfiles/sample-1.gal %}
+</pre>
+
 <script type="text/syntaxhighlighter" class="brush: gal"><![CDATA[
 {% include_relative galfiles/sample-1.gal %}
 ]]></script>
+
 
 {% highlight C %}
 {% include_relative galfiles/sample-1.gal %}
