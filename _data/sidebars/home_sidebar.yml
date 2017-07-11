@@ -5,19 +5,87 @@ entries:
   levels: two
   folders:
 
-  - title: ITS-tools Documentation
+  - title: Getting Started
     output: web
     folderitems:
-    - title: Guarded Action Language
+    - title: Introduction
+      url: /index.html
+      output: web
+    - title: Installation
+      url: /eclipsestart.html
+      output: web  
+    - title: Running the tool
+      url: /firstrun.html
+      output: web
+  - title: Guarded Action Language
+    output: web
+    folderitems:
+    - title: GAL syntax
       url: /gal.html
       output: web
-      folderitems:
-      - title: Introduction
-        url : /gal_intro.html
-        output: web
-      - title: Syntax
-        url: /gal.html
-        output: web
+    - title: Composite syntax
+      url: /cgal.html
+      output: web  
+    - title: Property Syntax
+      url: /properties.html
+      output: web
+    - title: Parametric GAL
+      url: /pgal.html
+      output: web
+    - title: GAL Metamodel
+      url : /galmm.html
+      output: web
+  - title: Other Formalisms
+    output: web
+    folderitems:
+    - title: Time Petri nets
+      url: /tpn.html
+      output: web
+    - title: Composite ITS
+      url: /composite.html
+      output: web
+    - title: Timed Automata/Uppaal
+      url: /ta.html
+      output: web  
+    - title: DiVinE
+      url: /dve.html
+      output: web
+    - title: Promela/Spin
+      url: /pgal.html
+      output: web
+    - title: LTSmin bridges
+      url : /galmm.html
+      output: web
+  - title: Flags and Options
+    output: web
+    folderitems:
+    - title: Eclipse Settings
+      url: /tpn.html
+      output: web
+    - title: Command line flags
+      url: /clflags.html
+      output: web  
+  - title: libDDD
+    output: web
+    folderitems:
+    - title: Introduction
+      url: /libddd.html
+      output: web
+    - title: Download
+      url: /clflags.html
+      output: web  
+    - title: Download
+      url: /clflags.html
+      output: web  
+    - title: DiVinE
+      url: /dve.html
+      output: web
+    - title: Promela/Spin
+      url: /pgal.html
+      output: web
+    - title: LTSmin bridges
+      url : /galmm.html
+      output: web
     - title: ITS Tools front-end
       url: /p2_landing_page.html
       output: web
