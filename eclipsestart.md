@@ -96,7 +96,7 @@ With their open-source friendly license policy, they helped us gain orders of ma
 
 ### Continous Integration
 
-<img src="images/travisCI.png" height="50" />
+<img src="images/TravisCI.png" height="50" />
 * We are grateful to [travis-ci](https://travis-ci.org/) for their open-source project support policy, that allows us to use their public
 continuous integration technology in the cloud to build Java/Maven, Linux and OSX artifacts.
 
