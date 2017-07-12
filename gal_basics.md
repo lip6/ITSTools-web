@@ -14,7 +14,7 @@ summary: GAL Concepts.
 GAL files are simply text files with the extension .gal . For example, foo.gal is a valid GAL filename. 
 Each file defines a single GAL _specification_ that may contain one or more type declarations, a **main** instance, and properties.
 
-### GAL Type Declaration
+## GAL Type Declaration
 
 A GAL type declaration (or just a GAL) is characterized by a name, and contains a sequence of declarations (variables, transitions).
 
@@ -31,31 +31,29 @@ Here is a declaration of an example GAL system named _emptySystem_.
 {% include_relative galfiles/sample-2.gal %}
 {% endhighlight %}
 
-### System parameters
 
-A GAL type declaration can optionally declare one or more _type parameters_. 
-A type parameter essentially declares a symbolic name for an integer constant, that can then be used within the various instructions of the GAL system (including initializations, typedef, guards, statements...). 
+## Variable declarations
 
-Parameter names start with a $ sign to avoid any confusion with the variables of the system. 
-Parameters are given a value directly after their declaration. 
+A GAL model declares variables. 
+The variables manipulated in GAL can be integers or arrays of integer. 
+There are no dedicated Boolean or char basic types, nor struct declarations. 
 
-Note that when instantiating a GAL within the context of composite ITS, parameters can be given a value (different from the value given in the parameter declaration).
-Thus type parameters can be used to simulate a constructor for the GAL.
-
-Syntactically, parameters are given as a parenthesized comma separated list, just after the name of the system. 
-Only constant expressions may be used in parameter initializations.
-
-{% highlight C %}
-{% include_relative galfiles/sample-param.gal %}
-{% endhighlight %}
-
-## <a name="declaration-variables"></a>3.2 Variable declarations
-
-A GAL model declares variables. The variables manipulated in GAL can be integers or arrays of integer. There are no dedicated Boolean or char basic types, nor struct declarations. Integers are C-style signed integers, 32 bit (4 bytes) wide, with the same overflow semantics as in C ( (2<sup>31</sup> -1) + 1 = - 2<sup>31</sup>).
+Integers are C-style signed integers, 32 bit (4 bytes) wide, with the same overflow semantics as in C ( (2<sup>31</sup> -1) + 1 = - 2<sup>31</sup>).
 
 In this section, we describe how variables of a GAL are declared.
 
-Plain integer variables are introduced with the keyword <span class="galElement">int</span> followed by the variable name starting with a letter. The variable name may contain alphanumeric characters as well as the "." character (which may help trace structs from of your source language if you are using GAL as a transformation target), The name must be unique, and cannot be reused for another variable. Each variable MUST be initialized, this is done using the "=" symbol followed by the initial value of this variable. The initial value can be expressed using an integer expression built of constants and/or type parameters, but it cannot refer to other variables. The declaration ends with a semicolon.
+### Integer variables
+
+Plain integer variables are introduced with the keyword <span class="galElement">int</span> followed by the variable name starting with a letter. 
+The variable name may contain alphanumeric characters as well as the "." character (which may help trace structs from of your source language if you are using GAL as a transformation target).
+
+The name must be unique, and cannot be reused for another variable. 
+
+Each variable can be initialized, this is done using the "=" symbol followed by the initial value of this variable.
+The default initial value for integer variables is **0**.
+ 
+The initial value can be expressed using an integer expression built of constants and/or type parameters, but it cannot refer to other variables. 
+The declaration ends with a semicolon.
 
 Below is an example of a system with two GAL variable declarations :
 
@@ -63,11 +61,16 @@ Below is an example of a system with two GAL variable declarations :
 {% include_relative galfiles/sample-3.gal %}
 {% endhighlight %}
 
-### <a name="declaration-tableaux"></a>3.3 Array declarations
+### Array declarations
 
-An array declaration allows to declare a fixed size array of integers. Like simple integer variables, each entry in the array needs to be initialized.
+An array declaration allows to declare a fixed size array of integers. 
+Like simple integer variables, each entry in the array needs to be initialized.
 
-A GAL array variable is declared using the keyword <span class="galElement">array</span> followed by the array size N within square brackets, then the array name. Each cell of the array MUST be initialized, to this end, a list of N comma separated integers surrounded by parenthesis (or integer expressions of constants and/or type parameters) should be provided. A semicolon end the array declaration.
+A GAL array variable is declared using the keyword <span class="galElement">array</span> followed by the array size N within square brackets, then the array name. 
+
+Each cell of the array needs to be initialized, to this end, a list of N comma separated integers surrounded by parenthesis (or integer expressions of constants and/or type parameters) should be provided. 
+If no initialization is provided, all array cells are set to **0** initially.
+A semicolon ends the array declaration.
 
 Here is an example of a system with a declaration of an array:
 
@@ -75,21 +78,10 @@ Here is an example of a system with a declaration of an array:
 {% include_relative galfiles/sample-4.gal %}
 {% endhighlight %}
 
-### <a name="paramType"></a>3.4 Parameter type definitions
 
-A parameter type definition allows to define a symbolic name for a given range of integers from min to max. These type definitions are used when declaring transition parameters. They allow to define a set of similar transitions in a compact and readable manner.
+## Transitions
 
-Syntactically, a type definition is introduced with the keyword <span class="galElement">typedef</span> followed by a unique name for this type, followed by the actual range specification in the form "= min..max;". min and max are integer expressions built from type parameters and constants only.
-
-Here is an example of a system with some parameter type definitions:
-
-{% highlight C %}
-{% include_relative galfiles/paramtype.gal %}
-{% endhighlight %}
-
-### <a name="transition"></a>3.5 Transitions
-
-#### <a name="transitionDef"></a>a) Transition declaration
+### Transition declaration
 
 Transitions allow to step atomically from a source state to a (set of) successor state(s). Transitions are enabled by a guard, which is a Boolean expression and may carry a label that is a string. If the guard is true in the current state, the transition can be fired, executing all the actions it contains in sequence. Actions can be assignments, calls to a label or other statements as described below. Labeled actions _cannot be fired_ if they are not called from another transition or synchronized externally (see ITS composite). Transitions without a label are "private" and can be fired any time their guard is true, with interleaving semantics. A self-contained GAL (not intended for further composition) typically bears no labels on transitions.
 
@@ -103,31 +95,18 @@ This example system contains two transitions of which one is labeled :
 {% include_relative galfiles/sample-6.gal %}
 {% endhighlight %}
 
-#### <a name="transitionParam"></a>b) Transition parameters
 
-Transitions can optionally define one or more parameters that allow a more concise and readable representation of a complex transition relation. Parameters have a type that is defined as a range of integers, introduced at the system level using a **typedef**. Semantically, each parameter can be replaced in the transition effects by each of the possible values in its type, producing several alternative transitions from a single transition that bears parameters.
+## Expressions
 
-Syntactically, transition parameters are declared in a parenthesized comma separated list just after the transition name, with a syntax reminiscent of arguments for a function or method. Each parameter is defined by giving its type followed by the parameter name which must start with a $ sign and cannot shadow a type (sytem level) parameter name.
+GAL expressions can be either integer expressions or Boolean expressions, depending on the context. 
+We give here the syntax of these expressions, which is mostly directly taken from C (or Java). 
 
-This example, already used above when discussing type parameters:
+Usual priorities between operators are observed (e.g. Boolean AND stronger than OR, integer multiplication stronger than addition). 
+If in doubt, parenthesis can be used to force an evaluation order.
 
-{% highlight C %}
-{% include_relative galfiles/param.gal %}
-{% endhighlight %}
+### Integer expressions
 
-Is equivalent to this version that does not use parameter definitions. :
-
-{% highlight C %}
-{% include_relative galfiles/param.inst.gal %}
-{% endhighlight %}
-
-### <a name="expressions"></a>3.6 Expressions
-
-GAL expressions can be either integer expressions or Boolean expressions, depending on the context. We give here the syntax of these expressions, which is mostly directly taken from C (or Java). Usual priorities between operators are observed (e.g. Boolean AND stronger than OR, integer multiplication stronger than addition). In doubt, parenthesis can be used to force an evaluation order.
-
-#### <a name="op-arith"></a>a) Integer expressions
-
-**Binary**
+#### Binary operators
 
 | Operation | Operator |
 | bitwise OR | '|' |
@@ -142,17 +121,22 @@ GAL expressions can be either integer expressions or Boolean expressions, depend
 | Division | / |
 | Power | ** |
 
-**Unary**
+#### Unary operators
 
 | Operation | Operator |
 | Unary minus | - |
 | Bitwise complement | ~ |
 
-Terminal integer expressions are simply references to plain integer variables, the cell of an array, or to a parameter. When accessing a cell of an array tab[index], the index expression is itself an arbitrarily complex integer expression.
+#### Terminal expressions
 
-System parameters (introduced just after the name of the system) can be used anywhere in the specification. Transition parameters (introduced just after the name of the transition) have the transition body as scope.
+Terminal integer expressions are simply : 
+* a reference to plain integer variables, **var** 
+* a reference the cell of an array **tab[index]**, 
+* or a reference to a parameter **$param** 
 
-#### <a name="expr-bool"></a>b) Boolean expressions
+When accessing a cell of an array tab[index], the index expression is itself an arbitrarily complex integer expression.
+
+### Boolean expressions
 
 Boolean expressions are allowed in guards of transitions. It is also possible to write arithmetic expressions, with boolean appearance (as in C), which will be worth 1 or 0 depending on whether they are true or false (see Wrapper)
 
