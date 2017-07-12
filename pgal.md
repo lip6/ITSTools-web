@@ -136,3 +136,14 @@ This model when instantiated is still compact as shown here. Compare to what a [
 {% include_relative galfiles/vendingsimple.flat.gal %}
 {% endhighlight %}](http://mcc.lip6.fr)
 
+## Initializing Instances
+
+
+this is done using the "=" symbol followed by recalling the type of the instance and specifying
+values for type parameters as desired.
+The default initial value for integer variables is **0**.
+ 
+ 
+The initial value can be expressed using an integer expression built of constants and/or type parameters, but it cannot refer to other variables. 
+The declaration ends with a semicolon.
+ 

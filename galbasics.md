@@ -39,7 +39,7 @@ The variables manipulated in GAL can be integers or fixed size arrays of integer
 There are no dedicated Boolean or char basic types, nor struct declarations. 
 
 There are no dynamic allocation or variable length structures such as lists.
-To model these using an array is possible if an upper bound on its size is known a priori.
+To model these using an array is only possible if an upper bound on its size is known a priori.
 
 Integers are C-style signed integers, 32 bit (4 bytes) wide, with the same overflow semantics as in C ( (2<sup>31</sup> -1) + 1 = - 2<sup>31</sup>).
 

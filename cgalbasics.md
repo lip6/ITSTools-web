@@ -25,12 +25,7 @@ A good practice is to give a meaningful name to the system created, particularly
 
 The body of the system name are then placed between a pair of braces.
 
-Here is a declaration of an example GAL system named _emptySystem_.
-
-{% highlight C %}
-{% include_relative galfiles/sample-2.gal %}
-{% endhighlight %}
-
+The [previous section](cgal.md) shows a declaration of an example Composite GAL system named _game_.
 
 ## Instance declarations
 
@@ -39,35 +34,32 @@ The instances manipulated in a Composite can GAL, Composite, or arrays of these.
 There are no variables besides the instances in a Composite. 
 
 There are no dynamic allocation or variable length structures such as lists.
-To model these using an array is possible if an upper bound on its size is known a priori.
+To model these using an array is only possible if an upper bound on its size is known a priori.
 
-
-In this section, we describe how instance of a compposite GAL are declared.
+In this section, we describe how instance of a composite GAL are declared.
 
 ### Instance  variables
 
-Plain integer variables are introduced with the keyword <span class="galElement">int</span> followed by the variable name starting with a letter. 
-The variable name may contain alphanumeric characters as well as the "." character (which may help trace structs from of your source language if you are using GAL as a transformation target).
+Plain instance variables are introduced with their **type** followed by the instance name starting with a letter. 
+The instance name must be a C-style identifier.
 
-The name must be unique, and cannot be reused for another variable. 
+The name must be unique within the scope of the composite definition, and cannot be reused for another instance within the same type. 
 
-Each variable can be initialized, this is done using the "=" symbol followed by the initial value of this variable.
-The default initial value for integer variables is **0**.
- 
-The initial value can be expressed using an integer expression built of constants and/or type parameters, but it cannot refer to other variables. 
-The declaration ends with a semicolon.
+Each instance can optionally be initialized, as described in the [section on parameters](pgal.md).
+Otherwise it has as initial state the initial defined by its type.
 
-Below is an example of a system with two GAL variable declarations :
+This example of a composite __game__ contains two instances :
 
 {% highlight C %}
-{% include_relative galfiles/sample-3.gal %}
+{% include_relative galfiles/sample-9.gal %}
 {% endhighlight %}
 
 ### Array declarations
 
-An array declaration allows to declare a fixed size array of integers. 
-Like simple integer variables, each entry in the array needs to be initialized.
+An array declaration allows to declare a fixed size array of instances. 
+All instances must have the same type.
 
+Like simple integer variables, each entry in the array needs to be initialized.
 A GAL array variable is declared using the keyword <span class="galElement">array</span> followed by the array size N within square brackets, then the array name. 
 
 Each cell of the array needs to be initialized, to this end, a list of N comma separated integers surrounded by parenthesis (or integer expressions of constants and/or type parameters) should be provided. 
