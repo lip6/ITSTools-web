@@ -3,7 +3,7 @@ title: Composite Type
 keywords: gal composite
 tags: [gal]
 sidebar: home_sidebar
-permalink: pgal.html
+permalink: cgal.html
 summary: Syntax of Composite in GAL.
 ---
 
