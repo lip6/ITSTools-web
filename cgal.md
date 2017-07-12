@@ -27,7 +27,7 @@ A composite contains __instances__ that are __synchronized__ using labels.
 There are no variables in a composite, only instances ; the state of a composite assigns a state to each of the nested instances.
 
 The composite progresses by firing __synchronizations__ that are similar to GAL __transitions__ except they can only
-feature __call__ statements.
+contain __call__ statements (no assignments).
 
 This communication model inspired by CCS/CSP and Arnold-Nivat style synchronization vectors offers pure __event-based__ communication
 over a finite set of labels.   
@@ -47,7 +47,7 @@ Here is an example of a Composite :
 {% include_relative galfiles/sample-9.gal %}
 {% endhighlight %}
 
-This small example instantiates two GAL type declarations as player one _p1_ and player two _p2_.
+This small example instantiates two GAL type declarations **Ping** and **Pong** as player one _p1_ and player two _p2_.
 _p1_ has the ball initially; the initial state of the _game_ (which is the **main** instance) is thus
 __p1:ball=1; p2:ball=0__. 
 
