@@ -25,7 +25,7 @@ topnav_dropdowns:
     - title: Documentation and Help
       folderitems:
         - title: GAL syntax
-          url: /its/gal
+          url: /gal
         - title: Property Syntax
           url: /properties
         - title: Bibliography and Related Papers
