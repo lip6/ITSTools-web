@@ -154,7 +154,7 @@ Terminal integer expressions are simply :
 * a reference the cell of an array **tab[index]**, 
 * or a reference to a parameter **$param** 
 
-When accessing a cell of an array tab[index], the index expression is inductively an arbitrarily complex integer expression.
+When accessing a cell of an array **tab[index]**, the **index** expression is inductively an arbitrarily complex integer expression.
 
 #### Wrapper of boolean expressions
 
