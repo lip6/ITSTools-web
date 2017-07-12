@@ -1,7 +1,7 @@
 ---
 title: Time Petri nets
 sidebar: home_sidebar
-permalink: index.html
+permalink: tpn.html
 summary:  Using ITS modeler to design and analyze systems using discrete Time Petri nets.
 ---
 
