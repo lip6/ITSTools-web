@@ -78,6 +78,96 @@ Here is an example of a system with a declaration of an array:
 {% include_relative galfiles/sample-4.gal %}
 {% endhighlight %}
 
+## Expressions
+
+GAL expressions can be either integer expressions or Boolean expressions, depending on the context. 
+We give here the syntax of these expressions, which is mostly directly taken from C (or Java). 
+
+Usual priorities between operators are observed (e.g. Boolean AND stronger than OR, integer multiplication stronger than addition). 
+If in doubt, parenthesis can be used to force an evaluation order.
+
+### Boolean expressions
+
+Boolean expressions are allowed in guards of transitions. It is also possible to write arithmetic expressions, with boolean appearance (as in C), which will be worth 1 or 0 depending on whether they are true or false (see Wrapper)
+
+The basic expressions are **true** and **false**.
+
+The usual boolean operators are present in GAL,
+
+| Operation | Operator | 
+| Conjunction (OR) | &#124;&#124; | 
+| Disjunction (AND) | && |  
+| Negation (NOT) | ! |  
+
+Basic Boolean expressions can be any kind of comparison of two integer expressions using one of the comparison operators :
+
+| Operation | Operator |
+| Greater than | > |
+| Lesser than | < |
+| Greater or equal | >= |
+| Lesser or equal | <= |
+| Equals | == |
+| Not equal | != |
+
+
+
+### Integer expressions
+
+#### Binary Operators
+
+The standard linear integer arithmetic operators are provided.
+Division is integer division.
+
+| Operation | Operator | Example | Result |
+| Addition | + | 3 + 2 | 5 |
+| Subtraction | - | 3 - 2 | 1 |
+| Modulo | % | 7 % 2 | 1 |
+| Division | / | 7 / 2 | 3 |
+
+We also provide multiplications useful in some contexts
+
+| Operation | Operator | Example | Result |
+| Multiplication | * | 3 * 2 | 6 |
+| Power | ** | 2 ** 3 | 8 |
+
+Finally, we offer bitwise manipulation operators :
+
+| Operation | Operator | Example | Result |
+| bitwise OR | &#124; | 2 &#124; 3 | 3 | 
+| bitwise AND | & | 2 & 3 | 2 |
+| bitwise XOR | ^ | 2 ^ 3 | 1 |
+| Left shift | &lt;&lt; | 1 << 3 | 8 |
+| Right shift | &gt;&gt; | 7 >> 2 | 1 |
+
+#### Unary operators
+
+Standard prefix unary operators are provided :
+
+| Operation | Operator | 
+| Unary minus | - | 
+| Bitwise complement | ~ |  
+
+#### Terminal expressions
+
+Terminal integer expressions are simply : 
+* a reference to plain integer variables, **var** 
+* a reference the cell of an array **tab[index]**, 
+* or a reference to a parameter **$param** 
+
+When accessing a cell of an array tab[index], the index expression is inductively an arbitrarily complex integer expression.
+
+#### Wrapper of boolean expressions
+
+Boolean expressions can be raised to integer expressions with the interpretation **1** for _true_ and **0** for _false_,
+ by surrounding the Boolean expression with parenthesis. 
+ 
+This encapsulation of Boolean expressions as integers enables many (programming/modeling) tricks commonly encountered in C.
+
+Note that the reverse is not possible, in particular, assignments cannot be nested within Boolean conditions, they do not return a value like in C. 
+Hence all Boolean expressions are by construction side-effect free.
+
+`Example : myVariable = (a == 0) * 100 ;_//myVariable is 100 or 0_`
+
 
 ## Transitions
 
@@ -95,101 +185,37 @@ This example system contains two transitions of which one is labeled :
 {% include_relative galfiles/sample-6.gal %}
 {% endhighlight %}
 
+### Statements
 
-## Expressions
+Statements are operations that generally update the state of the system variables. 
 
-GAL expressions can be either integer expressions or Boolean expressions, depending on the context. 
-We give here the syntax of these expressions, which is mostly directly taken from C (or Java). 
+The most common type of statement is the assignment of an integer expression on system variables to a system variable. 
 
-Usual priorities between operators are observed (e.g. Boolean AND stronger than OR, integer multiplication stronger than addition). 
-If in doubt, parenthesis can be used to force an evaluation order.
-
-### Integer expressions
-
-#### Binary Operators
-
-The standard linear integer arithmetic operators are provided.
-Division is integer division.
-
-| Operation | Operator | Example | Result |
-| Addition | + | 3 + 2 | 5 |
-| Subtraction | - | 3 - 2 | 1 |
-| Modulo | % | 7 % 2 | 1 |
-| Division | / | 7 / 2 | 3 |
-
-We also provide multiplications useful in some contexts
-
-| Operation | Operator |
-| Multiplication | * |
-| Power | ** |
-
-Finally, we offer bitwise manipulation operators :
-
-| Operation | Operator |
-| bitwise OR | &#124; |
-| bitwise AND | & |
-| bitwise XOR | ^ |
-| Left shift | &lt;&lt; |
-| Right shift | &gt;&gt; |
-
-#### Unary operators
-
-Standard prefix unary operators are provided :
-
-| Operation | Operator |
-| Unary minus | - |
-| Bitwise complement | ~ |
-
-#### Terminal expressions
-
-Terminal integer expressions are simply : 
-* a reference to plain integer variables, **var** 
-* a reference the cell of an array **tab[index]**, 
-* or a reference to a parameter **$param** 
-
-When accessing a cell of an array tab[index], the index expression is itself an arbitrarily complex integer expression.
-
-### Boolean expressions
-
-Boolean expressions are allowed in guards of transitions. It is also possible to write arithmetic expressions, with boolean appearance (as in C), which will be worth 1 or 0 depending on whether they are true or false (see Wrapper)
-
-The basic expressions are <span class="galElement">true</span> for « true » and <span class="galElement">false</span> for « false ».
-
-The usual boolean operators are present in GAL, such as OR (noted || ), AND (noted && ) and NOT( noted ! ).
-
-Basic Boolean expressions can be any kind of comparison of two integer expressions.
-
-| Operation | Operator |
-| Greater than | > |
-| Lesser than | < |
-| Greater or equal | >= |
-| Lesser or equal | <= |
-| Equals | == |
-| Not equal | != |
-
-#### <a name="wrapper"></a>c) Wrapper of boolean expressions
-
-Boolean expressions can be raised to integer expressions with the interpretation 1 for true and 0 for false, by surrounding the Boolean expression with parenthesis. This encapsulation of Boolean expressions as integers enables many (programming/modeling) tricks commonly encountered in C.
-
-Note that the reverse is not possible, in particular, assignments cannot be nested within Boolean conditions, they do not return a value like in C. Hence all Boolean expressions are by construction side-effect free.
-
-`Example : myVariable = (a == 0) * 100 ;_//myVariable is 100 or 0_`
-
-### <a name="action"></a>3.7 Statements
-
-Statements are operations that generally update the state of the system variables. The most common type of statement is the assignment of an integer expression on system variables to a system variable. Other statements include the call to a label, if-then-else conditional expressions, the abort instruction...
+Other statements include the call to a label, if-then-else conditional expressions, the abort instruction...
 
 #### <a name="assign"></a>a) Assignments
 
-Assignments are composed of a left-hand side (lhs), that must be a reference to a variable or to the cell of an array, and a right-hand side (rhs) that is an integer expression. When the lhs is a reference to an array, the target index within the array can be expressed using an arbitrarily complex integer expression.
+Assignments are composed of a left-hand side (lhs), that must be a reference to a variable or to the cell of an array, and a right-hand side (rhs) that is an integer expression. 
+
+When the lhs is a reference to an array, the target index within the array can be expressed using an arbitrarily complex integer expression.
 
 #### <a name="call"></a>b) Call action
 
-The call action allows to call a label of the current GAL system, i.e. non-deterministically choose any of the enabled transitions that bear this label, and execute its actions. This powerful mechanism allows to model much more concisely when the transition relation carries non-determinism.
+The call action allows to call a label of the current GAL system, i.e. non-deterministically choose any of the enabled transitions that bear this label, and execute its actions. 
 
-For instance, a transition that non deterministically assigns a value between 0 and N to two variables X and Y can be represented as containing two calls to labels "assignX" and "assignY". We can then build N transitions tX0, tX1... (resp. tY0, tY1...) bearing label "assignX" (resp. "assignY"), each of them with a [true] guard and a single assignment of a value to the designated variable. We thus accurately represent the transition relation with 2N+1 transitions rather than N^2 transitions.
+This powerful mechanism allows to model much more concisely when the transition relation carries non-determinism.
 
-Calls can also be used to simulate some control structures. For instance, If-Then-Else(cond, actif, actelse) can be simulated by two transitions bearing label "ite", with guards cond and not cond respectively, and body actif and actelse respectively. Calling label "ite" in a transition body is like executing an if-then-else block. Note that the whole ITS semantics is defined using sets, i.e. the successor relation returns a set of successors. Hence if no labeled action is enabled in some states at the point of call, no successors are produced, canceling the effect of the calling the enclosing transition for the concerned states, like an abort action.
+For instance, a transition that non deterministically assigns a value between 0 and N to two variables X and Y can be represented as containing two calls to labels "assignX" and "assignY". 
+We can then build N transitions tX0, tX1... (resp. tY0, tY1...) bearing label "assignX" (resp. "assignY"), each of them with a [true] guard and a single assignment of a value to the designated variable. 
+We thus accurately represent the transition relation with **2N+1** transitions rather than **N^2** transitions.
+
+Calls can also be used to simulate some control structures. 
+For instance, If-Then-Else(cond, actif, actelse) can be simulated by two transitions bearing label "ite", with guards cond and not cond respectively, and body actif and actelse respectively. 
+
+Calling label "ite" in a transition body is like executing an if-then-else block. 
+
+Note that the whole ITS semantics is defined using sets, i.e. the successor relation returns a set of successors. 
+Hence if no labeled action is enabled in some states at the point of call, no successors are produced, canceling the effect of the calling the enclosing transition for the concerned states, like an abort action.
 
 Syntactically, a call is introduced by the keyword <span class="galElement">self</span>, followed by a column '.', followed by a label between double quotes.
 
