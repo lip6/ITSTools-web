@@ -30,7 +30,7 @@ entries:
       url: /cgal.html
       output: web  
     - title: Composite Basics
-      url: /cgal.html
+      url: /cgalbasics.html
       output: web  
     - title: Property Syntax
       url: /properties.html
