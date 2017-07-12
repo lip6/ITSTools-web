@@ -1,42 +1,24 @@
 ---
-title: Homepage of ITS-tools
+title: Time Petri nets
+sidebar: home_sidebar
+permalink: index.html
+summary:  Using ITS modeler to design and analyze systems using discrete Time Petri nets.
 ---
-Working with Time Petri Nets
-============================
 
-
-        <h2>What is ITS modeler</h2>
-        <p><span style="font-weight: bold">ITS modeler</span> is a set of Eclipse plugins, offering access to ITS-tools in a convenient manner for end-users.</p>
-        <p>Main features include:</p>
-        <ul>
-          <li>Guarded Action Language support : rich editor, code completions,...</li>
-          <li>One click install from update site</li>
-          <li>Embedded ITS-tools binary distribution, for most platforms. Reachability and CTL can be invoked from Eclipse.</li> 
-          <li>Graphical modeling support for Petri net variants, using components of [Coloane](http://coloane.lip6.fr).</li>
-          <li>Import/Export to Romeo and Tina formats for Time Petri Nets (discrete time assumptions)</li>
-          <li>Uppaal XTA format editor and translation to GAL, supporting analysis of Timed automata (discrete time).</li>
-          <li>Divine DVE format editor and translation to GAL, supporting analysis of DVE models. </li>
-          <li>Spin Promela format editor and translation to GAL, supporting analysis of Promela models. </li>
-          <li>Analysis and rewriting of GAL specifications : static simplifications, variable domain analysis, control flow analyis, parameter analysis...</li>
-        </ul>
-        <p>The ITS modeling front-end tools are distributed under the terms of [EPL](http://www.eclipse.org/org/documents/epl-v10.md).</p>
-        <p>&nbsp;</p>
-
-# Using ITS modeler to design and analyze systems using discrete Time Petri nets.
+# Working with Time Petri Nets
 
 The ITS Modeler front-end for its-tools can be used to analyze Time Petri nets, and some effort has been invested in providing a user-friendly GUI and compatibility with the major TPN tools [Tina](http://projects.laas.fr/tina/) and [Romeo](http://romeo.rts-software.org/). ITS tools and the graphical front-end are available for all major platforms (Windows, MacOS X, linux).
 
-<a name="toc"></a>
+## Install
 
-## <a name="sec:Install"></a>I. Install
+Please follow [these guidelines](eclipsestart.md) to install ITS modeler.
 
-Please follow [these guidelines](itstools.md#sec:modinst) to install ITS modeler.
+A set of examples is provided embedded in the distribution. 
+After install, use "New->Example...->Coloane Example->" and select any of the examples with a small clock designating Time Petri nets.
 
-A set of examples is provided embedded in the distribution. After install, use "New->Example...->Coloane Example->" and select any of the examples with a small clock designating Time Petri nets.
+## Using the Time Petri net editor
 
-## <a name="sec:TPNeditor"></a>II. Using the Time Petri net editor
-
-### <a name="ssec:modelTPN"></a>1\. Modeling with Discrete Labeled TPN
+### Modeling with Discrete Labeled TPN
 
 Create an empty project: "File->new Project->Coloane->Modeling Project", Next, give a name, finish.
 
@@ -82,9 +64,9 @@ Beware of timed transitions which are also declared "Public". The clock is local
 
 <div class="toplink" align="right">[Start of page ![](images/up.gif)](#toc)</div>
 
-### <a name="ssec:confplugin"></a>2\. Integer expressions
+### Integer expressions
 
-#### <a name="ssc:vars"></a>a) Using variables
+#### Using variables
 
 The tool supports the use of variables and expressions in the annotations of the net. This allows a parametric definition of a net, the parameters are then fixed separately prior to a given verification run. Variables are introduced by using the $ sign, e.g. $a for a variable "a". Variables have the scope of the whole net, so if you use the same variable in various expressions you get only one parameter.
 
@@ -96,7 +78,7 @@ This controller from the Train crossing example (Get it in eclipse through : "Fi
 
 In this example, the initial marking of "far" is $N, and tokens will move from "far" to "near" and back again. The transition "EnterFirst" can only be fired if all $N tokens are in "far", and it then puts one token in "near" and puts all the "$N-1" other tokens back in place "far". A contrario, "Enter" can only fire if there is at least a token in "near", so the two transitions are enabled in a complementary fashion.
 
-#### <a name="ssc:varval"></a>b) Defining parameter values
+#### Defining parameter values
 
 The values of these parameters are set up separately, and are fixed throughout a run, so this mechanism is close to macro substitution. To setup the parameter values, you need to create a new ITS referential that wraps the TPN into ITS. Use "File->New->Other->Coloane->ITS Composition model" and give it a name.
 
@@ -114,7 +96,7 @@ If you select the newly imported model, you will see it has children which are t
 
 <div class="toplink" align="right">[Start of page ![](images/up.gif)](#toc)</div>
 
-### <a name="ssec:iotpn"></a>3\. Model Exchange (Tina, Romeo)
+### Model Exchange (Tina, Romeo)
 
 Supporting model exchange across tools is important and useful, especially since Romeo and Tina use different techniques from each other and from ITS tools to perform analysis. We support import and export of [Tina](http://projects.laas.fr/tina/) and [Romeo](http://romeo.rts-software.org/) models of TPN.
 
@@ -135,5 +117,3 @@ Both Tina and Romeo use dense time semantics, while ITS tools use discrete time.
 Naming of places and transitions is also an issue, because place and trnasition names are not necessarily unique, but they serve as identifiers for Tina. Hence the exported names will have a prefix with a unique integer identifier. Useful features of both Tina and Romeo include interactive simulation, that helps debug models. Note that on most OS, if Tina and/or Romeo are installed and appropriate file extension associations have been declared, exported models can be opened by those tools directly from Eclipse by double-clicking on them in the explorer on the left. A richt-click on the file "Open with..." can also allow this behavior.
 
 If your purpose is to export ITS models (i.e. with Composite, Scalar or Circular types described [here](composite.md))to Tina or Romeo, you can in most cases flatten them. The "Flatten Model" action (described above) will recursively descend into composite definitions to build a single Petri net. This TPN can then be exported with "right-click...Export->Coloane->...".
-
-<div class="toplink" align="right">[Start of page ![](images/up.gif)](#toc)</div>
