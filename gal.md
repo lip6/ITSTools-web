@@ -1,4 +1,12 @@
-<script type="text/javascript" src="js/syntaxhighlighter.js"></script>
+---
+title: Guarded Action Language
+keywords: gal
+tags: [gal]
+sidebar: home_sidebar
+permalink: gal.html
+summary: Syntax of GAL.
+---
+
 
 # GAL : Guarded Action Language
 
@@ -25,15 +33,6 @@ This page presents the concrete syntax of GAL, please read [this document](./fil
 ### <a name="what-is-gal"></a>2.1 An example GAL system
 
 Here is an example of a system written in GAL:
-
-<pre class='brush: gal;' >
-{% include_relative galfiles/sample-1.gal %}
-</pre>
-
-<script type="text/syntaxhighlighter" class="brush: gal"><![CDATA[
-{% include_relative galfiles/sample-1.gal %}
-]]></script>
-
 
 {% highlight C %}
 {% include_relative galfiles/sample-1.gal %}
@@ -278,7 +277,7 @@ The semantics of GAL (based on ITS definitions) allow a statement to return a se
 
 The abort statement is mainly used to model transition relations where Boolean conditions with side effects need to be represented. It allows to have a transition with a guard, a few statements then typically an if-then-else or a variant using a call, of which some branches may encounter abort and cancel the transition effect for this branch.
 
-The following example shows a use of abort to model the transition relation of a Time Petri net with two places a and b, and a transition t that moves tokens from a to b, with earliest firing time $eft and latest firing time $lft. Time cannot elapse if an enabled transition has reached its latest firing time, but this test is complex, particularly when there are many transitions. Use of abort allows to concisely represent the semantics.
+The following example shows a use of abort to model the transition relation of a Time Petri net with two places a and b, and a transition t that moves tokens from a to b, with earliest firing time _eft_ and latest firing time _lft_. Time cannot elapse if an enabled transition has reached its latest firing time, but this test is complex, particularly when there are many transitions. Use of abort allows to concisely represent the semantics.
 
 {% highlight C %}
 {% include_relative galfiles/abort.gal %}
@@ -290,7 +289,7 @@ The fixpoint action allows to apply a given sequence of statements until converg
 
 The fixpoint statement is a powerfult tool to create abstractions of a state-space while preserving some target properties. The effects can be similar to the transient predicate, of which it is a kind of dual since Transient is expressed over states rather than over statements. It can be used to accelerate over "uninteresting" states for instance.
 
-The following example shows use of a fixpoint to model the transition relation of a Time Petri net with two places a and b, and a transition t that moves tokens from a to b, with earliest firing time $eft and latest firing time $lft. In this version of the example, we wish to use as successor relation : from a source state s, find all states that can be reached from s by letting time elapse, then fire any enabled discrete transition of the TPN from these states. This abstraction originally proposed by Popova is called "essential states" and preserves marking reachability and branching time temporal properties. It is based on the fact that a transition cannot be disabled in a TPN by letting time elapse.
+The following example shows use of a fixpoint to model the transition relation of a Time Petri net with two places a and b, and a transition t that moves tokens from a to b, with earliest firing time _eft_ and latest firing time _lft_. In this version of the example, we wish to use as successor relation : from a source state s, find all states that can be reached from s by letting time elapse, then fire any enabled discrete transition of the TPN from these states. This abstraction originally proposed by Popova is called "essential states" and preserves marking reachability and branching time temporal properties. It is based on the fact that a transition cannot be disabled in a TPN by letting time elapse.
 
 The example implements a least fixpoint using elapse. The transition "id" allows to keep currently reached states in the fixpoint. if it were removed, the transition relation would become : from a source state s, let time elapse as much as possible, then fire any enabled discrete transition of the TPN from this state. This definition of the transition relation would not preserve many properties of the original system. If we had other transitions in the system, they would all bear label "succ". This example system has only two states : the initial one (a=1,b=0,clock=0) and the state just after firing t (a=0,b=1,t=0).
 
@@ -326,7 +325,7 @@ On-the-fly syntax and some semantic validation are also proposed. Errors are rai
 
 The outline view provides an abstract overview of the GAL system.
 
-The formatter allows to indent and otherwise edit whitespaces to make the input look nicer. It can be accessed through a right-click->format, or with the key combination Ctrl-Shift-F.
+The formatter allows to indent and otherwise edit whitespace to make the input look nicer. It can be accessed through a right-click->format, or with the key combination Ctrl-Shift-F.
 
 Templates are proposed to build a new system or transition, accessed through ctrl-space. Some quick-fix actions are also defined to correct name conflicts for instance.
 
@@ -338,7 +337,7 @@ When the GAL plugin is deployed, a right click on a folder or file will offer th
 
 Because the ITS-tools are currently unaware of system or transition parameters, these need to be instantiated before invoking the model-checking procedure. Such a process is a GAL transformation.
 
-The Gal transformation menu currently contains four entries :
+The GAL transformation menu currently contains four entries :
 
 ![](images/rewritemenu.png)
 
@@ -352,8 +351,9 @@ The Gal transformation menu currently contains four entries :
 Parameter instantiation consists in applying the following steps, in this order:
 
 1.  All type level parameters (symbolic constants) are replaced by their value in all expressions.
-2.  "For" loops are unrolled, i.e. the statement is replaced by n occurrences of the body statement, where the loop variable is replaced by its value in each of these occurences. The unrolling of loops is done first on nested statements.
-3.  Transition parameters are then instantiated. Each transition that has parameters can produce several transitions. Suppose transition has parameters $p1,..$pk in domains D1,..DK (see typedef keyword). We first instantiate $p1 giving |D1| transitions, in which $p1 is substituted by one of the values in D1\. More precisely, any occurrence of $p1 is replaced by its numeric value, in the guard, label, and in the transition body (where the parameter $p1 may occur in calls to a label). Each occurrence of the transition has a new name allowing traceability. On the fly, the guard of the newly created transitions is simplified, and no transition is produced if it happens to be false. This can skip construction of many transitions in some examples. Because we do this iteratively and test after each parameter instantitation if the transition is false, the number of "skipped transitions" reported in the verbose trace can thus be smaller than the difference between the cartesian product of domain sizes and the number of transitions actually produced.
+2.  "For" loops are unrolled, i.e. the statement is replaced by n occurrences of the body statement, where the loop variable is replaced by its value in each of these occurrences. The unrolling of loops is done first on nested statements.
+3.  Transition parameters are then instantiated. Each transition that has parameters can produce several transitions. Suppose transition has parameters $p1,..$pk in domains D1,..DK (see typedef keyword). 
+We first instantiate $p1 giving |D1| transitions, in which $p1 is substituted by one of the values in D1\. More precisely, any occurrence of $p1 is replaced by its numeric value, in the guard, label, and in the transition body (where the parameter $p1 may occur in calls to a label). Each occurrence of the transition has a new name allowing traceability. On the fly, the guard of the newly created transitions is simplified, and no transition is produced if it happens to be false. This can skip construction of many transitions in some examples. Because we do this iteratively and test after each parameter instantiation if the transition is false, the number of "skipped transitions" reported in the verbose trace can thus be smaller than the difference between the Cartesian product of domain sizes and the number of transitions actually produced.
 
 We then apply simplifications, currently we do the following rather trivial simplifications:
 
@@ -370,7 +370,7 @@ We then apply simplifications, currently we do the following rather trivial simp
 
 Parameter separation consists in rewriting conjunction of choices (as expressed by transitions with several parameters) to sequence of choices where possible.
 
-Degeneralizing parametric transitions that bear a large number of parameters can produce very large GAL specifications. In general, degeneralization produces as many transitions as the size of the cartesian product of the domains of the formal parameters. But in many case, the full combinatorial unfolding can be avoided, allowing a compact transition representation while preserving semantics.
+De-generalizing parametric transitions that bear a large number of parameters can produce very large GAL specifications. In general, degeneralization produces as many transitions as the size of the cartesian product of the domains of the formal parameters. But in many case, the full combinatorial unfolding can be avoided, allowing a compact transition representation while preserving semantics.
 
 A transition has two independent parameters if it contains no statement that uses both parameters. Such a transition can be split into two labelled sub-transitions, one for each parameter, the semantics being preserved by calling the labels of these two sub-transitions. Statements are moved to the appropriate sub-transitions depending on the parameter they rely on. We thus obtain three transitions: the modified original one, that calls the sub-transitions and has no more parameter, and the sub-transitions, each of which has a single parameter. If the domain sizes of both parameters are called $r_1$ and $r_2$, we obtain after the instantiation of the parameters $r_1 + r_2 + 1$ transitions instead of $r1 \times r_2$. Thanks to the sequence and call statements, the semantics is preserved.
 
@@ -416,7 +416,7 @@ We further automatically identify and tag variables that could benefit from one-
 
 The main difficulty to keep good locality properties is the reset of the current $1$-bit to $0$. If the position of the $1$-bit is unknown, all the bits must be tested, which should incur a strong synchronization between all the bits of the encoding. This issue can fortunately be avoided by the use of labelled transitions (one per bit) that are called from the resetting transition.
 
-Such a variable, or array, is prefixed by the \emph{hotbit(range)} keyword. This example shows a simple hotbit variable.
+Such a variable, or array, is prefixed by the _hotbit(range)_ keyword. This example shows a simple hotbit variable.
 
 {% highlight C %}
 {% include_relative galfiles/hotbit.gal %}
@@ -445,11 +445,11 @@ For each unique $i$ index expression found,
 
 ## <a name="credits"></a>Acknowledgements
 
-The GAL editor plugin was initially developed as part of the M1 student project and subsequent internship of KOUADIO Yao Louis Stephane Armel, SELLOU Hakim and ABKA Faycal, made in the MoVe team (Modeling and Verification) of Laboratory of Computer Science at the University Pierre et Marie Curie (LIP6), in the year 2012, under the supervision of Yann Thierry-Mieg. The aim of the internship was to implement an Eclipse plugin that allows editing of GAL files. This plugin harnesses all the power of Eclipse, including auto-completion, or quick-fix.
+The GAL editor plug-in was initially developed as part of the M1 student project and subsequent internship of KOUADIO Yao Louis Stephane Armel, SELLOU Hakim and ABKA Faycal, made in the MoVe team (Modeling and Verification) of Laboratory of Computer Science at the University Pierre et Marie Curie (LIP6), in the year 2012, under the supervision of Yann Thierry-Mieg. The aim of the internship was to implement an Eclipse plugin that allows editing of GAL files. This plugin harnesses all the power of Eclipse, including auto-completion, or quick-fix.
 
-To achieve the goals, we used Eclipse and Xtext ([http://www.eclipse.org/Xtext/](http://www.eclipse.org/Xtext/)), an Eclipse plugin that allows you to define grammars for languages dedicated to a specific domain (**D**omain **S**pecific **L**anguage) in all its aspects, and this in a comprehensive manner.
+To achieve the goals, we used Eclipse and Xtext ([http://www.eclipse.org/Xtext/](http://www.eclipse.org/Xtext/)), an Eclipse plug-in that allows you to define grammars for languages dedicated to a specific domain (**D**omain **S**pecific **L**anguage) in all its aspects, and this in a comprehensive manner.
 
-The GAL plugin was developed using collaborative development tools, such as SVN for version control (public depot available with login/pass "anonymous/anonymous" at [svn co https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL](https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL)), as well as a server for continuous integration ([TeamCity](http://teamcity-systeme.lip6.fr/)).
+The GAL plug-in was developed using collaborative development tools, such as SVN for version control (public depot available with login/pass "anonymous/anonymous" at [svn co https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL](https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL)), as well as a server for continuous integration ([TeamCity](http://teamcity-systeme.lip6.fr/)).
 
-Essentially all developments since 2012 (metamodel updates, enhancements, rewritings...) are the work of Yann Thierry-Mieg.
+Essentially all developments since 2012 (meta-model updates, enhancements, rewritings...) are the work of Yann Thierry-Mieg.
 
