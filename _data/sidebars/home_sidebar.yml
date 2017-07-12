@@ -24,7 +24,7 @@ entries:
       url: /gal.html
       output: web
     - title: GAL Basics
-      url: /gal_basics.html
+      url: /galbasics.html
       output: web
     - title: Composite Basics
       url: /cgal.html
@@ -36,7 +36,7 @@ entries:
       url: /pgal.html
       output: web
     - title: GAL Advanced
-      url: /gal_advanced.html
+      url: /galadvanced.html
       output: web
     - title: GAL Metamodel
       url : /galmm.html
