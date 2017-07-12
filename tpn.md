@@ -64,9 +64,9 @@ Beware of timed transitions which are also declared "Public". The clock is local
 
 <div class="toplink" align="right">[Start of page ![](images/up.gif)](#toc)</div>
 
-### Integer expressions
+## Integer expressions
 
-#### Using variables
+### Using variables
 
 The tool supports the use of variables and expressions in the annotations of the net. This allows a parametric definition of a net, the parameters are then fixed separately prior to a given verification run. Variables are introduced by using the $ sign, e.g. $a for a variable "a". Variables have the scope of the whole net, so if you use the same variable in various expressions you get only one parameter.
 
@@ -78,7 +78,7 @@ This controller from the Train crossing example (Get it in eclipse through : "Fi
 
 In this example, the initial marking of "far" is $N, and tokens will move from "far" to "near" and back again. The transition "EnterFirst" can only be fired if all $N tokens are in "far", and it then puts one token in "near" and puts all the "$N-1" other tokens back in place "far". A contrario, "Enter" can only fire if there is at least a token in "near", so the two transitions are enabled in a complementary fashion.
 
-#### Defining parameter values
+### Defining parameter values
 
 The values of these parameters are set up separately, and are fixed throughout a run, so this mechanism is close to macro substitution. To setup the parameter values, you need to create a new ITS referential that wraps the TPN into ITS. Use "File->New->Other->Coloane->ITS Composition model" and give it a name.
 
@@ -96,7 +96,7 @@ If you select the newly imported model, you will see it has children which are t
 
 <div class="toplink" align="right">[Start of page ![](images/up.gif)](#toc)</div>
 
-### Model Exchange (Tina, Romeo)
+## Model Exchange (Tina, Romeo)
 
 Supporting model exchange across tools is important and useful, especially since Romeo and Tina use different techniques from each other and from ITS tools to perform analysis. We support import and export of [Tina](http://projects.laas.fr/tina/) and [Romeo](http://romeo.rts-software.org/) models of TPN.
 
