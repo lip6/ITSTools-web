@@ -26,6 +26,9 @@ entries:
     - title: GAL Basics
       url: /galbasics.html
       output: web
+    - title: Introduction to Composite
+      url: /cgal.html
+      output: web  
     - title: Composite Basics
       url: /cgal.html
       output: web  
