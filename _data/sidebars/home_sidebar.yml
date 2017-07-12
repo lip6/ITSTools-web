@@ -20,10 +20,13 @@ entries:
   - title: Guarded Action Language
     output: web
     folderitems:
-    - title: GAL syntax
+    - title: Introduction to GAL
       url: /gal.html
       output: web
-    - title: Composite syntax
+    - title: GAL Basics
+      url: /gal_basics.html
+      output: web
+    - title: Composite Basics
       url: /cgal.html
       output: web  
     - title: Property Syntax
@@ -31,6 +34,9 @@ entries:
       output: web
     - title: Parametric GAL
       url: /pgal.html
+      output: web
+    - title: GAL Advanced
+      url: /gal_advanced.html
       output: web
     - title: GAL Metamodel
       url : /galmm.html
