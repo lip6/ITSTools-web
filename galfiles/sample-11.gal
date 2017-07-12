@@ -1,0 +1,18 @@
+composite game {
+	Ping p1;
+	Pong [3] p2;
+	
+	synchronization servep0  {
+		p1."ping";
+		p2[0]."pong";
+		p2[1]."pong";
+	}
+	synchronization servep3 label "paf" {
+		p1."ping";
+		p2[2]."pong";
+	}	
+}
+
+main game ;
+
+property end [ctl] : AF (p2[0]:ball==1);

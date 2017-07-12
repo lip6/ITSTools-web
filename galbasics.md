@@ -98,8 +98,8 @@ The basic expressions are **true** and **false**.
 The usual boolean operators are present in GAL,
 
 | Operation | Operator | 
-| Conjunction (OR) | &#124;&#124; | 
-| Disjunction (AND) | && |  
+| Disjunction (OR) | &#124;&#124; | 
+| Conjunction (AND) | && |  
 | Negation (NOT) | ! |  
 
 Basic Boolean expressions can be any kind of comparison of two integer expressions using one of the comparison operators :

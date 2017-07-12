@@ -146,4 +146,9 @@ The default initial value for integer variables is **0**.
  
 The initial value can be expressed using an integer expression built of constants and/or type parameters, but it cannot refer to other variables. 
 The declaration ends with a semicolon.
+
+## Synchronization Guard
+
+are enabled by a guard, which is a Boolean expression and If the guard is true in the current state, 
+
  
