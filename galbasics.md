@@ -3,7 +3,7 @@ title: Guarded Action Language Basics
 keywords: gal
 tags: [gal]
 sidebar: home_sidebar
-permalink: gal_concept.html
+permalink: galbasics.html
 summary: GAL Concepts.
 ---
 

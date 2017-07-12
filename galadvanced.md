@@ -1,9 +1,9 @@
 ---
-title: Guarded Action Language
+title: Guarded Action Language Advanced Concepts
 keywords: gal
 tags: [gal]
 sidebar: home_sidebar
-permalink: gal.html
+permalink: galadvanced.html
 summary: Syntax of GAL.
 ---
 
