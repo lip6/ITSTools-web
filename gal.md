@@ -10,9 +10,11 @@ summary: Syntax of GAL.
 
 # GAL : Guarded Action Language
 
-You will find here documentation for the Guarded Action Language, including its syntax and a description of the features of the model-checker built into the ITS modeler front-end.
+You will find here documentation for the Guarded Action Language, including its syntax.
 
-GAL is a language providing a C-like syntax to describe concurrent systems. We provide a feature-rich editor and full CTL and LTL model-checking of GAL using the its-tools.
+GAL is a language providing a C-like syntax to describe concurrent systems. 
+
+We provide a feature-rich editor and full CTL and LTL model-checking of GAL using the ITS-tools.
 
 
 ## <a name="sec:Install"></a>1\. Install
@@ -28,7 +30,7 @@ These [GAL examples](files/gal.zip) translated from the BEEM distribution can he
 
 ## <a name="package-presentation"></a>2\. GAL overview
 
-This page presents the concrete syntax of GAL, please read [this document](./files/gal.pdf) for a more formal overview of GAL semantics and some of their applications.
+This page presents the concrete syntax of GAL, please read [this document](./files/gal.pdf) for a more formal overview of GAL semantics and some of their applications, or my [habilitation thesis](https://pages.lip6.fr/Yann.Thierry-Mieg/hdr-ytm.pdf) for a formal but less technical overview.
 
 ### <a name="what-is-gal"></a>2.1 An example GAL system
 
@@ -38,17 +40,32 @@ Here is an example of a system written in GAL:
 {% include_relative galfiles/sample-1.gal %}
 {% endhighlight %}
 
-This code shows the main elements of the GAL language. A GAL system contains variable declarations and (possibly labeled)transitions that have a guard and an action that is a sequence of assignments.
+This code shows the main syntactic elements of the GAL language, it does not really model anything useful. 
+A GAL system contains variable declarations and (possibly labeled)transitions that have a guard and an action that is a sequence of assignments.
 
-GAL have a simple concurrent semantic, given as a labeled Kripke structure. A state is defined as a valuation of the variables. Any transition whose guard is true in the current state can be fired yielding a (set of) successor(s) obtained by executing each assignment of the transition in sequence. This interleaving semantic is adapted to modeling of concurrent systems. Semantics for interleaving of GAL transitions are similar to semantics of Petri nets. The effect of each transition is atomic, i.e. reachable states are those obtained after each computing all effects of the transition (modulo the transient state definition) that allows to skip some states)
+GAL have a simple concurrent semantic adapted to modeling of concurrent systems. 
+It is given as a labeled Kripke structure where  
+ * A state is defined as a valuation of the variables. 
+ * Any transition whose guard is true in the current state can be fired yielding a (set of) successor(s) obtained by executing each assignment of the transition in sequence. 
+
+The effect of each transition is atomic, i.e. reachable states are those obtained after each computing all effects of the transition.
+Semantics for interleaving of GAL transitions are similar to semantics of Petri nets. 
 
 ### <a name="what-is-gal"></a>2.2 What is GAL ?
 
-GAL is an acronym for **Guarded Action Language,** a modelling language dedicated to the description of data manipulation for formal verification of concurrent systems. Although GAL can be used to directly model systems, it is a quite low-level modeling language, there are no explicit notions of process, struct, channels... However the semantics of these features can be expressed using GAL (although channels will need to have a maximum size), since the language is quite expressive in spite of its simplicity. GAL are meant to be a back-end language for more comfortable notations (Divine, Promela, Petri nets...) adapted to a given domain, or alternatively they can be seen as a high-level front-end to symbolically express transition relations for the ITS-tools symbolic engine.
+GAL is an acronym for **Guarded Action Language,** a modeling language dedicated to the description of data manipulation for formal verification of concurrent systems. 
+Although GAL can be used to directly model systems, it is a quite low-level modeling language, there are no explicit notions of process, struct, channels... 
+However the semantics of these features can be expressed using GAL (although channels will need to have a maximum size), since the language is quite expressive in spite of its simplicity. 
+
+GAL are meant to be a back-end language for more comfortable notations (Divine, Promela, Petri nets...) adapted to a given domain, or alternatively they can be seen as a
+ high-level front-end to symbolically express transition relations for the ITS-tools symbolic engine.
 
 ### <a name="utilite-gal"></a>2.3 What is its purpose ?
 
-GAL is a semantic assembly language suited to formal verification, using symbolic methods (such as Data Decision Diagrams). GAL offer a high level of expressivity (manipulation of integer expressions, integers, etc...) but have simple semantics and an intuitive syntax. GAL are meant to be used as an intermediate language for modeling concurrent systems for verification by model-checking, and can be manipulated symbolically with good efficiency using decision diagrams and more specifically the ITS tools.
+GAL is a semantic assembly language suited to formal verification, using symbolic methods (such as Data Decision Diagrams).
+GAL offer a high level of expressivity (manipulation of integer expressions, integers, etc...) but have simple semantics and an intuitive syntax.
+ 
+GAL are meant to be used as an intermediate language for modeling concurrent systems for verification by model-checking, and can be manipulated symbolically with good efficiency using decision diagrams and more specifically the ITS tools.
 
 The typical use case involves defining a model transformation from your own notation to GAL to obtain a semantic definition of your system. This transformation can be implemented in several ways, but EMF artifacts are provided for GAL so Java/Eclipse users that have a metamodel of their DSL can leverage existing model transformation frameworks such as ATL or Epsilon. Alternatively, since the syntax is not too complex (e.g. not XML based!), a direct model to text translation can produce GAL models relatively easily.
 
