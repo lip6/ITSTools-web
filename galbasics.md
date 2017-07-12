@@ -106,22 +106,35 @@ If in doubt, parenthesis can be used to force an evaluation order.
 
 ### Integer expressions
 
-#### Binary operators
+#### Binary Operators
+
+The standard linear integer arithmetic operators are provided.
+Division is integer division.
+
+| Operation | Operator | Example | Result |
+| Addition | + | 3 + 2 | 5 |
+| Subtraction | - | 3 - 2 | 1 |
+| Modulo | % | 7 % 2 | 1 |
+| Division | / | 7 / 2 | 3 |
+
+We also provide multiplications useful in some contexts
 
 | Operation | Operator |
-| bitwise OR | '|' |
-| bitwise XOR | ^ |
-| bitwise AND | & |
-| Left shift | < < |
-| Right shift | > > |
-| Addition | + |
-| Subtraction | - |
 | Multiplication | * |
-| Modulo | % |
-| Division | / |
 | Power | ** |
 
+Finally, we offer bitwise manipulation operators :
+
+| Operation | Operator |
+| bitwise OR | &#124; |
+| bitwise AND | & |
+| bitwise XOR | ^ |
+| Left shift | &lt;&lt; |
+| Right shift | &gt;&gt; |
+
 #### Unary operators
+
+Standard prefix unary operators are provided :
 
 | Operation | Operator |
 | Unary minus | - |
