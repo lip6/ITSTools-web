@@ -13,11 +13,18 @@ When the specification contains hotbit variables or arrays they are rewritten as
 
 GAL supports the so-called hotbit encoding of variables with finite domain. It consists of an unfolding of the variable into one Boolean variable per value in the domain of the variable. This encoding is recommended for relatively small, and a priori known, domains, as it may increase locality.
 
-It is a known features of BDD and DD in general: the classical binary encoding of a variable with _log(n)_ bits creates strong (and somewhat artificial) dependencies between those bits, strongly hindering locality (think of the carry propagation after an increment). Although it implies more boolean variables, the hotbit encoding with $n$ bits can be much more effective, especially when $n$ is small, and the use of the variable not related of arithmetic. We have identified two main use cases: when an integer variable represents the state of a process, or some kind of process identifier.
+It is a known features of BDD and DD in general: the classical binary encoding of a variable with _log(n)_ 
+bits creates strong (and somewhat artificial) dependencies between those bits, 
+strongly hindering locality (think of the carry propagation after an increment). 
+Although it implies more boolean variables, the hotbit encoding with _n_ bits can be much more effective, especially when _n_ is small,
+ and the use of the variable not related of arithmetic. 
+ 
+We have identified two main use cases: when an integer variable represents the state of a process, or some kind of process identifier.
 
 In the former case, the variable is only assigned constant values. 
 With a hotbit encoding, it means a reset of the current _1_ bit to _0_, and setting to _1_ the bit corresponding to the assigned value. 
-If the process manipulates different sets of variables when in different states, this encoding can strongly increase locality: the bit corresponding to a given state can be put closer to the corresponding set of variables. 
+If the process manipulates different sets of variables when in different states, this encoding can strongly increase locality: 
+the bit corresponding to a given state can be put closer to the corresponding set of variables. 
 This can yield much more compact DD encodings in some cases. 
 
 This participated in the success story of DD applied to Petri nets, since the hotbit encoding is the natural candidate for markings of safe Petri nets.
