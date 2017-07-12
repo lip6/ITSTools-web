@@ -1,5 +1,5 @@
 ---
-title: Getting Started with ITS-tools
+title: Installing ITS-tools
 keywords: download
 tags: [getting_started]
 sidebar: home_sidebar
@@ -88,7 +88,7 @@ Your preference screen should look like this :
 
 ### Profiler
 
-<img src="https://www.ej-technologies.com/images/product_banners/jprofiler_large.png" height="50" />
+<img src="images/jprofiler.png" height="50" />
 
 * [JProfiler](https://www.ej-technologies.com/products/jprofiler/overview.html) helps us track down and remove performance bottlenecks in our Java code. 
 With ergonomic access to "allocation hot spot" and "call hot spot", easy attach to running JVM, custom filtering, this tool has all you need to professionally optimize code. 
@@ -96,7 +96,7 @@ With their open-source friendly license policy, they helped us gain orders of ma
 
 ### Continous Integration
 
-<img src="https://cdn.travis-ci.com/images/logos/TravisCI-Full-Color-45e242791b7752b745a7ae53f265acd4.png" height="50" />
+<img src="images/travisCI.png" height="50" />
 * We are grateful to [travis-ci](https://travis-ci.org/) for their open-source project support policy, that allows us to use their public
 continuous integration technology in the cloud to build Java/Maven, Linux and OSX artifacts.
 
@@ -104,6 +104,6 @@ continuous integration technology in the cloud to build Java/Maven, Linux and OS
 * We are grateful to [AppVeyor](https://www.appveyor.com/) for their open-source project support policy, that allows us to use their public
 continuous integration technology to build and distribute Windows targets.
 
-<img src="images/logo_teamcity.jpg" height="50" />
+<img src="images/logo_teamcity.png" height="50" />
 * We are still grateful to [JetBrains](http://www.jetbrains.com) and their open-source project support policy, that allowed us to use their excellent
 continuous integration server technology [TeamCity](http://www.jetbrains.com/teamcity/) from 2008 to 2016. 
