@@ -1,0 +1,29 @@
+gal Ping { 
+	int ball = 1 ;	
+
+	transition ping [ball==1] label "ping" {
+		ball=0;
+	}
+}
+
+gal Pong { 
+	int ball = 0 ;	
+
+	transition pong [ball==0] label "pong" {
+		ball = 1;
+	}
+}
+
+composite game {
+	Ping p1;
+	Pong p2;
+	
+	synchronization servep1 {
+		p1."ping";
+		p2."pong";
+	}
+}
+
+main game ;
+
+property end [ctl] : AF (p2:ball==1);
