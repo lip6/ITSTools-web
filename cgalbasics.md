@@ -136,7 +136,7 @@ The __self__ call statement introduces non-determinism in the execution by offer
 Using the __self__ call and labeled synchronizations helps reuse semantic bricks
 as well as compose non-deterministic choices along a path in a compact way. 
 
-Other basic statements include an **if-then-else** control structure, and an **abort* instruction.
+Other basic statements include an **if-then-else** control structure, and an **abort** instruction.
 Other statements such as limited **for-loop** control structure are provided (see [parametric GAL](pgal.md)). 
 These statements are limited to usage with parameters in Composite type definitions (and are very useful in conjunction with arrays of instances).
 

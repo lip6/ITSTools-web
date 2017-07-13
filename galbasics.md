@@ -202,9 +202,18 @@ Other statements such as limited **for-loop** control structure are provided (se
 
 #### Assignment
 
+
 Assignments are composed of a left-hand side (lhs), that must be a reference to a variable or to the cell of an array, and a right-hand side (rhs) that is an integer expression. 
 
+Example : **a=3+(b-x);**
+
 When the lhs is a reference to an array, the target index within the array can be expressed using an arbitrarily complex integer expression.
+
+Example : **tab[a+b]= 42;**
+
+GAL also support increment and decrement to a variable, using a **+=** or **-=** notation.
+The semantics are the same as in other languages : **a+=b** is equivalent to **a=a+b**, **a-=b** is equivalent to **a=a-b**, 
+where **a** is a variable and **b** an arbitrary integer expression.  
 
 #### Call action
 

@@ -1,0 +1,18 @@
+gal System {
+	int a=0;
+	int b=1;
+	array [3] tab;
+	/// more variables and transitions...
+	transition a2b [true] {
+		a+=1;
+		b-=1;
+	}
+}
+main System ;
+
+property p1 [reachable] : a==1 && b==0;
+property p2 [invariant] : a==0 && tab[b]==0;
+property p3 [never] : a==1 ;
+
+property b1 [bounds] : a;
+property b2 [bounds] : a + b + tab[0];
