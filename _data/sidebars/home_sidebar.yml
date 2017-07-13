@@ -50,6 +50,9 @@ entries:
     - title: Time Petri nets
       url: /tpn.html
       output: web
+    - title: Graphical Composite
+      url: /composite.html
+      output: web
     - title: Timed Automata/Uppaal
       url: /ta.html
       output: web  
