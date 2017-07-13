@@ -1,23 +1,33 @@
+---
+title: libDDD : Data and Set Decision Diagram Library
+keywords: ddd sdd
+tags: [ddd]
+sidebar: home_sidebar
+permalink: libddd.html
+summary: LibDDD is an efficient C++ decision diagram library customized for Model-Checking.
+---
+
 # Home of the SDD/DDD C++ library LibDDD.
 
-## <a name="sec:what"></a>What is libDDD ?
+libDDD now lives on GitHub at [_https://github.com/lip6/libDDD_](https://github.com/lip6/libDDD). 
 
-<span style="font-weight: bold">libDDD</span> is C++ library for manipulation of decision diagrams.
+## What is libDDD ?
+
+**libDDD** is C++ library for manipulation of decision diagrams.
 
 Main features include:
 
+*   Supports both Data Decision Diagrams **DDD** which are integer valued and Hierarchical Set Decision Diagrams **SDD**.
 *   Flexible and powerful encoding of operations using inductive homomorphisms  
-
 *   Support for hierarchy of the description with SDD
 *   Automatic support for saturation style algorithms
 *   A priori unbounded integer domain variables
 *   Rich expressivity with equiv-split mechanism
 *   Weak ordering constraint allowing to store variable length decision paths
-*   Supports both Data Decision Diagrams which are integer valued and Hierarchical Set Decision Diagrams.
 
 libDDD is distributed under the terms of [LGPL](http://www.gnu.org/licenses/lgpl.html).
 
-## <a name="sec:start">I. Getting started</a>
+## Getting started
 
 <a name="sec:start">libDDD is a library for manipulation of shared decision diagrams. If you are not familiar with these symbolic techniques, these slides explain the basics. [[slides.pdf](http://www.lip6.fr/ddd-download/ICTAC2006.pdf) ] They are taken from a presentation at ICTAC in 2006\. The part relevant to decision diagrams stops at page 22\.  
 SDD inherit their operation framework called Homomorphisms from DDD. The ATPN2002 [[Presentation slides (ppt)](http://www.lip6.fr/ddd-download/PN2002.zip) ] are a good starting material to get familiar with homomorphisms, without hierarchy.  
@@ -33,9 +43,8 @@ The distribution also includes a documentation folder doc/ in which a detailed d
 
 The [Documents](manual.md) page holds many related papers which give a formal definition to all the concepts of the library.
 
-</a>
 
-## <a name="sec:start"></a><a name="sec:libddd"></a>II. Obtaining LibDDD
+## Obtaining LibDDD
 
 LibDDD is free software distributed under the terms of Lesser Gnu Public License LGPL. It is a C++ library to manipulate SDD and DDD.
 
@@ -54,9 +63,9 @@ Build has been tested on Linux (32 and 64 bit), MacOS X on PPC and intel, and Cy
 
 In fact, even if you don't encounter problems, we are always interested in feedback and simply knowing about our users so please mail us (mailto:ddd@lip6.fr) if you are using the library in your project.
 
-## <a name="sec:svn"></a>II. Obtaining the latest version using Git
+## Obtaining the latest development version
 
-### <a name="sec:prereq"></a>1\. Git, Prerequisites
+### Git, Prerequisites
 
 The latest version of libDDD can be obtained from GitHub at _https://github.com/lip6/libDDD_. 
 
@@ -80,13 +89,14 @@ Full installation follows these guidelines:
 Follow the usual <code> ./configure ; make ; make install </code> mojo.
 Pass <code>--prefix=/home/me/alocalpath/</code> to __configure__ to install in a non standard location (or if you are not root).
 
+
+## III. Authors, History
+
+### Authors
+
 The code base for libDDD is based on the DDD library by Jean-Michel Couvreur and Denis Poitrenaud. 
 The code for SDD manipulation is due to Yann Thierry-Mieg and Alexandre Hamez. 
-Maximilien Colange has also actively contributed to the core homomomorphism evaluation mechanism.
-
-## <a name="sec:ack"></a>III. Authors, History
-
-### <a name="sec:author"></a>1\. Authors
+Maximilien Colange has also actively contributed to the core homomorphism evaluation mechanism.
 
 #### Main Authors of LibDDD
 
@@ -179,7 +189,7 @@ Yann Thierry-Mieg (LIP6, Yann.Thierry-Mieg@lip6.fr, 2003-), Jean-Michel Couvreur
 
 #### Pre 1.0 : 2001-2003\. Beta versions of the pure DDD library. Version 0.99 was version number for some time.
 
-### <a name="sec:old"></a>3\. Older releases of libDDD
+### Older releases of libDDD
 
 You can download release (v. 1.8.1) from here: [ddd-1.8.1.tar.gz](./download/ddd-1.8.1.tar.gz). 
 
@@ -192,5 +202,3 @@ You can download release (v. 1.6) from here: [ddd-1.6.tar.gz](./download/ddd-1.6
 You can download another stable release (v. 1.5) from here: [ddd-1.5.tar.tgz](http://www.lip6.fr/ddd-download/ddd-1.5.tar.gz)
 
 You can download older release (v. 1.4) from here: [ddd-1.4.tar.gz](http://www.lip6.fr/ddd-download/ddd-1.4.tar.gz)
-
-<div class="toplink" align="right">[Start of page ![](images/up.gif)](#toc)</div>
