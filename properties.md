@@ -40,7 +40,9 @@ Atomic propositions reuse the [expression syntax](galbasics.md) for Boolean expr
  
 The context of the property is always the context of the **main** instance of the specification.
 If that is a GAL type, simply use the same syntax as GAL boolean expressions.
-If it is a composite, use a column **:** to access nested variables. 
+If it is a composite, use a column **:** to access nested variables (see examples on [Composite](cgalbasics.md) page). 
+
+Array indexes must be constants, **tab[2]** is ok, **tab[b]** is not because **b** is a variable.
 
 ## Safety Properties
 
@@ -71,9 +73,25 @@ Bounds are a useful tool to understand variable domains better.
 The body of a __bounds__ property is either a single variable, or a sum of variables.
 The tool will answer with the minimal and maximum value of the provided sum of variables.  
 
+e.g.
+<code>
+Bounds property b1 :0 <= a <= 1
+Bounds property b2 :0 <= a+b <= 1
+</code>
 
+Note that for __b2__ the tool does not actually report what was asked for __a + b + tab[0] + c__ ; this is due to variable simplifications.
+In this example all cells in the array __tab__ are always **0** and __c__ is always **2**.
+
+The tool does warn that it is simplifying variables away :
+<code>
+INFO:Removed 1 constant variables :c=2
+INFO:Removed constant array :tab[]
+</code>
+
+And will print a message : __WARNING:For property b2 will report bounds of ((a+b)+2) without constants. Add 2 to the result in the trace.__
 
 ## CTL
 
+CTL properties are built from the following 
 
 ## LTL
