@@ -76,9 +76,16 @@ The CTL formula is not satisfied due to the latter case.
 
 ## Synchronizations
 
+There are two ways for a Composite to reach a new state :
+* one of the instances progresses using one of its private (unlabeled) events. The state for that instance is updated in the global state.
+* a __synchronization__ is fired, forcing events (labels) to occur simultaneously in subcomponents.
+
+
+
 ### Synchronization declaration
 
 Synchronizations  allow to step atomically from a source state to a (set of) successor state(s). 
+They force events or labels to occur synchronously in subcomponents.
 
 Synchronizations have a unique name and may carry a label that is a string. 
 Synchronizations like GAL transitions can have a guard, but this is optional and only useful
@@ -147,6 +154,15 @@ In such a case the synchronization cannot be fired, it is cancelled.
 Syntactically, reference an instance of the composite (plain instance or cell of an array), separate with **.** and add the target label
 between double quotes.
 
+In this variant of the PingPong example, player one can reset the ball, and player two can discard it using private transitions.
+This forces a cycle, where __p1__ and __p2__ synchronize, then one of them resets, then the other resets, then the cycle begins again.
+This variant is not deadlocked (**AG(EX(true))** holds).
+
+{% highlight C %}
+{% include_relative galfiles/sample-13.gal %}
+{% endhighlight %}
+
+
 #### Call Self
 
 The call action allows to call a label of the current Composite, i.e. non-deterministically choose any of the synchronizations that bear this label, and execute its actions. 
@@ -168,7 +184,7 @@ This example shows a use of a call to model a $n to n$ topology where any Ping c
 {% include_relative galfiles/sample-12.gal %}
 {% endhighlight %}
 
-Note that **6** synchronization are used to model **9** possible outcomes; this effect multiplicative can blow up significantly helping to represent
+Note that **3+3=6** synchronization are used to model **3*3=9** possible outcomes; this multiplicative effect can blow up significantly helping to represent
 compactly complex synchronization patterns.
 
 In this case the property is true again, every Pong eventually ends up getting a ball since there are as many Ping as Pong players.

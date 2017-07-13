@@ -1,0 +1,32 @@
+gal Ping {
+	int ball = 1;
+	transition ping [ball==1] label "ping" {
+		ball = 0;
+	}
+	// no label = private
+	transition reset [ball==0] {
+		ball = 1;
+	}
+}
+gal Pong {
+	int ball = 0;
+	transition pong [ball==0] label "pong" {
+		ball = 1;
+	}
+	transition reset [ball==1] {
+		ball = 0;
+	}
+}
+composite game {
+	Ping p1;
+	Pong p2;
+	
+	synchronization servep0  {
+		p1."ping";
+		p2."pong";
+	}
+}
+main game ;
+
+property end [ctl] : AF (p2:ball==1);
+property nodeadlocks [ctl] : AG (EX(true));
