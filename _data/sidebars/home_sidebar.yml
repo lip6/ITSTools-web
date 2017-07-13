@@ -50,9 +50,6 @@ entries:
     - title: Time Petri nets
       url: /tpn.html
       output: web
-    - title: Composite ITS
-      url: /composite.html
-      output: web
     - title: Timed Automata/Uppaal
       url: /ta.html
       output: web  
@@ -60,10 +57,10 @@ entries:
       url: /dve.html
       output: web
     - title: Promela/Spin
-      url: /pgal.html
+      url: /promela.html
       output: web
     - title: LTSmin bridges
-      url : /galmm.html
+      url : /ltsmin.html
       output: web
   - title: Flags and Options
     output: web
@@ -80,27 +77,21 @@ entries:
     - title: Introduction
       url: /libddd.html
       output: web
-    - title: Download
-      url: /clflags.html
-      output: web  
-    - title: Download
-      url: /clflags.html
-      output: web  
-    - title: DiVinE
-      url: /dve.html
+  - title: libITS
+    output: web
+    folderitems:
+    - title: Introduction
+      url: /itstools.html
       output: web
-    - title: Promela/Spin
-      url: /pgal.html
+  - title: its-ctl
+    output: web
+    folderitems:
+    - title: Introduction
+      url: /itstools.html
       output: web
-    - title: LTSmin bridges
-      url : /galmm.html
-      output: web
-    - title: ITS Tools front-end
-      url: /p2_landing_page.html
-      output: web
-    - title: libITS
-      url: /libits.html
-      output: web
-    - title: libDDD
-      url: /libddd.html
+  - title: its-ltl
+    output: web
+    folderitems:
+    - title: Introduction
+      url: /itstools.html
       output: web
