@@ -75,7 +75,7 @@ The tool will answer with the minimal and maximum value of the provided sum of v
 
 e.g.
 <code>
-Bounds property b1 :0 <= a <= 1
+Bounds property b1 :0 <= a <= 1<br/>
 Bounds property b2 :0 <= a+b <= 1
 </code>
 
@@ -84,11 +84,14 @@ In this example all cells in the array __tab__ are always **0** and __c__ is alw
 
 The tool does warn that it is simplifying variables away :
 <code>
-INFO:Removed 1 constant variables :c=2
+INFO:Removed 1 constant variables :c=2<br/>
 INFO:Removed constant array :tab[]
 </code>
 
-And will print a message : __WARNING:For property b2 will report bounds of ((a+b)+2) without constants. Add 2 to the result in the trace.__
+And will print a message : 
+<code>
+WARNING:For property b2 will report bounds of ((a+b)+2) without constants. Add 2 to the result in the trace.
+</code>
 
 ## CTL
 
