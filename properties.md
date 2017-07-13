@@ -95,6 +95,28 @@ WARNING:For property b2 will report bounds of ((a+b)+2) without constants. Add 2
 
 ## CTL
 
-CTL properties are built from the following 
+CTL properties are built from the following operators where **p** and **q** are CTL formulas.
+* true, false, comparison of a variable to a constant : atomic predicates. The syntax of boolean predicates is currently (June 2017) still very limited in CTL.
+* Usual Boolean connectors : AND &&, OR &#124;&#124;, NOT ! 
+* Unusual Boolean connectors (but very useful for CTL) : IMPLY ->, EQUIVALENCE <->
+* Temporal operators :
+  * EF(p), EX(p), E(p U q), EG(p) : existential modalities for Finally, neXt, Until, and Generally.
+  * AF(p), AX(p), A(p U q), AG(p) : universal modalities
+
+Parenthesizing is necessary, the parser likes it that way, so add parenthesis until it's happy (no more red underline).
+
 
 ## LTL
+
+LTL properties are built from the following operators where **p** and **q** are LTL formulas.
+* true, false, comparison of a variable to a constant : atomic predicates. 
+The syntax of boolean predicates is decently permissive as long as all variables in the expression belong to a single GAL instance, but comparisons of variables belonging to different subcomponents is not supported.
+* Usual Boolean connectors : AND &&, OR &#124;&#124;, NOT ! 
+* Unusual Boolean connectors (but very useful for LTL) : IMPLY ->, EQUIVALENCE <->
+* Temporal operators :
+  * p U q, , p W q, p M q, p R q : operators for Until, Weak Until, Strong Release, and Release
+  * F p, G p, X p : Future, Generally and neXt operators
+
+The parser is relatively lenient, but parenthesizing still avoids surprises.
+For more info on LTL operators and their semantics, please visit [Spot](https://spot.lrde.epita.fr/concepts.html#ltl) or play with their excellent
+[online LTL to Buchi](https://spot.lrde.epita.fr/trans.html) tool.
