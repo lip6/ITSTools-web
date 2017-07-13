@@ -1,18 +1,20 @@
 gal System {
 	int a=0;
 	int b=1;
+	int c=2;
 	array [3] tab;
-	/// more variables and transitions...
-	transition a2b [true] {
+	/// more variables 
+	transition a2b [b>=1] {
 		a+=1;
 		b-=1;
 	}
+	/// and transitions...
 }
 main System ;
 
 property p1 [reachable] : a==1 && b==0;
-property p2 [invariant] : a==0 && tab[b]==0;
+property p2 [invariant] : a==0 && tab[1]==0;
 property p3 [never] : a==1 ;
 
 property b1 [bounds] : a;
-property b2 [bounds] : a + b + tab[0];
+property b2 [bounds] : a + b + tab[0] + c;
