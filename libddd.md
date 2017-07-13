@@ -29,7 +29,7 @@ libDDD is distributed under the terms of [LGPL](http://www.gnu.org/licenses/lgpl
 
 ## Getting started
 
-<a name="sec:start">libDDD is a library for manipulation of shared decision diagrams. If you are not familiar with these symbolic techniques, these slides explain the basics. [[slides.pdf](http://www.lip6.fr/ddd-download/ICTAC2006.pdf) ] They are taken from a presentation at ICTAC in 2006\. The part relevant to decision diagrams stops at page 22\.  
+libDDD is a library for manipulation of shared decision diagrams. If you are not familiar with these symbolic techniques, these slides explain the basics. [[slides.pdf](http://www.lip6.fr/ddd-download/ICTAC2006.pdf) ] They are taken from a presentation at ICTAC in 2006\. The part relevant to decision diagrams stops at page 22\.  
 SDD inherit their operation framework called Homomorphisms from DDD. The ATPN2002 [[Presentation slides (ppt)](http://www.lip6.fr/ddd-download/PN2002.zip) ] are a good starting material to get familiar with homomorphisms, without hierarchy.  
 For some presentation slides more focused on SDD, the [[ATPN08 slides](http://www.lip6.fr/ddd-download/PN2008.zip) ] give a good overview.  
 
