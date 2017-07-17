@@ -2,12 +2,29 @@ gal paramSystem ($N = 2, $K = 1) {
 	int variable = $N ;
 	array [2] tab = ($N + $K, $N - 1) ;
 
-	transition t1 [variable > $N] {
+	transition t1 [variable > $N && variable < 5+$K] {
 		tab [$K] = tab [1] * tab [0] ;
 		variable = variable * 5 ;
 	}
 
 	transition t2 [variable == $N] label "a" {
 		tab [1] = 0 ;
+		variable+=1;
 	}
 }
+
+composite comp {
+	paramSystem p1; // default values
+	paramSystem p2($N=1,$K=0); // override values
+	paramSystem p3($N=1); // $K defaults to 1
+	paramSystem p4($K=0); // $N defaults to 2
+	
+	synchronization allA {
+		p1."a";
+		p2."a";
+		p3."a";
+		p4."a";	
+	}
+}
+
+main comp;
