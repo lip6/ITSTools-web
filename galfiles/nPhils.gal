@@ -1,0 +1,111 @@
+
+gal Philo {
+	int think = 1 ;
+	int waitL = 0 ;
+	int waitR = 0 ;
+	int hasL = 0 ;
+	int hasR = 0 ;
+	int eat = 0;
+	int fork = 1 ;
+
+	transition ask [think >= 1] {
+		think-= 1 ;
+		waitR+= 1 ;
+		waitL+= 1 ;
+	}
+	transition getL [waitL >= 1 && fork >=1] {		
+		fork-= 1 ;
+		waitL-= 1 ;
+		hasL+= 1 ;
+	}
+	transition giveFork [fork >= 1] label "takeFork" {
+		fork-=1;
+	}
+	transition returnFork [true] label "returnFork" {
+		fork+=1;
+	}	
+	transition getR [waitR >= 1] label "getRight" {
+		waitR -= 1 ;
+		hasR += 1 ;
+	}
+	transition eat [hasR >= 1 && hasL >= 1] {
+		eat += 1 ;
+		hasL-=1 ;
+		hasR-=1 ;
+	}	
+	transition release [eat >= 1] label "endEat" {
+		eat-=1;
+		fork+=1;
+		think+=1;
+	}
+}
+
+composite ThreePhilo {
+	Philo p0;
+	Philo p1;
+	Philo p2;
+		
+	synchronization get0 {
+		p0."getRight";
+		p1."takeFork"; 
+	}
+	synchronization end0 {
+		p0."endEat";
+		p1."returnFork"; 
+	}
+	synchronization get1 {
+		p1."getRight";
+		p2."takeFork"; 
+	}
+	synchronization end1 {
+		p1."endEat";
+		p2."returnFork"; 
+	}
+	synchronization get2 {
+		p2."getRight";
+		p0."takeFork"; 
+	}
+	synchronization end2 {
+		p2."endEat";
+		p0."returnFork"; 
+	}
+}
+
+main ThreePhilo ;
+
+// Test for absence of deadlocks
+property noDeadlocks [ctl] : AG(EX(true)) ;
+
+// p0 and p2 never eat simultaneously.
+property mutEx [ctl] : AG (! (p0:eat==1 && p2:eat==1));
+
+// Whenever philosopher 0 finishes eating, philosopher 1 **can** eat before philo 0 eats again.
+property turns [ctl] : 
+	AG (p0:eat==1 
+		-> (
+			A p0:eat==1 U 
+				p0:eat==0 && 
+				(E p0:eat==0 U p1:eat==1) 
+			)		
+	);
+
+
+// Whenever philosopher 0 finishes eating, he cannot eat again until philosopher 1 has eaten.
+property fair [ctl] : 
+	AG (p0:eat==1 
+		-> (
+			A p0:eat==1 U 
+				p0:eat==0 && 
+				(A p0:eat==0 U p1:eat==1) 
+			)		
+	);
+
+// Philo 0 will be the first to eat
+property firstEater [ctl] : 
+	A  (p1:eat==0 && p2:eat==0) U  p0:eat==1 ; 
+
+// Existence of a home state (a.k.a reset property)
+property home [ctl] :
+	AG ( EF (p0:eat==0 && p1:eat==0 && p2:eat==0 ));
+
+

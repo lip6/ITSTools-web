@@ -65,16 +65,21 @@ In fact, even if you don't encounter problems, we are always interested in feedb
 
 ## Obtaining the latest development version
 
-### Git, Prerequisites
+### Prerequisites
 
 The latest version of libDDD can be obtained from GitHub at _https://github.com/lip6/libDDD_. 
 
 Note that to build from the git, you need autotools and to invoke "autoreconf -vfi" to create the "configure" script. 
 Due to various dependencies, building from svn requires some configuration settings. 
 
-Remember, configure --help is your friend, and you can also have a look at the configuration settings of our [Travis continuous integration server](https://github.com/lip6/libDDD/blob/master/.travis.yml) or [AppVeyor for Windows](https://github.com/lip6/libDDD/blob/master/appveyor.yml) for inspiration on how to invoke configure.
+Remember, configure --help is your friend, and you can also have a look at the configuration settings of 
+our [Travis continuous integration server](https://github.com/lip6/libDDD/blob/master/.travis.yml) 
+or [AppVeyor for Windows](https://github.com/lip6/libDDD/blob/master/appveyor.yml) for inspiration on how to invoke configure.
 
 This is the recommended approach for developers to download the ITS related tools.
+
+Current pre-requisites for libddd : 
+* relatively recent gcc/g++, compliant with C++11, e.g. **g++ 5.0** or better.
 
 Full installation follows these guidelines:
 

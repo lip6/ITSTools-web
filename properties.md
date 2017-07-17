@@ -105,6 +105,21 @@ CTL properties are built from the following operators where **p** and **q** are 
 
 Parenthesizing is necessary, the parser likes it that way, so add parenthesis until it's happy (no more red underline).
 
+The semantics are not quite text-book; in presence of deadlocks, **EG p** will stutter and accept dead states satisfying **p**.
+This does not affect the semantics of **EX, AX**, so that **AG (EX (true))** does test for absence of deadlocks.
+For a more formal presentation of this semantics see this document [Jiri Srba's CTL semantics document](files/CTL-semantics.pdf), used in the [MCC](http://mcc.lip6.fr).
+These semantics are more natural for reasoning.
+
+For instance, **AF(p)** when some deadlock states satisfying **!p** are reachable without ever validating **p**, but there are no loops or SCC satisfying **!p**:
+* is **true** with textbook semantics, because it reduces to **! (EG !p)**, so that a reachable deadlock state satisfying **!p** is not accepted as a counter example
+* is **false** with the semantics we use, a path satisfying **!p** to a deadlock state satisfying **!p** is indeed a counter-example
+
+This small example shows some CTL properties on a simple three philosopher example.
+
+{% highlight C %}
+{% include_relative galfiles/nPhils.gal %}
+{% endhighlight %}
+
 
 ## LTL
 
