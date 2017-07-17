@@ -202,7 +202,12 @@ Parameters can however be used to define parametric synchronizations, to iterate
 and to define complex synchronization rules in combining **if-then-else** (where the condition is over parameters) 
 and **abort** statements.
 
-These concepts are the same as in GAL, and follow the same syntax, except that synchronization guards are optional in the syntax and default to true.
+These control structures **for,if-then-else** and **abort** statements are the [same as in GAL](galbasics.md), 
+within the limits of not having variables in scope.
+
+This means all their condition reduces to __true__ or __false__ after parameter instantiation,
+ hence this is again syntactic sugar degeneralized away prior to model-checking. 
+ Look in the "work/" subfolder created after you execute "Run As-> ITS model-check" to see the target model. 
 
 This example shows some use of these features to model some classic synchronization patterns :
 * __start__ : A __choose one from a set__ with event that gives the token to a single __random__ participant
@@ -216,6 +221,8 @@ This example shows some use of these features to model some classic synchronizat
 {% highlight C %}
 {% include_relative galfiles/sample_18.gal %}
 {% endhighlight %}
+
+
 
 ### <a name="instantiate"></a>5.2 Parameter Instantiation
 
