@@ -88,8 +88,6 @@ Synchronizations  allow to step atomically from a source state to a (set of) suc
 They force events or labels to occur synchronously in subcomponents.
 
 Synchronizations have a unique name and may carry a label that is a string. 
-Synchronizations like GAL transitions can have a guard, but this is optional and only useful
-in conjunction with [parameters](pgal.md).
 
 When a synchronization is fired, it executes atomically all the actions it contains in sequence. 
 Actions are limited to calls to a label of an immediately nested instance, or to calls to __self__ labels
