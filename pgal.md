@@ -123,7 +123,7 @@ Transition parameters iterate over a given range of integers, defined using a **
 Semantically, each parameter can be replaced in the transition effects by each of the possible values in its range.
 Thus a parametric transition compactly represents many alternative transitions, that differ by the substitution value used for their parameters.
 
-Transition parameters have the transition body as scope, and do not name clash with parameters of other transitions.
+Transition parameters have the transition body as scope, and thus do not name clash with parameters of other transitions.
 
 Syntactically, transition parameters are declared in a parenthesized comma separated list just after the transition name, with a syntax reminiscent of arguments for a function or method. 
 
@@ -142,6 +142,9 @@ This example is equivalent to this version that does not use parameter definitio
 {% include_relative galfiles/param.inst.gal %}
 {% endhighlight %}
 
+Transition parameters can be seen as a way of expressing a (parametric) set of **alternative** behaviors.
+If the transition label does not use parameters, any one of these variants can be non-deterministically chosen for firing.
+This makes this mechanism a dual of the **for** loop, that offers (parametric) **sequential composition** of behaviors.
 
 ### For loop action
 
@@ -149,7 +152,7 @@ To ease modeling, GAL provide a constrained For loop iterative control structure
 
 A for loop defines a local parameter which has as scope the body of the loop. Since the domain of the parameter is is both known and finite, the loop can be simply unrolled.
 
-The syntax reminiscent of Java foreach loop, <span class="galElement">for</span> followed by <span class="galElement">$forparam : paramType</span> between parenthesis, followed by a block (the loop body) between curly braces.
+The syntax is reminiscent of Java foreach loop, <code>for ($forparam : paramType) { body; }</code>. The body is an arbitrary sequence of statements.
 
 This example shows a use of a for loop to set values in an array.
 
@@ -162,6 +165,42 @@ It is strictly equivalent to this version.
 {% highlight C %}
 {% include_relative galfiles/for.inst.gal %}
 {% endhighlight %}
+
+### Parameters in Labels
+
+Parameters can be used in labels, helping to define a finite set of labels sharing some characteristics.
+Labels can define a set of __arguments__ which must have a fixed value at runtime (i.e. the set of labels does not evolve with the state).
+
+The values for these arguments can be given or computed using the transition parameters when declaring a label.
+Similarly, when calling a label all arguments must have a fixed value.
+
+This example shows a (lossy) buffer containing a data.
+For external synchronization the buffer exports a set of labels, one pair __send(d),receive(d)__,for each data __d__ it can contain.
+
+We also declare a bounded counter, which can be incremented by calling it's __inc(d)__ label.
+The value passed to the label controls how much the counter is incremented. 
+
+But if the value passed to this buggy counter is __inc(1)__, an alternative available is to **not** increment the counter.
+This __inc2__ transition shows how to define label parameters even if the transition is not parametric.
+
+The overall composite just assembles these pieces into a scenario, where a counter is used to
+ both count and limit the number of sent messages in the buffer. 
+ 
+Two more counters are used to compute respectively how many messages were received, and the sum of their contents. 
+
+This scenario is not particularly meaningful, but it is chosen to exhibit all the syntax related
+both declaring parameters on labels and calling such labels. 
+ 
+{% highlight C %}
+{% include_relative galfiles/sample_17.gal %}
+{% endhighlight %}
+
+
+### Parameters in Composite
+
+Within composite types, there are no variables, only nested instances.
+
+
 
 
 ### <a name="instantiate"></a>5.2 Parameter Instantiation
