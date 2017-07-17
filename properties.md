@@ -74,6 +74,7 @@ The body of a __bounds__ property is either a single variable, or a sum of varia
 The tool will answer with the minimal and maximum value of the provided sum of variables.  
 
 e.g.
+
 <code>
 Bounds property b1 :0 <= a <= 1<br/>
 Bounds property b2 :0 <= a+b <= 1
@@ -83,12 +84,14 @@ Note that for __b2__ the tool does not actually report what was asked for __a + 
 In this example all cells in the array __tab__ are always **0** and __c__ is always **2**.
 
 The tool does warn that it is simplifying variables away :
+
 <code>
 INFO:Removed 1 constant variables :c=2<br/>
 INFO:Removed constant array :tab[]
 </code>
 
 And will print a message : 
+
 <code>
 WARNING:For property b2 will report bounds of ((a+b)+2) without constants. Add 2 to the result in the trace.
 </code>
