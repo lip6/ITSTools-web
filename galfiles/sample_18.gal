@@ -1,0 +1,56 @@
+$N=3;
+typedef index=0..$N-1;
+
+// A participant : can hold the token. Other behavior is not modeled.
+gal Participant($TOKEN=0) {
+	int hasToken=$TOKEN;
+	
+	transition get [hasToken==1] label "get" {
+		hasToken = 0;
+	}
+	transition put [hasToken==0] label "put" {
+		hasToken = 1;
+	}
+	transition reset [true] label "reset" {
+		hasToken = 0;
+	}		
+}
+composite Collaboration {
+	// the leader starts and ends cycles
+	Participant leader($TOKEN=1);
+	// A ring of participants
+	Participant [$N] ring;
+
+	// our leader gives the token to a random participant
+	synchronization start (index $i) {
+		ring[$i]."put";
+		leader."get";
+	}
+	
+	// There is a topological ring of participants
+	synchronization passToken (index $i) {
+		ring[$i]."get";
+		ring[($i+1)% $N]."put";		
+	}
+	
+	// The reset is a broadcast : the leader gets the token back forcefully
+	synchronization reset {
+		leader."put";
+		for ($i : index) {
+			ring[$i]."reset";
+		}
+	}
+	// the condition used is random/meaningless ;
+	// this example shows if/abort used to make complex synchronization
+	synchronization passFast (index $i, index $j) {
+		if ( $i==0 || $j == $i + 2) {
+			ring[$i]."get";
+			ring[$j]."put";
+		} else {
+			abort;
+		}		
+	} 
+	
+}
+
+main Collaboration;

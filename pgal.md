@@ -181,7 +181,7 @@ We also declare a bounded counter, which can be incremented by calling it's __in
 The value passed to the label controls how much the counter is incremented. 
 
 But if the value passed to this buggy counter is __inc(1)__, an alternative available is to **not** increment the counter.
-This __inc2__ transition shows how to define label parameters even if the transition is not parametric.
+This __inc2__ transition shows how to define label parameters even if the transition itself is not parametric.
 
 The overall composite just assembles these pieces into a scenario, where a counter is used to
  both count and limit the number of sent messages in the buffer. 
@@ -189,16 +189,32 @@ The overall composite just assembles these pieces into a scenario, where a count
 Two more counters are used to compute respectively how many messages were received, and the sum of their contents. 
 
 This scenario is not particularly meaningful, but it is chosen to exhibit all the syntax related
-both declaring parameters on labels and calling such labels. 
+to both declaring parameters on labels and calling such labels. 
  
 {% highlight C %}
 {% include_relative galfiles/sample_17.gal %}
 {% endhighlight %}
 
-
 ### Parameters in Composite
 
 Within composite types, there are no variables, only nested instances.
+Parameters can however be used to define parametric synchronizations, to iterate on arrays of instances using a for loop, 
+and to define complex synchronization rules in combining **if-then-else** (where the condition is over parameters) 
+and **abort** statements.
+
+These concepts are the same as in GAL, and follow the same syntax, except that synchronization guards are optional in the syntax and default to true.
+
+This example shows some use of these features to model some classic synchronization patterns :
+* __start__ : A __choose one from a set__ with event that gives the token to a single __random__ participant
+* __passToken__ : A __circular synchronization__ using a modulo to chain participants in a logical ring
+* __reset__ : A __broadcast__ synchronization, that all the participants receive
+* __passFast__ : A more complex synchronization, featuring a condition and an abort. The condition modeled here is completely arbitrary,
+ it gives fast channels from participant at index __0__ to all other participants and allows some participants to skip their immediate successor. 
+ The **abort** avoids creating a self loop with no effect on all states, otherwise __passFast__ instantiated for any __($i,$j)__ that do not meet
+ the condition would produce an empty synchronization. 
+
+
+ 
 
 
 
