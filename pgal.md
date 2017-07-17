@@ -99,7 +99,7 @@ While there is no syntactic constraint, we typically use lower-case names for th
 
 A GAL **typedef** declaration allows to define a symbolic name for a given range of integers from __min__ to __max__. 
 
-These bounds are inclusive, with the constraint that $min &le; max$, so that there is at least one element in any range definition.
+These bounds are inclusive, with the constraint that __min &le; max__, so that there is at least one element in any range definition.
 
 These type definitions are used when declaring transition parameters, or within a **for** loop. 
 They allow to define a set of similar transitions in a compact and readable manner.
