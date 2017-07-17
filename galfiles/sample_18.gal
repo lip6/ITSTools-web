@@ -43,7 +43,7 @@ composite Collaboration {
 	// the condition used is random/meaningless ;
 	// this example shows if/abort used to make complex synchronization
 	synchronization passFast (index $i, index $j) {
-		if ( $i==0 || $j == $i + 2) {
+		if ( $i!=$j && ( $i==0 || $j == $i + 2)) {
 			ring[$i]."get";
 			ring[$j]."put";
 		} else {
