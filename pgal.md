@@ -21,11 +21,28 @@ where just changing one declaration is enough to produce a specific instance of 
 
 To this end, we introduce **GAL parameters**, which  are prefixed by a **$** sign, and 
 are __run-time constants__. In a specific model __instance__ they have a single
- value that cannot change as the state of the system evolves. 
+ value that cannot change as the state of the system evolves.
+ 
+These parameters can thus be regarded as syntactic sugar, helping the user define his system
+ more easily, but any parametric GAL model can be degeneralized by substituting constant
+  values to parameters in the text.
+   
+This conversion is currently performed __before__ invoking the model-checker, inspect the models
+ produced in the "work/" subfolder after using "Run As->ITS Model-check" on a parametric GAL 
+ to see the results of this degeneralization. 
 
-## Global parameters
+## Parameters with a single value
+
+The first and most basic type of parameters are simply a symbolic alias for a constant.
+
+For instance, you can declare <code>$N=3</code>, then use <code>$N</code> in integer expressions of your specification.
+
+While there is no syntactic constraint, we typically use upper-case names for these constant parameters (e.g. **$N** rather than **$n**).
+
+### Global parameters
 
 Global parameters are declared at the top level of a GAL file, simply introducing the name of the parameter and its value.
+The value is just a constant.
 
 Examples :
 
@@ -45,7 +62,7 @@ In this example, the state of an automaton was encoded onto an integer, using pa
 {% include_relative galfiles/sample_16.gal %}
 {% endhighlight %}
 
-### System parameters
+### Type parameters
 
 A GAL type declaration can optionally declare one or more _type parameters_. 
 A type parameter essentially declares a symbolic name for an integer constant, that can then be used within the various instructions of the GAL system (including initializations, typedef, guards, statements...). 
@@ -53,10 +70,11 @@ A type parameter essentially declares a symbolic name for an integer constant, t
 Parameter names start with a $ sign to avoid any confusion with the variables of the system. 
 Parameters are given a value directly after their declaration. 
 
-Note that when instantiating a GAL within the context of composite ITS, parameters can be given a value (different from the value given in the parameter declaration).
+Note that when instantiating a GAL or composite within the context of composite ITS, parameters can be given a value (different from the value given in the parameter declaration).
 Thus type parameters can be used to simulate a constructor for the GAL.
+The syntax for Composite type parameters and their override at instantiation are the same as for GAL shown below.
 
-Syntactically, parameters are given as a parenthesized comma separated list, just after the name of the system. 
+Syntactically, type parameters are given as a parenthesized comma separated list, just after the name of the system. 
 Only constant expressions may be used in parameter initializations.
 
 {% highlight C %}
@@ -64,13 +82,28 @@ Only constant expressions may be used in parameter initializations.
 {% endhighlight %}
 
 
-### Parameter type definitions
+## Parameters over a __range__ of values
 
-A parameter type definition allows to define a symbolic name for a given range of integers from min to max. These type definitions are used when declaring transition parameters. They allow to define a set of similar transitions in a compact and readable manner.
+The second type of parameter is a bit different; it takes its values from a predefined finite range.
 
-Syntactically, a type definition is introduced with the keyword <span class="galElement">typedef</span> followed by a unique name for this type, followed by the actual range specification in the form "= min..max;". min and max are integer expressions built from type parameters and constants only.
+For instance, you can declare <code>typedef indexes=0..3;</code>, then use a parameter <code>$p</code> 
+that can take any of the values in this range.
 
-Here is an example of a system with some parameter type definitions:
+This is especially useful when using arrays, and to define similar behaviors in a compact way.
+
+While there is no syntactic constraint, we typically use lower-case names for these constant parameters (e.g. **$p** rather than **$P**).
+
+### **typedef** range declaration
+
+A GAL **typedef** declaration allows to define a symbolic name for a given range of integers from min to max. 
+
+These type definitions are used when declaring transition parameters, or within a **for** loop. 
+They allow to define a set of similar transitions in a compact and readable manner.
+
+Syntactically, a type definition is introduced with the keyword <span class="galElement">typedef</span> followed by a unique name for this type, followed by the actual range specification in the form "= min..max;". 
+min and max are integer expressions built from constant parameters and constants only.
+
+Here is an example of a system with some range definitions:
 
 {% highlight C %}
 {% include_relative galfiles/paramtype.gal %}
