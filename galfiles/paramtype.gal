@@ -1,10 +1,17 @@
-gal paramDef ($N=5) {
-	typedef paramType = 1..$N;
-	typedef paramType2 = 2..4;
+$N=2;
+
+typedef paramType1 = 1..$N; // $N values
+
+typedef paramType3 = 0..3; // 4 values
+
+gal paramDef {
+	
+	// scope is the enclosing GAL
+	typedef paramType2 = 2..4;  // 3 values
 	int variable = 0;
 	
 	// a transition compactly modeling $N*3 (card(pt1)=$N, card(pt2)=3) basic transitions
-	transition trans (paramType $p1, paramType2 $p2) [$p1 <$p2] {
+	transition trans (paramType1 $p1, paramType2 $p2) [$p1 <$p2] {
 		variable = $p1 + $p2;
 	}
 }
