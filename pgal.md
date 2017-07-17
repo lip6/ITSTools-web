@@ -213,11 +213,9 @@ This example shows some use of these features to model some classic synchronizat
  The **abort** avoids creating a self loop with no effect on all states, otherwise __passFast__ instantiated for any __($i,$j)__ that do not meet
  the condition would produce an empty synchronization. 
 
-
- 
-
-
-
+{% highlight C %}
+{% include_relative galfiles/sample_18.gal %}
+{% endhighlight %}
 
 ### <a name="instantiate"></a>5.2 Parameter Instantiation
 
