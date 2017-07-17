@@ -7,6 +7,43 @@ permalink: pgal.html
 summary: GAL Parameters.
 ---
 
+# Parametric modeling
+
+One essential task when studying a system consists in exploring and comparing variants of a system.
+
+For instance, many classic models can be scaled up (e.g. the number of philosophers in a ring),
+you might want to study the how buffer sizes affect your system, you might want to explore 
+different configurations ofn your components (ring, star, chain topologies...).   
+
+Model-checking as performed in ITS-tools is not __parametric__, in the sense that it can only 
+check properties for a given value of a parameter. But we do support parametric models, 
+where just changing one declaration is enough to produce a specific instance of a model.
+
+To this end, we introduce **GAL parameters**, which  are prefixed by a **$** sign, and 
+are __run-time constants__. In a specific model __instance__ they have a single
+ value that cannot change as the state of the system evolves. 
+
+## Global parameters
+
+Global parameters are declared at the top level of a GAL file, simply introducing the name of the parameter and its value.
+
+Examples :
+
+Suppose you want to configure the size of the system as a parameter N. You can define 
+<code>$N=3;</code>, then use $N to define initial values of variables, size of arrays, maximum value in a range type definition...
+Updating this **$N** declaration will update all these dependent declarations to produce the model you need.
+
+{% highlight C %}
+{% include_relative galfiles/sample_15.gal %}
+{% endhighlight %}
+
+
+Another use case is simply as symbolic constants, improving readability. 
+In this example, the state of an automaton was encoded onto an integer, using parameters helps read the code. 
+
+{% highlight C %}
+{% include_relative galfiles/sample_16.gal %}
+{% endhighlight %}
 
 ### System parameters
 

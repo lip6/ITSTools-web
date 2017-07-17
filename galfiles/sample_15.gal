@@ -1,0 +1,16 @@
+
+// size of buffers
+$N=3;
+
+// ...
+gal Buffer {
+	array [$N] buff;
+	int fill=0;
+	
+	transition put [fill<$N] {
+		buff[fill] = 1;
+		fill +=1;
+	}
+	// ...
+}
+//...
