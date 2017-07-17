@@ -72,7 +72,6 @@ Parameters are given a value directly after their declaration.
 
 Note that when instantiating a GAL or composite within the context of composite ITS, parameters can be given a value (different from the value given in the parameter declaration).
 Thus type parameters can be used to simulate a constructor for the GAL.
-The syntax for Composite type parameters and their override at instantiation are the same as for GAL shown below.
 
 Syntactically, type parameters are given as a parenthesized comma separated list, just after the name of the system. 
 Only constant expressions may be used in parameter initializations.
@@ -81,17 +80,20 @@ Only constant expressions may be used in parameter initializations.
 {% include_relative galfiles/sample-param.gal %}
 {% endhighlight %}
 
+This small example shows a GAL with two **type parameters**, and how to override the values for these parameters at instantiation.
+The syntax for Composite type parameters and their instantiation are the same as for GAL.
+
 
 ## Parameters over a __range__ of values
 
 The second type of parameter is a bit different; it takes its values from a predefined finite range.
 
-For instance, you can declare <code>typedef indexes=0..3;</code>, then use a parameter <code>$p</code> 
-that can take any of the values in this range.
+For instance, you can declare <code>typedef indexes=0..3;</code>, then use a parameter <code>$p : indexes</code> 
+that can take any of the values in this range. 
 
 This is especially useful when using arrays, and to define similar behaviors in a compact way.
 
-While there is no syntactic constraint, we typically use lower-case names for these constant parameters (e.g. **$p** rather than **$P**).
+While there is no syntactic constraint, we typically use lower-case names for these parameters over a range (e.g. **$p** rather than **$P**).
 
 ### **typedef** range declaration
 
@@ -112,26 +114,34 @@ Here is an example of a system with some range definitions:
 
 ### Transition parameters
 
-Transitions can optionally define one or more parameters that allow a more concise and readable representation of a complex transition relation. Parameters have a type that is defined as a range of integers, introduced at the system level using a **typedef**. Semantically, each parameter can be replaced in the transition effects by each of the possible values in its type, producing several alternative transitions from a single transition that bears parameters.
+Transitions can optionally define one or more parameters that allow a more concise and readable representation of a complex transition relation. 
 
-Syntactically, transition parameters are declared in a parenthesized comma separated list just after the transition name, with a syntax reminiscent of arguments for a function or method. Each parameter is defined by giving its type followed by the parameter name which must start with a $ sign and cannot shadow a type (sytem level) parameter name.
+Transition parameters iterate over a given range of integers, defined using a **typedef**. 
 
-This example, already used above when discussing type parameters:
+Semantically, each parameter can be replaced in the transition effects by each of the possible values in its range.
+Thus a parametric transition compactly represents many alternative transitions, that differ by the substitution value used for their parameters.
+
+Transition parameters have the transition body as scope, and do not name clash with parameters of other transitions.
+
+Syntactically, transition parameters are declared in a parenthesized comma separated list just after the transition name, with a syntax reminiscent of arguments for a function or method. 
+
+Each parameter is defined by giving its type followed by the parameter name which must start with a $ sign and cannot shadow another parameter already in scope.
+
+In this small example, we use two parameters.
+In such a case, the cross product of the ranges of the parameters is explored. 
 
 {% highlight C %}
 {% include_relative galfiles/param.gal %}
 {% endhighlight %}
 
-Is equivalent to this version that does not use parameter definitions. :
+This example is equivalent to this version that does not use parameter definitions. :
 
 {% highlight C %}
 {% include_relative galfiles/param.inst.gal %}
 {% endhighlight %}
 
 
-System parameters (introduced just after the name of the system) can be used anywhere in the specification. Transition parameters (introduced just after the name of the transition) have the transition body as scope.
-
-#### <a name="forloop"></a>d) For loop action
+### For loop action
 
 To ease modeling, GAL provide a constrained For loop iterative control structure. This mechanism is close to macro expansion, the loop is unfolded before analysis is performed.
 
