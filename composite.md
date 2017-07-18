@@ -94,11 +94,10 @@ The "TrainCrossing.xmlits" composition model presents several possible assemblie
 
 ![download](images/boundType.png)
 
-<div class="toplink" align="right">[Start of page ![](images/up.gif)](#toc)</div>
 
-## <a name="sec:scalEdit"></a>III. Using the Scalar Set ITS editor
+## Using the Scalar Set ITS editor
 
-### <a name="ssec:composite"></a>1\. The Scalar and Circular Set ITS formalism
+### Scalar and Circular Set ITS formalism
 
 Similarly to above, create a new Circular Set Composite model : "New->Other...->Coloane->Model", select the "Circular Set Composite" formalism,
  and provide a name. 
