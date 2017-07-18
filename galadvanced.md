@@ -44,21 +44,21 @@ This issue can fortunately be avoided by the use of labeled transitions (one per
 
 Such a variable, or array, is prefixed by the _hotbit(range)_ keyword. This example shows a simple hotbit variable.
 
-{% highlight C %}
-{% include_relative galfiles/hotbit.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/hotbit.gal.html %}
+</code></pre></figure>
 
 This is the model resulting from the transformation.
 
-{% highlight C %}
-{% include_relative galfiles/hotbit.int.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/hotbit.int.gal.html %}
+</code></pre></figure>
 
 Note that due to parameter separation and instantiation, the final specification is still quite small. This is the fully instantiated model, after parameter separation and instantiation.
 
-{% highlight C %}
-{% include_relative galfiles/hotbit.flat.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/hotbit.flat.gal.html %}
+</code></pre></figure>
 
 In more details, this is the algorithm applied. We suppose here a hotbit array, the simpler integer variable case can be deduced by considering $i=0$. To replace an variable $tab$ by its $hotbit(r)$ encoding, for each transition $t$, we first find all accesses to the variable $tab[i]$.
 
@@ -81,9 +81,9 @@ The following example shows use of a fixpoint to model the transition relation o
 
 The example implements a least fixpoint using elapse. The transition "id" allows to keep currently reached states in the fixpoint. if it were removed, the transition relation would become : from a source state s, let time elapse as much as possible, then fire any enabled discrete transition of the TPN from this state. This definition of the transition relation would not preserve many properties of the original system. If we had other transitions in the system, they would all bear label "succ". This example system has only two states : the initial one (a=1,b=0,clock=0) and the state just after firing t (a=0,b=1,t=0).
 
-{% highlight C %}
-{% include_relative galfiles/fixpoint.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/fixpoint.gal.html %}
+</code></pre></figure>
 
 ### <a name="transient"></a>3.8 Transient predicate
 
@@ -97,8 +97,8 @@ The transient predicate is declared with the keyword <span class="galElement">TR
 
 This system only has two states, the initial one and the state where i=0 and tab = (0,1,2,3). Intermediate steps of this initialization loop are abstracted away in the semantics of the underlying transition system.
 
-{% highlight C %}
-{% include_relative galfiles/sample-8.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-8.gal.html %}
+</code></pre></figure>
 
 

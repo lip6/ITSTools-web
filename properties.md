@@ -51,9 +51,9 @@ These properties can be verified by building the state space.
 
 This small example shows the syntax for declaring these properties.
 
-{% highlight C %}
-{% include_relative galfiles/sample-14.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-14.gal.html %}
+</code></pre></figure>
 
 ### Reachable, Invariant, Never
 
@@ -120,8 +120,8 @@ For instance, **AF(p)** when some deadlock states satisfying **!p** are reachabl
 This small example shows some CTL properties on a simple three philosopher example.
 
 {% highlight GAL %}
-{% include_relative galfiles/nPhils.gal %}
-{% endhighlight %}
+{% include_relative galfiles/nPhils.gal.html %}
+</code></pre></figure>
 
 ## LTL
 

@@ -27,9 +27,9 @@ The body (variable and transitions) of the system name are then placed between a
 
 Here is a declaration of an example GAL system named _emptySystem_.
 
-{% highlight C %}
-{% include_relative galfiles/sample-2.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-2.gal.html %}
+</code></pre></figure>
 
 
 ## Variable declarations
@@ -60,9 +60,9 @@ The declaration ends with a semicolon.
 
 Below is an example of a system with two GAL variable declarations :
 
-{% highlight C %}
-{% include_relative galfiles/sample-3.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-3.gal.html %}
+</code></pre></figure>
 
 ### Array declarations
 
@@ -77,9 +77,9 @@ A semicolon ends the array declaration.
 
 Here is an example of a system with a declaration of an array:
 
-{% highlight C %}
-{% include_relative galfiles/sample-4.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-4.gal.html %}
+</code></pre></figure>
 
 ## Expressions
 
@@ -182,9 +182,9 @@ Syntactically, a transition is declared with the keyword <span class="galElement
 
 This example system contains two transitions of which one is labeled :
 
-{% highlight C %}
-{% include_relative galfiles/sample-6.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-6.gal.html %}
+</code></pre></figure>
 
 ### Statements
 
@@ -237,9 +237,9 @@ Syntactically, a call is introduced by the keyword <span class="galElement">self
 
 This example shows a use of a call to non deterministically update a variable.
 
-{% highlight C %}
-{% include_relative galfiles/call.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/call.gal.html %}
+</code></pre></figure>
 
 #### If-Then-Else action
 
@@ -251,9 +251,9 @@ The syntax is taken from C or Java, <span class="galElement">if</span> followed 
 
 This example shows a use of an if then else to invert the value of a Boolean variable.
 
-{% highlight C %}
-{% include_relative galfiles/ite.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/ite.gal.html %}
+</code></pre></figure>
 
 
 #### Abort action

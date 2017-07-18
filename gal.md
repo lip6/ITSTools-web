@@ -46,9 +46,9 @@ GAL are meant to be a back-end language for more comfortable notations (Divine, 
 
 Here is an example of a system written in GAL:
 
-{% highlight C %}
-{% include_relative galfiles/sample-1.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-1.gal.html %}
+</code></pre></figure>
 
 This code shows the main syntactic elements of the GAL language, it does not really model anything useful. 
 A GAL system contains variable declarations and (possibly labeled)transitions that have a guard and an action that is a sequence of assignments.

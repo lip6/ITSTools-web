@@ -43,9 +43,9 @@ and can yield orders of magnitude better performance in favorable cases.
 
 Here is an example of a Composite :
 
-{% highlight C %}
-{% include_relative galfiles/sample-9.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-9.gal.html %}
+</code></pre></figure>
 
 This small example instantiates two GAL type declarations **Ping** and **Pong** as player one _p1_ and player two _p2_.
 _p1_ has the ball initially; the initial state of the _game_ (which is the **main** instance) is thus

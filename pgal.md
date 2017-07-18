@@ -50,17 +50,17 @@ Suppose you want to configure the size of the system as a parameter N. You can d
 <code>$N=3;</code>, then use $N to define initial values of variables, size of arrays, maximum value in a range type definition...
 Updating this **$N** declaration will update all these dependent declarations to produce the model you need.
 
-{% highlight C %}
-{% include_relative galfiles/sample_15.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample_15.gal.html %}
+</code></pre></figure>
 
 
 Another use case is simply as symbolic constants, improving readability. 
 In this example, the state of an automaton was encoded onto an integer, using parameters helps read the code. 
 
-{% highlight C %}
-{% include_relative galfiles/sample_16.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample_16.gal.html %}
+</code></pre></figure>
 
 ### Type parameters
 
@@ -76,9 +76,9 @@ Thus type parameters can be used to simulate a constructor for the GAL.
 Syntactically, type parameters are given as a parenthesized comma separated list, just after the name of the system. 
 Only constant expressions may be used in parameter initializations.
 
-{% highlight C %}
-{% include_relative galfiles/sample-param.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-param.gal.html %}
+</code></pre></figure>
 
 This small example shows a GAL with two **type parameters**, and how to override the values for these parameters at instantiation.
 The syntax for Composite type parameters and their instantiation are the same as for GAL.
@@ -109,9 +109,9 @@ min and max are integer expressions built from constant parameters and constants
 
 Here is an example of a system with some range definitions:
 
-{% highlight C %}
-{% include_relative galfiles/paramtype.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/paramtype.gal.html %}
+</code></pre></figure>
 
 
 ### Transition parameters
@@ -132,15 +132,15 @@ Each parameter is defined by giving its type followed by the parameter name whic
 In this small example, we use two parameters.
 In such a case, the cross product of the ranges of the parameters is explored. 
 
-{% highlight C %}
-{% include_relative galfiles/param.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/param.gal.html %}
+</code></pre></figure>
 
 This example is equivalent to this version that does not use parameter definitions. :
 
-{% highlight C %}
-{% include_relative galfiles/param.inst.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/param.inst.gal.html %}
+</code></pre></figure>
 
 Transition parameters can be seen as a way of expressing a (parametric) set of **alternative** behaviors.
 If the transition label does not use parameters, any one of these variants can be non-deterministically chosen for firing.
@@ -158,15 +158,15 @@ The syntax is reminiscent of Java foreach loop, <code>for ($forparam : paramType
 
 This example shows a use of a for loop to set values in an array.
 
-{% highlight C %}
-{% include_relative galfiles/for.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/for.gal.html %}
+</code></pre></figure>
 
 It is strictly equivalent to this version.
 
-{% highlight C %}
-{% include_relative galfiles/for.inst.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/for.inst.gal.html %}
+</code></pre></figure>
 
 ### Parameters in Labels
 
@@ -193,9 +193,9 @@ Two more counters are used to compute respectively how many messages were receiv
 This scenario is not particularly meaningful, but it is chosen to exhibit all the syntax related
 to both declaring parameters on labels and calling such labels. 
  
-{% highlight C %}
-{% include_relative galfiles/sample_17.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample_17.gal.html %}
+</code></pre></figure>
 
 ### Parameters in Composite
 
@@ -220,9 +220,9 @@ This example shows some use of these features to model some classic synchronizat
  The **abort** avoids creating a self loop with no effect on all states, otherwise __passFast__ instantiated for any __($i,$j)__ that do not meet
  the condition would produce an empty synchronization. 
 
-{% highlight C %}
-{% include_relative galfiles/sample_18.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample_18.gal.html %}
+</code></pre></figure>
 
 
 
@@ -276,19 +276,19 @@ This example transition of a colored Petri net taken from [this VendingMachine e
 
 This is an extract of the [full model](galfiles/drink-vending-2-col.gal). Before separation, we have many independent parameters. In fact here all parameters are independent, since no statement simultaneously uses two parameters. Furthermore parameters $o1 $o2 and $o3 play a very symmetric role.
 
-{% highlight C %}
-{% include_relative galfiles/vendingsimple.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/vendingsimple.gal.html %}
+</code></pre></figure>
 
 After separation (and fusion of isomorphic effects on $o1 $o2 and $o3) we obtain the following model :
 
-{% highlight C %}
-{% include_relative galfiles/vendingsimple.sep.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/vendingsimple.sep.gal.html %}
+</code></pre></figure>
 
 This model when instantiated is still compact as shown here. Compare to what a [plain instantiation ](galfiles/vendingsimple.inst.gal) obtains; obviously when applicable this approach helps to scale as it can avoid exponential blowups in specification size.
 
-{% highlight C %}
-{% include_relative galfiles/vendingsimple.flat.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/vendingsimple.flat.gal.html %}
+</code></pre></figure>
 

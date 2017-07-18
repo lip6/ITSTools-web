@@ -50,9 +50,9 @@ Otherwise it has as initial state the initial defined by its type.
 
 This example of a composite __game__ contains two instances :
 
-{% highlight C %}
-{% include_relative galfiles/sample-9.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-9.gal.html %}
+</code></pre></figure>
 
 ### Array declarations
 
@@ -66,9 +66,9 @@ A semicolon ends the array declaration.
 
 Here is an example of a system with a declaration of an array:
 
-{% highlight C %}
-{% include_relative galfiles/sample-10.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-10.gal.html %}
+</code></pre></figure>
 
 There are three instances of __Pong__ in this example, __p1__ can send his ball to __p2[0]__ and
 __p2[1]__ (and the ball gets "duplicated", both of them receive it simultaneously), or send it to __p2[2]__.
@@ -115,9 +115,9 @@ Finally the statements comprising the transition body are placed in a block surr
  
 This example system based off of the previous one contains two synchronizations of which one is labeled :
 
-{% highlight C %}
-{% include_relative galfiles/sample-11.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-11.gal.html %}
+</code></pre></figure>
 
 The property holds again for this model, since "paf" is never called from outside, it cannot occur.
 
@@ -156,9 +156,9 @@ In this variant of the PingPong example, player one can reset the ball, and play
 This forces a cycle, where __p1__ and __p2__ synchronize, then one of them resets, then the other resets, then the cycle begins again.
 This variant is not deadlocked (**AG(EX(true))** holds).
 
-{% highlight C %}
-{% include_relative galfiles/sample-13.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-13.gal.html %}
+</code></pre></figure>
 
 
 #### Call Self
@@ -178,9 +178,9 @@ Syntactically, a call is introduced by the keyword <span class="galElement">self
 
 This example shows a use of a call to model a $n to n$ topology where any Ping can send a ball to any Pong.
 
-{% highlight C %}
-{% include_relative galfiles/sample-12.gal %}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/sample-12.gal.html %}
+</code></pre></figure>
 
 Note that **3+3=6** synchronization are used to model **3*3=9** possible outcomes; this multiplicative effect can blow up significantly helping to represent
 compactly complex synchronization patterns.
