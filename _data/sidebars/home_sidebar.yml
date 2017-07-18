@@ -73,7 +73,10 @@ entries:
       output: web
     - title: Command line flags
       url: /clflags.html
-      output: web  
+      output: web
+    - title: Developer Install
+      url: /devinstall.html
+      output: web          
   - title: libDDD c++ library
     output: web
     folderitems:
