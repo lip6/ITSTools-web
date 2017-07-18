@@ -74,10 +74,10 @@ entries:
     - title: Command line flags
       url: /clflags.html
       output: web  
-  - title: libDDD
+  - title: libDDD c++ library
     output: web
     folderitems:
-    - title: Introduction
+    - title: Data and Set DD library
       url: /libddd.html
       output: web
   - title: libITS
