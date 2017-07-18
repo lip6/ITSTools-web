@@ -9,11 +9,11 @@ summary: GAL Parameters.
 
 # Parametric modeling
 
-One essential task when studying a system consists in exploring and comparing variants of a system.
+One essential task when studying a system consists in analyzing and comparing variants of a system.
 
 For instance, many classic models can be scaled up (e.g. the number of philosophers in a ring),
 you might want to study the how buffer sizes affect your system, you might want to explore 
-different configurations ofn your components (ring, star, chain topologies...).   
+different configurations of your components (ring, star, chain topologies...).   
 
 Model-checking as performed in ITS-tools is not __parametric__, in the sense that it can only 
 check properties for a given value of a parameter. But we do support parametric models, 
@@ -148,9 +148,11 @@ This makes this mechanism a dual of the **for** loop, that offers (parametric) *
 
 ### For loop action
 
-To ease modeling, GAL provide a constrained For loop iterative control structure. This mechanism is close to macro expansion, the loop is unfolded before analysis is performed.
+To ease modeling, GAL provide a constrained For loop iterative control structure. 
+This mechanism is close to macro expansion, the loop is unrolled before analysis is performed.
 
-A for loop defines a local parameter which has as scope the body of the loop. Since the domain of the parameter is is both known and finite, the loop can be simply unrolled.
+A for loop defines a local parameter which has as scope the body of the loop.
+Since the domain of the parameter is is both known and finite, the loop can be simply unrolled.
 
 The syntax is reminiscent of Java foreach loop, <code>for ($forparam : paramType) { body; }</code>. The body is an arbitrary sequence of statements.
 
@@ -202,7 +204,7 @@ Parameters can however be used to define parametric synchronizations, to iterate
 and to define complex synchronization rules in combining **if-then-else** (where the condition is over parameters) 
 and **abort** statements.
 
-These control structures **for,if-then-else** and **abort** statements are the [same as in GAL](galbasics.md), 
+These control structures **for,if-then-else** and **abort** statements are the [same as in GAL](galbasics.html#if-then-else-action), 
 within the limits of not having variables in scope.
 
 This means all their condition reduces to __true__ or __false__ after parameter instantiation,
@@ -224,7 +226,19 @@ This example shows some use of these features to model some classic synchronizat
 
 
 
-### <a name="instantiate"></a>5.2 Parameter Instantiation
+## Parameter Instantiation
+
+This section gives an overview of the algorithms used when instantiating parameters.
+Most end-users do not need to be fully aware of the mechanics, so feel free to skip this section, 
+provided mostly for documentation.
+
+The main points relevant for the end-user are :
+* During parameter instantiation, we also do a number of simplifications, that may remove variables (if they are constant), may remove transitions (if they are labelled and not called), 
+may remove statements (if they have no tangible effect) and may remove type declarations (if they are not used in the __main__ instance)
+* Some identical behaviors can be fused if they are redundant
+* Transitions and synchronizations with several parameters may be translated to a more compact form by decomposing the transition
+
+### Parameter Instantiation
 
 Parameter instantiation consists in applying the following steps, in this order:
 
@@ -235,16 +249,16 @@ We first instantiate $p1 giving |D1| transitions, in which $p1 is substituted by
 
 We then apply simplifications, currently we do the following rather trivial simplifications:
 
-1.  Arithmetic and Boolean simplifications, on all constant expressions. Thus we replace (2 + 2) by (4), we also apply basic absorbing (0 * x -> 0, false && x -> false, true || x -> true) and neutral element (1 * x -> x, false || x -> x, true && x-> x) simplifications.
+1.  Arithmetic and Boolean simplifications, on all constant expressions. Thus we replace (2 + 2) by (4), we also apply basic absorbing (0 * x -> 0, false && x -> false, true &#124;&#124; x -> true) and neutral element (1 * x -> x, false &#124;&#124; x -> x, true && x-> x) simplifications.
 2.  We replace calls to non existing labels by an abort statement. These can occur as a result of other transition simplifications.
 3.  We replace any sequence of statements containing an abort by a single abort statement. We destroy any transition with abort as body.
 4.  Transitions with a false guard are destroyed.
 5.  if (c) { s1 } else { s2 } is replaced by s1 if c can be reduced to true or to s2 if c can be reduced to false.
-6.  Constant variables are identified and simplified away. To do this, we first track all write accesses to variables or arrays. Initially, all variables and array cells are supposed constant. We then scan all write access (assignments) in the specification. If a variable is assigned to, it isn't a constant. A write access to a single cell of an array (tab[3]) means this cell is not constant. A write access to an array using an index expression (tab[i]) discards the whole array. Variables that are actually constant can then be replaced by their intial values in the whole specification. Simple constant variables and arrays that are entirely constant are then removed from the state signature, i.e. they are totally discarded. TODO : Because we do not trace this effect beyond reporting in the verbose trace, the fact some variables disappear can lead to some confusion from the user, we need to improve this traceability.
+6.  Constant variables are identified and simplified away. To do this, we first track all write accesses to variables or arrays. Initially, all variables and array cells are supposed constant. We then scan all write access (assignments) in the specification. If a variable is assigned to, it isn't a constant. A write access to a single cell of an array (tab[3]) means this cell is not constant. A write access to an array using an index expression (tab[i]) discards the whole array. Variables that are actually constant can then be replaced by their intial values in the whole specification. Simple constant variables and arrays that are entirely constant are then removed from the state signature, i.e. they are totally discarded. Because of the fact some variables disappear, this can lead to some confusion from the user, please look closely at the traces to understand what was simplified away.
 7.  If we can find within a sequence of statements increments and/or decrements of a variable, and that they are commutative with statements that separate them, we fuse their effects. If the total effect is to leave the variable unchanged, the idle statement x=x+0 is removed. This can occur for instance with test-arc behavior in Petri nets.
 8.  If two transitions that bear a label called only once and are identical in effects up to renaming of self, label and parameters, they are fused and only one of them is kept. This makes the specification slightly more compact, but is redundant with simplifications that occur in the model-checking engine. This reduction is called "fusion of isomorphic effects".
 
-### <a name="separate"></a>5.3 Parameter Separation
+### Parameter Separation
 
 Parameter separation consists in rewriting conjunction of choices (as expressed by transitions with several parameters) to sequence of choices where possible.
 
@@ -278,19 +292,3 @@ This model when instantiated is still compact as shown here. Compare to what a [
 {% include_relative galfiles/vendingsimple.flat.gal %}
 {% endhighlight %}](http://mcc.lip6.fr)
 
-## Initializing Instances
-
-
-this is done using the "=" symbol followed by recalling the type of the instance and specifying
-values for type parameters as desired.
-The default initial value for integer variables is **0**.
- 
- 
-The initial value can be expressed using an integer expression built of constants and/or type parameters, but it cannot refer to other variables. 
-The declaration ends with a semicolon.
-
-## Synchronization Guard
-
-are enabled by a guard, which is a Boolean expression and If the guard is true in the current state, 
-
- 
