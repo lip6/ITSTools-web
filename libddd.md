@@ -4,7 +4,6 @@ keywords: ddd sdd
 tags: [ddd]
 sidebar: home_sidebar
 permalink: libddd.html
-toc: false
 summary: LibDDD is an efficient C++ decision diagram library customized for Model-Checking.
 ---
 
@@ -80,15 +79,11 @@ or [AppVeyor for Windows](https://github.com/lip6/libDDD/blob/master/appveyor.ym
 This is the recommended approach for developers to download the ITS related tools.
 
 Current pre-requisites for libddd : 
-* relatively recent gcc/g++, compliant with C++11, e.g. **g++ 5.0** or better.
+*   Autotools in relatively recent versions (autoconf >= 2.19, automake >= 2.61), packaged on most distributions.
+*   C++ build tools (GNU toolchain recommended g++, sh, make and dependencies). We need relatively recent gcc/g++, compliant with C++11, e.g. **g++ 5.0** or better.
+*   A git client, command line or graphical (eGit provided in Eclipse for instance).
 
 Full installation follows these guidelines:
-
-### Prerequisites
-
-*   Autotools in relatively recent versions (autoconf >= 2.19, automake >= 2.61), packaged on most distributions.
-*   C++ build tools (GNU toolchain recommended g++, sh, make and dependencies)
-*   A git client, command line or graphical (eGit provided in Eclipse for instance).
 
 ### Install of libDDD
 
@@ -123,7 +118,7 @@ Yann Thierry-Mieg (LIP6, Yann.Thierry-Mieg@lip6.fr, 2003-), Jean-Michel Couvreur
 
 ### Version History
 
-#### version 1.9 : January 2017\. Release includes new rewritings, faster constrained saturation, C++11
+**version 1.9 : January 2017\. Release includes new rewritings, faster constrained saturation, C++11**
 
 *   Refactor paths and includes to honor standards : all header files are now installed under ddd/
 *   Switch to C++11 compatibility, enable Link-time-optimizations, maintenance of code base for recent compilers
@@ -133,27 +128,27 @@ Yann Thierry-Mieg (LIP6, Yann.Thierry-Mieg@lip6.fr, 2003-), Jean-Michel Couvreur
 *   Added some generally useful homomorphisms to Basic homomorphisms
 *   Added some additional rewriting rules for DDD homomorphisms : saturation under a constraint useful in both CTL and LTL
 
-#### version 1.8 : January 2012\. Release includes the new equiv-split mechanism and several significant performance improvements.
+**version 1.8 : January 2012\. Release includes the new equiv-split mechanism and several significant performance improvements.**
 
 *   New hash table implementation based on google's hash tables. Yields significantly (10 to 40%) lower memory foortprint.
 *   Reimplementation of low-level encoding and storage of DDD. Lowers memory footprint significantly (up to 30%) on 64bit architectures.
 *   Split-equiv functionality to evaluate complex expressions
 *   Added some additional rewriting rules for DDD homomorphisms
 
-#### version 1.7 : February 2011\. Release includes some "standard" homomorphisms to reason with integers, and a new way of defining operations as 2k level DD.
+**version 1.7 : February 2011\. Release includes some "standard" homomorphisms to reason with integers, and a new way of defining operations as 2k level DD.**
 
 *   New homomorphisms Select and Set pushed into libDDD (were duplicated in quite a few tools)
 *   New Apply2k operation to specify a transition relation as a decision diagram. Use case related to use of ETF files.
 *   Improved stats and dot export functionality
 *   Improved memory footprint by up to 30% on some examples (privilege use of std::vector over use of std::set wherever possible)
 
-#### version 1.6 : May 2010\. Release includes a few new rewriting rules and upgrades compatibility with newer compilers.
+**version 1.6 : May 2010\. Release includes a few new rewriting rules and upgrades compatibility with newer compilers.**
 
 *   More rules related to selector homomorphisms added
 *   Added an "invert" member function to homomorphisms allowing to compute the pre-image given a potential state space.
 *   Use evil macros and suchlike to support tr1 standard where available
 
-#### version 1.5 : June 2009\. Release includes enhanced auto-saturation, selector homomorphisms, and commutative rewriting rules.
+**version 1.5 : June 2009\. Release includes enhanced auto-saturation, selector homomorphisms, and commutative rewriting rules.**
 
 *   homomorphisms Range added as a simple commutativity criterion
 *   More rewriting rules implemented to enhance dynamic saturation effect
@@ -161,7 +156,7 @@ Yann Thierry-Mieg (LIP6, Yann.Thierry-Mieg@lip6.fr, 2003-), Jean-Michel Couvreur
 *   morpion (TicTacToe) tutorial example added to repository
 *   MT-SAFE version can be built for multi-threaded applications (although efficiency is badly impacted)
 
-#### version 1.4 : January 2008\. Release includes auto-saturation mechanisms and homomorphism rewrite rules.
+**version 1.4 : January 2008\. Release includes auto-saturation mechanisms and homomorphism rewrite rules.**
 
 *   homomorphisms Skip predicate added
 *   rewriting rules implmented to produce dynamic saturation effect
@@ -169,14 +164,14 @@ Yann Thierry-Mieg (LIP6, Yann.Thierry-Mieg@lip6.fr, 2003-), Jean-Michel Couvreur
 *   hanoi example added to repository
 *   INST_STL removed from build (was broken with gcc > 3.3 anyway)
 
-#### version 1.3 : May 2007\. Release includes support for additive Edge valued DDD and SDD
+**version 1.3 : May 2007\. Release includes support for additive Edge valued DDD and SDD**
 
 *   various cleanups and rewrites for compliance with gcc >= 4.1
 *   minor updates to allow build on 64 bit architectures
 *   added tests using uttk
 *   include a dot export example
 
-#### Version 1.2 : January 2006\. Release includes the fixpoint construction for homomorphisms.
+**Version 1.2 : January 2006\. Release includes the fixpoint construction for homomorphisms.**
 
 *   include serialization and user homomorphisms
 *   Cleaned up includes
@@ -184,7 +179,7 @@ Yann Thierry-Mieg (LIP6, Yann.Thierry-Mieg@lip6.fr, 2003-), Jean-Michel Couvreur
 *   Changed hash functions
 *   Some efficiency speedup
 
-#### Version 1.1 : November 2004\. First semi-public release of the libDDD. Release includes SDD.
+**Version 1.1 : November 2004\. First semi-public release of the libDDD. Release includes SDD.**
 
 *   Uses autotools for build procedure, tested on Mac, linux, cygwin.
 *   Compiles in three variants :
@@ -193,7 +188,7 @@ Yann Thierry-Mieg (LIP6, Yann.Thierry-Mieg@lip6.fr, 2003-), Jean-Michel Couvreur
     *   libddd_otfg.a a version with experimental on the fly garbage collection
 *   Optionally, using gcc in versions 3.1, 3.2 or 3.3, it is possible to activate build of INST_STL version, modify src/Makefile.am for this.
 
-#### Pre 1.0 : 2001-2003\. Beta versions of the pure DDD library. Version 0.99 was version number for some time.
+**Pre 1.0 : 2001-2003\. Beta versions of the pure DDD library. Version 0.99 was version number for some time.**
 
 ### Older releases of libDDD
 
