@@ -81,11 +81,14 @@ Note that due to parameter separation and instantiation, the final specification
 {% include_relative galfiles/hotbit.flat.gal.html %}
 </code></pre></figure>
 
-In more details, this is the algorithm applied. We suppose here a hotbit array, the simpler integer variable case can be deduced by considering $i=0$. To replace an variable $tab$ by its $hotbit(r)$ encoding, for each transition $t$, we first find all accesses to the variable $tab[i]$.
+In more details, this is the algorithm applied. 
+We suppose here a hotbit array, the simpler integer variable case can be deduced by considering __i=0__. 
 
-For each unique $i$ index expression found,
+To replace an variable __tab__ by its __hotbit(r)__ encoding, for each transition __t__, we first find all accesses to the variable __tab[i]__.
 
-*   for each read before a write of the form **tab[i]**, if it is the first read encountered, add a parameter _ptabi_ with range _r_ to _t_ and add a disjunction to the guard _tab[i * |r| + ptabi]==1_. In any case replace _tab[i]_ by _ptabi_ where it occurs.
+For each unique __i__ index expression found,
+
+*   for each read before a write of the form **tab[i]**, if it is the first read encountered, add a parameter _ptabi_ with range _r_ to _t_ and add a disjunction to the guard _tab[i * &#124;r&#124; + ptabi]==1_. In any case replace _tab[i]_ by _ptabi_ where it occurs.
 *   for each write after a read replace the statement _tab[i] = e_ by the sequence _tab[i * |r| + ptabi]=0 ; tab[ i*|r| + e ] = 1_. This action is correct in this case and modifies only two bits of the representation.
 *   for a write before (hence without) a read, replace _tab[i] = e_ by the sequence _call(reset.tabi) ; tab[i*|r| + e] = 1;_. Hence reset all bits representing _tab[i]_ then assign a single one. We add a transition with label _reset.tabi_, with a parameter _p_ of range _r_ and with body _tab[i*|r| + p]=0;_. This encoding of the reset affects all variables encoding tab[i] (since we don't know its current value), but the reset part of the action is likely to be shared between different transitions, and it is expressed as a sum of effects due to the parametric transition and label introduced.
 *   reads after writes and successive writes to a hotbit variable within a single transition are currently not supported. We place a syntactic restriction on the specification to enforce this rule. Handling these cases would be possible but requires a lot of care in the general case (tracking values across assignments) and does not correspond to the usage patterns encountered for good hotbit variable candidates.
