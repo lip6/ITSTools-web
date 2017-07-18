@@ -56,8 +56,10 @@ You can download the current release (v. 1.9) from here: [LibDDD download page](
 
 The package distribution uses GNU autotools, simply extract then in the root installation folder type.
 
-> <tt>./configure  
-> make</tt>
+<code>
+./configure  
+make
+</code>
 
 Build has been tested on Linux (32 and 64 bit), MacOS X on PPC and intel, and Cygwin/MinGW 32 and 64 environments. If you encounter any problems please mail me (mailto:ddd@lip6.fr)  
 
