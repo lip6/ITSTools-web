@@ -321,7 +321,7 @@ After separation (and fusion of isomorphic effects on $o1 $o2 and $o3) we obtain
 </code></pre></figure>
 
 This model when instantiated is still compact as shown here. Compare to what a [plain instantiation ](galfiles/vendingsimple.inst.gal) obtains;
- obviously when applicable this approach helps to scale as it can avoid exponential blowups in specification size.
+ obviously when applicable this approach helps to scale as it can avoid polynomial (with degree the number of independent parameters) blowups in specification size.
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c">
 {% include_relative galfiles/vendingsimple.flat.gal.html %}
