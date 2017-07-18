@@ -119,10 +119,15 @@ For instance, **AF(p)** when some deadlock states satisfying **!p** are reachabl
 
 This small example shows some CTL properties on a simple three philosopher example.
 
-{% highlight C %}
+{% highlight GAL %}
 {% include_relative galfiles/nPhils.gal %}
 {% endhighlight %}
 
+(Duplicated, testing code highlight)
+
+{% highlight gal %}
+{% include_relative galfiles/nPhils.gal %}
+{% endhighlight %}
 
 ## LTL
 
