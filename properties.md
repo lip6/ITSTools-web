@@ -119,7 +119,7 @@ For instance, **AF(p)** when some deadlock states satisfying **!p** are reachabl
 
 This small example shows some CTL properties on a simple three philosopher example.
 
-{% highlight GAL %}
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
 {% include_relative galfiles/nPhils.gal.html %}
 </code></pre></figure>
 
