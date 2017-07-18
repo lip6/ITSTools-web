@@ -107,7 +107,7 @@ Yann Thierry-Mieg (LIP6, Yann.Thierry-Mieg@lip6.fr, 2003-), Jean-Michel Couvreur
 
 #### Contributors
 
-*   Maximilien Colange < LIP6, Maximilien.Colange@lip6.fr > (2010-present): split-equiv, ordering heuristics, symmetries, google hash support, maintenance and performance upgrades
+*   Maximilien Colange < LIP6, Maximilien.Colange@lip6.fr > (2010-2013): split-equiv, ordering heuristics, symmetries, google hash support, maintenance and performance upgrades
 *   Alexandre Hamez < LIP6 and LRDE (EPITA), Alexandre.Hamez@lip6.fr > (2006-2009): maintenance, multi-threading, rewrite rules
 *   Vincent Beaudenon < LIP6 > (2004-2005) : serialisation, user (not strong) homomorphisms
 *   François Bréant < LIP6 > (2004) : INST_STL, multi-target build
