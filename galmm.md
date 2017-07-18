@@ -21,6 +21,10 @@ For a developer, it is recommended to set up your eclipse as indicated [in the d
 
 The **fr.lip6.move.gal** package hosts the full Xtext grammar (or you can [browse it here](https://github.com/lip6/ITSTools/blob/master/fr.lip6.move.gal/src/fr/lip6/move/Gal.xtext)
 
+Please not that the grammar has a lot of redundancy, to provide better and faster parsing of models, but
+this redundancy is not visible in the metamodel. In particular specific cases are made when parsing
+expressions nested in properties, and constant expressions.
+
 After executing the MWE2 workflow, the __ecore__ metamodel is found in model/generated folder. 
 The model folder contains a __.aird__ file that hosts the diagrams presented in this page. 
 You can open them natively using the EcoreTools plugin from standard eclipse download site.
@@ -78,6 +82,8 @@ A GALTypeDeclaration mainly holds variables and arrays, and transitions. It can 
 
 ## Acknowledgements
 
-The GAL metamodel, xtext grammar, and this page are the work of Yann Thierry-Mieg. The initial metamodel/grammar of GAL was built during the internship (Master 1 2011) of KOUADIO Stephane, SELLOU Hakim and ABKA Faycal. Initial version of composite metamodel/grammar was built during internship (Master 1 2012) of CANTAIS Alexis and TRAN Marie-Diana.
+The GAL metamodel, xtext grammar, and this page are the work of Yann Thierry-Mieg. 
+The initial metamodel/grammar of GAL was built during the internship (Master 1 2011) of KOUADIO Stephane, SELLOU Hakim and ABKA Faycal. 
+Initial version of composite metamodel/grammar was built during internship (Master 1 2012) of CANTAIS Alexis and TRAN Marie-Diana.
 
 
