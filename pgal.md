@@ -274,7 +274,7 @@ Such a transition can be split into two labelled sub-transitions, one for each p
 We thus obtain three transitions: the modified original one, that calls the sub-transitions and has no more parameter, 
 and the sub-transitions, each of which has a single parameter. 
 If the domain sizes of both parameters are called __r1__ and __r2__,
- we obtain after the instantiation of the parameters __r_1 + r_2 + 1__ transitions instead of __r1 * r_2__.
+ we obtain after the instantiation of the parameters __r1 + r2 + 1__ transitions instead of __r1 * r_2__.
  Thanks to the sequence and call statements, the semantics is preserved.
 
 More generally, the detection of the parameters to be separated in a given transition is done by building an hypergraph,
