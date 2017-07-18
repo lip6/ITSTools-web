@@ -123,12 +123,6 @@ This small example shows some CTL properties on a simple three philosopher examp
 {% include_relative galfiles/nPhils.gal %}
 {% endhighlight %}
 
-(Duplicated, testing code highlight)
-
-{% highlight gal %}
-{% include_relative galfiles/nPhils.gal %}
-{% endhighlight %}
-
 ## LTL
 
 LTL properties are built from the following operators where **p** and **q** are LTL formulas.
