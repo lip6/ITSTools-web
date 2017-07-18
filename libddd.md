@@ -116,7 +116,7 @@ Yann Thierry-Mieg (LIP6, Yann.Thierry-Mieg@lip6.fr, 2003-), Jean-Michel Couvreur
 #### Code base
 
 *   We borrowed [google's sparse hash table](http://googlecode.com/sparsehash) implementation in C++, which gives low memory footprints with limited time overhead. This (almost) drop-in replacement for standard STL hash tables gives up to 40% memory gain on some experiments.
-*   We borrowed several utility functions (process monitoring, hash functions...) from Spot's code base, due to Alexandre duret-Lutz, Denis Poitrenaud et al.
+*   We borrowed several utility functions (process monitoring, hash functions...) from Spot's code base, due to Alexandre Duret-Lutz et al.
 
 ### Version History
 
