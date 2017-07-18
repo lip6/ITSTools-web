@@ -110,7 +110,7 @@ Parenthesizing is necessary, the parser likes it that way, so add parenthesis un
 
 The semantics are not quite text-book; in presence of deadlocks, **EG p** will stutter and accept dead states satisfying **p**.
 This does not affect the semantics of **EX, AX**, so that **AG (EX (true))** does test for absence of deadlocks.
-For a more formal presentation of this semantics see this document [Jiri Srba's CTL semantics document](files/CTL-semantics.pdf), used in the [MCC](http://mcc.lip6.fr).
+For a more formal presentation of this semantics see this document [Aalborg University, TAPAAL team's CTL semantics document](files/CTL-semantics.pdf), used in the [MCC](http://mcc.lip6.fr).
 These semantics are more natural for reasoning.
 
 For instance, **AF(p)** when some deadlock states satisfying **!p** are reachable without ever validating **p**, but there are no loops or SCC satisfying **!p**:
