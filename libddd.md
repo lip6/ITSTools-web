@@ -4,6 +4,7 @@ keywords: ddd sdd
 tags: [ddd]
 sidebar: home_sidebar
 permalink: libddd.html
+toc: false
 summary: LibDDD is an efficient C++ decision diagram library customized for Model-Checking.
 ---
 
