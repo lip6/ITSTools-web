@@ -1,0 +1,30 @@
+<span class="k">gal</span> <span class="nf">paramSystem</span> <span class="p">(</span><span class="nb">$N</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">$K</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">variable</span> <span class="o">=</span> <span class="nb">$N</span> <span class="p">;</span>
+	<span class="kt">array</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">tab</span> <span class="o">=</span> <span class="p">(</span><span class="nb">$N</span> <span class="o">+</span> <span class="nb">$K</span><span class="p">,</span> <span class="nb">$N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">;</span>
+
+	<span class="k">transition</span> <span class="n">t1</span> <span class="p">[</span><span class="n">variable</span> <span class="o">&gt;</span> <span class="nb">$N</span> <span class="o">&amp;&amp;</span> <span class="n">variable</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">+</span><span class="nb">$K</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">tab</span> <span class="p">[</span><span class="nb">$K</span><span class="p">]</span> <span class="o">=</span> <span class="n">tab</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">tab</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">;</span>
+		<span class="n">variable</span> <span class="o">=</span> <span class="n">variable</span> <span class="o">*</span> <span class="mi">5</span> <span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">t2</span> <span class="p">[</span><span class="n">variable</span> <span class="o">==</span> <span class="nb">$N</span><span class="p">]</span> <span class="k">label</span> <span class="s">"a"</span> <span class="p">{</span>
+		<span class="n">tab</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+		<span class="n">variable</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">composite</span> <span class="n">comp</span> <span class="p">{</span>
+	<span class="n">paramSystem</span> <span class="n">p1</span><span class="p">;</span> <span class="c1">// default values
+</span>	<span class="n">paramSystem</span> <span class="n">p2</span><span class="p">(</span><span class="nb">$N</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">$K</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// override values
+</span>	<span class="n">paramSystem</span> <span class="n">p3</span><span class="p">(</span><span class="nb">$N</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// $K defaults to 1
+</span>	<span class="n">paramSystem</span> <span class="n">p4</span><span class="p">(</span><span class="nb">$K</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// $N defaults to 2
+</span>	
+	<span class="k">synchronization</span> <span class="n">allA</span> <span class="p">{</span>
+		<span class="n">p1</span><span class="p">.</span><span class="s">"a"</span><span class="p">;</span>
+		<span class="n">p2</span><span class="p">.</span><span class="s">"a"</span><span class="p">;</span>
+		<span class="n">p3</span><span class="p">.</span><span class="s">"a"</span><span class="p">;</span>
+		<span class="n">p4</span><span class="p">.</span><span class="s">"a"</span><span class="p">;</span>	
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">main</span> <span class="n">comp</span><span class="p">;</span>

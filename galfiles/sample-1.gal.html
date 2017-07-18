@@ -1,0 +1,16 @@
+<span class="k">gal</span> <span class="n">system</span> <span class="p">{</span> 
+
+	<span class="c1">// Variable declarations
+</span>	<span class="kt">int</span> <span class="n">variable</span> <span class="o">=</span> <span class="mi">5</span> <span class="p">;</span>
+	<span class="kt">array</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">tab</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">;</span> 
+	
+	<span class="c1">// Transitions
+</span>	<span class="k">transition</span> <span class="n">t1</span> <span class="p">[</span><span class="n">variable</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">tab</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">tab</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">tab</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">;</span>
+		<span class="n">variable</span> <span class="o">=</span> <span class="n">variable</span> <span class="o">*</span> <span class="mi">5</span> <span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">t2</span> <span class="p">[</span><span class="n">variable</span> <span class="o">==</span> <span class="mi">23</span><span class="p">]</span> <span class="k">label</span> <span class="s">"a"</span> <span class="p">{</span>
+		<span class="n">tab</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>

@@ -1,0 +1,22 @@
+<span class="k">gal</span> <span class="n">paramDef_inst</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">variable</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+
+	<span class="c1">// not that only 4 transitions (out of 6 possible) were produced due to guard $p1!=$p2
+</span>	<span class="c1">// since transitions with false guard have no effect, they are suppressed here.
+</span>
+	<span class="k">transition</span> <span class="n">trans_0_1</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">variable</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">trans_1_0</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">variable</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">trans_2_0</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">variable</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">trans_2_1</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">variable</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>

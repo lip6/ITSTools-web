@@ -1,0 +1,111 @@
+
+<span class="k">gal</span> <span class="n">Philo</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">think</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span>
+	<span class="kt">int</span> <span class="n">waitL</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+	<span class="kt">int</span> <span class="n">waitR</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+	<span class="kt">int</span> <span class="n">hasL</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+	<span class="kt">int</span> <span class="n">hasR</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+	<span class="kt">int</span> <span class="n">eat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">fork</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span>
+
+	<span class="k">transition</span> <span class="n">ask</span> <span class="p">[</span><span class="n">think</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">think</span><span class="o">-=</span> <span class="mi">1</span> <span class="p">;</span>
+		<span class="n">waitR</span><span class="o">+=</span> <span class="mi">1</span> <span class="p">;</span>
+		<span class="n">waitL</span><span class="o">+=</span> <span class="mi">1</span> <span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">transition</span> <span class="n">getL</span> <span class="p">[</span><span class="n">waitL</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">fork</span> <span class="o">&gt;=</span><span class="mi">1</span><span class="p">]</span> <span class="p">{</span>		
+		<span class="n">fork</span><span class="o">-=</span> <span class="mi">1</span> <span class="p">;</span>
+		<span class="n">waitL</span><span class="o">-=</span> <span class="mi">1</span> <span class="p">;</span>
+		<span class="n">hasL</span><span class="o">+=</span> <span class="mi">1</span> <span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">transition</span> <span class="n">giveFork</span> <span class="p">[</span><span class="n">fork</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">]</span> <span class="k">label</span> <span class="s">"takeFork"</span> <span class="p">{</span>
+		<span class="n">fork</span><span class="o">-=</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">transition</span> <span class="n">returnFork</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="k">label</span> <span class="s">"returnFork"</span> <span class="p">{</span>
+		<span class="n">fork</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>	
+	<span class="k">transition</span> <span class="n">getR</span> <span class="p">[</span><span class="n">waitR</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">]</span> <span class="k">label</span> <span class="s">"getRight"</span> <span class="p">{</span>
+		<span class="n">waitR</span> <span class="o">-=</span> <span class="mi">1</span> <span class="p">;</span>
+		<span class="n">hasR</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">transition</span> <span class="n">eat</span> <span class="p">[</span><span class="n">hasR</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">hasL</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">eat</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">;</span>
+		<span class="n">hasL</span><span class="o">-=</span><span class="mi">1</span> <span class="p">;</span>
+		<span class="n">hasR</span><span class="o">-=</span><span class="mi">1</span> <span class="p">;</span>
+	<span class="p">}</span>	
+	<span class="k">transition</span> <span class="n">release</span> <span class="p">[</span><span class="n">eat</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">]</span> <span class="k">label</span> <span class="s">"endEat"</span> <span class="p">{</span>
+		<span class="n">eat</span><span class="o">-=</span><span class="mi">1</span><span class="p">;</span>
+		<span class="n">fork</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+		<span class="n">think</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">composite</span> <span class="n">ThreePhilo</span> <span class="p">{</span>
+	<span class="n">Philo</span> <span class="n">p0</span><span class="p">;</span>
+	<span class="n">Philo</span> <span class="n">p1</span><span class="p">;</span>
+	<span class="n">Philo</span> <span class="n">p2</span><span class="p">;</span>
+		
+	<span class="k">synchronization</span> <span class="n">get0</span> <span class="p">{</span>
+		<span class="n">p0</span><span class="p">.</span><span class="s">"getRight"</span><span class="p">;</span>
+		<span class="n">p1</span><span class="p">.</span><span class="s">"takeFork"</span><span class="p">;</span> 
+	<span class="p">}</span>
+	<span class="k">synchronization</span> <span class="n">end0</span> <span class="p">{</span>
+		<span class="n">p0</span><span class="p">.</span><span class="s">"endEat"</span><span class="p">;</span>
+		<span class="n">p1</span><span class="p">.</span><span class="s">"returnFork"</span><span class="p">;</span> 
+	<span class="p">}</span>
+	<span class="k">synchronization</span> <span class="n">get1</span> <span class="p">{</span>
+		<span class="n">p1</span><span class="p">.</span><span class="s">"getRight"</span><span class="p">;</span>
+		<span class="n">p2</span><span class="p">.</span><span class="s">"takeFork"</span><span class="p">;</span> 
+	<span class="p">}</span>
+	<span class="k">synchronization</span> <span class="n">end1</span> <span class="p">{</span>
+		<span class="n">p1</span><span class="p">.</span><span class="s">"endEat"</span><span class="p">;</span>
+		<span class="n">p2</span><span class="p">.</span><span class="s">"returnFork"</span><span class="p">;</span> 
+	<span class="p">}</span>
+	<span class="k">synchronization</span> <span class="n">get2</span> <span class="p">{</span>
+		<span class="n">p2</span><span class="p">.</span><span class="s">"getRight"</span><span class="p">;</span>
+		<span class="n">p0</span><span class="p">.</span><span class="s">"takeFork"</span><span class="p">;</span> 
+	<span class="p">}</span>
+	<span class="k">synchronization</span> <span class="n">end2</span> <span class="p">{</span>
+		<span class="n">p2</span><span class="p">.</span><span class="s">"endEat"</span><span class="p">;</span>
+		<span class="n">p0</span><span class="p">.</span><span class="s">"returnFork"</span><span class="p">;</span> 
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">main</span> <span class="n">ThreePhilo</span> <span class="p">;</span>
+
+<span class="c1">// Test for absence of deadlocks
+</span><span class="k">property</span> <span class="n">noDeadlocks</span> <span class="p">[</span><span class="k">ctl</span><span class="p">]</span> <span class="o">:</span> <span class="k">AG</span><span class="p">(</span><span class="k">EX</span><span class="p">(</span><span class="nb">true</span><span class="p">))</span> <span class="p">;</span>
+
+<span class="c1">// p0 and p2 never eat simultaneously.
+</span><span class="k">property</span> <span class="n">mutEx</span> <span class="p">[</span><span class="k">ctl</span><span class="p">]</span> <span class="o">:</span> <span class="k">AG</span> <span class="p">(</span><span class="o">!</span> <span class="p">(</span><span class="n">p0</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="c1">// Whenever philosopher 0 finishes eating, philosopher 1 **can** eat before philo 0 eats again.
+</span><span class="k">property</span> <span class="n">turns</span> <span class="p">[</span><span class="k">ctl</span><span class="p">]</span> <span class="o">:</span> 
+	<span class="k">AG</span> <span class="p">(</span><span class="n">p0</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">1</span> 
+		<span class="o">-&gt;</span> <span class="p">(</span>
+			<span class="k">A</span> <span class="n">p0</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">1</span> <span class="k">U</span> 
+				<span class="n">p0</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> 
+				<span class="p">(</span><span class="k">E</span> <span class="n">p0</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">0</span> <span class="k">U</span> <span class="n">p1</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> 
+			<span class="p">)</span>		
+	<span class="p">);</span>
+
+
+<span class="c1">// Whenever philosopher 0 finishes eating, he cannot eat again until philosopher 1 has eaten.
+</span><span class="k">property</span> <span class="n">fair</span> <span class="p">[</span><span class="k">ctl</span><span class="p">]</span> <span class="o">:</span> 
+	<span class="k">AG</span> <span class="p">(</span><span class="n">p0</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">1</span> 
+		<span class="o">-&gt;</span> <span class="p">(</span>
+			<span class="k">A</span> <span class="n">p0</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">1</span> <span class="k">U</span> 
+				<span class="n">p0</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> 
+				<span class="p">(</span><span class="k">A</span> <span class="n">p0</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">0</span> <span class="k">U</span> <span class="n">p1</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> 
+			<span class="p">)</span>		
+	<span class="p">);</span>
+
+<span class="c1">// Philo 0 will be the first to eat
+</span><span class="k">property</span> <span class="n">firstEater</span> <span class="p">[</span><span class="k">ctl</span><span class="p">]</span> <span class="o">:</span> 
+	<span class="k">A</span>  <span class="p">(</span><span class="n">p1</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">U</span>  <span class="n">p0</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">1</span> <span class="p">;</span> 
+
+<span class="c1">// Existence of a home state (a.k.a reset property)
+</span><span class="k">property</span> <span class="n">home</span> <span class="p">[</span><span class="k">ctl</span><span class="p">]</span> <span class="o">:</span>
+	<span class="k">AG</span> <span class="p">(</span> <span class="k">EF</span> <span class="p">(</span><span class="n">p0</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">p1</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span><span class="o">:</span><span class="n">eat</span><span class="o">==</span><span class="mi">0</span> <span class="p">));</span>
+
+

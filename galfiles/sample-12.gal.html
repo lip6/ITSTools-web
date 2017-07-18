@@ -1,0 +1,47 @@
+<span class="k">gal</span> <span class="n">Ping</span> <span class="p">{</span> 
+	<span class="kt">int</span> <span class="n">ball</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span>	
+
+	<span class="k">transition</span> <span class="n">ping</span> <span class="p">[</span><span class="n">ball</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="k">label</span> <span class="s">"ping"</span> <span class="p">{</span>
+		<span class="n">ball</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">gal</span> <span class="n">Pong</span> <span class="p">{</span> 
+	<span class="kt">int</span> <span class="n">ball</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>	
+
+	<span class="k">transition</span> <span class="n">pong</span> <span class="p">[</span><span class="n">ball</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="k">label</span> <span class="s">"pong"</span> <span class="p">{</span>
+		<span class="n">ball</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">composite</span> <span class="n">game</span> <span class="p">{</span>
+	<span class="n">Ping</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">p1</span><span class="p">;</span>
+	<span class="n">Pong</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">p2</span><span class="p">;</span>
+	
+	<span class="k">synchronization</span> <span class="n">servep1</span> <span class="k">label</span> <span class="s">"pingAny"</span>  <span class="p">{</span>
+		<span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="s">"ping"</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">synchronization</span> <span class="n">servep2</span> <span class="k">label</span> <span class="s">"pingAny"</span>  <span class="p">{</span>
+		<span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="s">"ping"</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">synchronization</span> <span class="n">servep3</span> <span class="k">label</span> <span class="s">"pingAny"</span>  <span class="p">{</span>
+		<span class="n">p1</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="s">"ping"</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">synchronization</span> <span class="n">servep4</span> <span class="k">label</span> <span class="s">"pongAny"</span>  <span class="p">{</span>
+		<span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="s">"pong"</span><span class="p">;</span>
+	<span class="p">}</span>	
+	<span class="k">synchronization</span> <span class="n">servep5</span> <span class="k">label</span> <span class="s">"pongAny"</span>  <span class="p">{</span>
+		<span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="s">"pong"</span><span class="p">;</span>
+	<span class="p">}</span>	
+	<span class="k">synchronization</span> <span class="n">servep6</span> <span class="k">label</span> <span class="s">"pongAny"</span>  <span class="p">{</span>
+		<span class="n">p2</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="s">"pong"</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">synchronization</span> <span class="n">play</span> <span class="p">{</span>
+		<span class="k">self</span><span class="p">.</span><span class="s">"pingAny"</span><span class="p">;</span>
+		<span class="k">self</span><span class="p">.</span><span class="s">"pongAny"</span><span class="p">;</span>
+	<span class="p">}</span>	
+<span class="p">}</span>
+
+<span class="k">main</span> <span class="n">game</span> <span class="p">;</span>
+
+<span class="k">property</span> <span class="n">end</span> <span class="p">[</span><span class="k">ctl</span><span class="p">]</span> <span class="o">:</span> <span class="k">AF</span> <span class="p">(</span><span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">:</span><span class="n">ball</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span>

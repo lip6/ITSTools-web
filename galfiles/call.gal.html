@@ -1,0 +1,15 @@
+<span class="k">gal</span> <span class="n">callExample</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">variable</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+
+	<span class="k">transition</span> <span class="n">invertX</span> <span class="p">[</span><span class="n">variable</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">variable</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> <span class="p">{</span>
+		<span class="k">self</span><span class="p">.</span><span class="s">"setX"</span> <span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">callee1</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="k">label</span> <span class="s">"setX"</span> <span class="p">{</span>
+		<span class="n">variable</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">callee2</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="k">label</span> <span class="s">"setX"</span> <span class="p">{</span>
+		<span class="n">variable</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>

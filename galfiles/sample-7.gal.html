@@ -1,0 +1,15 @@
+<span class="k">gal</span> <span class="n">full</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span> <span class="p">;</span>
+	<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">2</span> <span class="p">;</span>
+	<span class="kt">array</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">tab</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="o">-</span> <span class="mi">6</span><span class="p">)</span> <span class="p">;</span>
+
+	<span class="k">transition</span> <span class="n">t1</span> <span class="p">[</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">tab</span> <span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="p">{</span>
+		<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span> <span class="p">;</span>
+		<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">tab</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">t2</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="k">label</span> <span class="s">"t2_label"</span> <span class="p">{</span>
+		<span class="n">tab</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tab</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">tab</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">255</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span> <span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+	

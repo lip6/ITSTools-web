@@ -1,0 +1,20 @@
+<span class="k">gal</span> <span class="n">System</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+	<span class="kt">array</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">tab</span><span class="p">;</span>
+	<span class="c1">/// more variables 
+</span>	<span class="k">transition</span> <span class="n">a2b</span> <span class="p">[</span><span class="n">b</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">a</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+		<span class="n">b</span><span class="o">-=</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="c1">/// and transitions...
+</span><span class="p">}</span>
+<span class="k">main</span> <span class="n">System</span> <span class="p">;</span>
+
+<span class="k">property</span> <span class="n">p1</span> <span class="p">[</span><span class="k">reachable</span><span class="p">]</span> <span class="o">:</span> <span class="n">a</span><span class="o">==</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="o">==</span><span class="mi">0</span><span class="p">;</span>
+<span class="k">property</span> <span class="n">p2</span> <span class="p">[</span><span class="k">invariant</span><span class="p">]</span> <span class="o">:</span> <span class="n">a</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">tab</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">;</span>
+<span class="k">property</span> <span class="n">p3</span> <span class="p">[</span><span class="k">never</span><span class="p">]</span> <span class="o">:</span> <span class="n">a</span><span class="o">==</span><span class="mi">1</span> <span class="p">;</span>
+
+<span class="k">property</span> <span class="n">b1</span> <span class="p">[</span><span class="k">bounds</span><span class="p">]</span> <span class="o">:</span> <span class="n">a</span><span class="p">;</span>
+<span class="k">property</span> <span class="n">b2</span> <span class="p">[</span><span class="k">bounds</span><span class="p">]</span> <span class="o">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">tab</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span><span class="p">;</span>

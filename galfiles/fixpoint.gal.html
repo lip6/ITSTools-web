@@ -1,0 +1,35 @@
+<span class="k">gal</span> <span class="nf">tpnModel</span> <span class="p">(</span><span class="nb">$EFT</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="nb">$LFT</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span>
+	<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+	<span class="kt">int</span> <span class="n">t</span><span class="p">.</span><span class="n">clock</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+
+	<span class="k">transition</span> <span class="n">t</span> <span class="p">[</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">.</span><span class="n">clock</span> <span class="o">&gt;=</span> <span class="nb">$EFT</span><span class="p">]</span> <span class="k">label</span> <span class="s">"succ"</span> <span class="p">{</span>
+		<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">;</span>
+		<span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">;</span>
+		<span class="n">t</span><span class="p">.</span><span class="n">clock</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+		<span class="k">self</span><span class="p">.</span><span class="s">"reset"</span> <span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">elapseEffect</span> <span class="p">[</span><span class="o">!</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">t</span><span class="p">.</span><span class="n">clock</span> <span class="o">&lt;</span> <span class="nb">$LFT</span><span class="p">]</span> <span class="k">label</span> <span class="s">"elapseEffect"</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">t</span><span class="p">.</span><span class="n">clock</span> <span class="o">=</span> <span class="n">t</span><span class="p">.</span><span class="n">clock</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">id</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="k">label</span> <span class="s">"elapseEffect"</span> <span class="p">{</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">nextState</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="p">{</span>
+		<span class="k">fixpoint</span> <span class="p">{</span>
+			<span class="k">self</span><span class="p">.</span><span class="s">"elapseEffect"</span> <span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">self</span><span class="p">.</span><span class="s">"succ"</span> <span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">transition</span> <span class="n">reset</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="k">label</span> <span class="s">"reset"</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">t</span><span class="p">.</span><span class="n">clock</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">TRANSIENT</span> <span class="o">=</span> <span class="nb">false</span> <span class="p">;</span>
+<span class="p">}</span>

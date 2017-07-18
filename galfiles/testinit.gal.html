@@ -1,0 +1,39 @@
+
+
+
+<span class="k">gal</span> <span class="nf">TabVar</span> <span class="p">(</span><span class="nb">$N</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="kt">int</span> <span class="n">a</span> <span class="p">;</span>
+	<span class="k">typedef</span> <span class="n">index_t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">..</span><span class="nb">$N</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="kt">array</span> <span class="p">[</span><span class="nb">$N</span><span class="p">]</span> <span class="n">tab</span> <span class="p">;</span>
+	
+	<span class="k">transition</span> <span class="n">t1</span> <span class="p">(</span><span class="n">index_t</span> <span class="nb">$i</span><span class="p">)</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="k">label</span> <span class="s">"a"</span><span class="p">(</span><span class="nb">$i</span><span class="p">){</span>
+		<span class="n">tab</span><span class="p">[</span><span class="nb">$i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="n">a</span><span class="o">=</span><span class="nb">$i</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="k">transition</span> <span class="n">t2</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="k">label</span> <span class="s">"a_0"</span><span class="p">{</span>
+		<span class="n">tab</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	
+	<span class="k">transition</span> <span class="n">incA</span> <span class="p">[</span><span class="n">a</span> <span class="o">&lt;</span> <span class="nb">$N</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">a</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+<span class="p">}</span>
+
+<span class="k">composite</span> <span class="n">C</span> <span class="p">{</span>
+	<span class="n">TabVar</span> <span class="n">t1</span><span class="p">;</span>
+	<span class="n">TabVar</span> <span class="n">t2</span> <span class="p">(</span><span class="nb">$N</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+	
+	<span class="k">synchronization</span> <span class="n">s1</span> <span class="k">label</span> <span class="s">""</span> <span class="p">{</span>
+		<span class="n">t1</span><span class="p">.</span><span class="s">"a"</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+		<span class="n">t2</span><span class="p">.</span><span class="s">"a"</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">synchronization</span> <span class="n">s11</span> <span class="k">label</span> <span class="s">""</span> <span class="p">{</span>
+		<span class="n">t1</span><span class="p">.</span><span class="s">"a_0"</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">main</span> <span class="n">C</span><span class="p">;</span>

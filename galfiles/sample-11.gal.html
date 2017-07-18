@@ -1,0 +1,18 @@
+<span class="k">composite</span> <span class="n">game</span> <span class="p">{</span>
+	<span class="n">Ping</span> <span class="n">p1</span><span class="p">;</span>
+	<span class="n">Pong</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">p2</span><span class="p">;</span>
+	
+	<span class="k">synchronization</span> <span class="n">servep0</span>  <span class="p">{</span>
+		<span class="n">p1</span><span class="p">.</span><span class="s">"ping"</span><span class="p">;</span>
+		<span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="s">"pong"</span><span class="p">;</span>
+		<span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="s">"pong"</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">synchronization</span> <span class="n">servep3</span> <span class="k">label</span> <span class="s">"paf"</span> <span class="p">{</span>
+		<span class="n">p1</span><span class="p">.</span><span class="s">"ping"</span><span class="p">;</span>
+		<span class="n">p2</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="s">"pong"</span><span class="p">;</span>
+	<span class="p">}</span>	
+<span class="p">}</span>
+
+<span class="k">main</span> <span class="n">game</span> <span class="p">;</span>
+
+<span class="k">property</span> <span class="n">end</span> <span class="p">[</span><span class="k">ctl</span><span class="p">]</span> <span class="o">:</span> <span class="k">AF</span> <span class="p">(</span><span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">:</span><span class="n">ball</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span>

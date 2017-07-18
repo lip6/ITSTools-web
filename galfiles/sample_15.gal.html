@@ -1,0 +1,16 @@
+
+<span class="c1">// size of buffers
+</span><span class="nb">$N</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
+
+<span class="c1">// ...
+</span><span class="k">gal</span> <span class="n">Buffer</span> <span class="p">{</span>
+	<span class="kt">array</span> <span class="p">[</span><span class="nb">$N</span><span class="p">]</span> <span class="n">buff</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">fill</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+	
+	<span class="k">transition</span> <span class="n">put</span> <span class="p">[</span><span class="n">fill</span><span class="o">&lt;</span><span class="nb">$N</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">buff</span><span class="p">[</span><span class="n">fill</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="n">fill</span> <span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="c1">// ...
+</span><span class="p">}</span>
+<span class="o">//</span><span class="p">...</span>

@@ -1,0 +1,10 @@
+<span class="k">gal</span> <span class="nf">paramDef</span> <span class="p">(</span><span class="nb">$N</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">typedef</span> <span class="n">paramType</span> <span class="o">=</span> <span class="mi">0</span><span class="p">..</span><span class="nb">$N</span><span class="p">;</span>
+	<span class="k">typedef</span> <span class="n">paramType2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">..</span><span class="mi">1</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">variable</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	
+	<span class="c1">// a transition compactly modeling ($N+1)*2 (card(pt1)=$N+1, card(pt2)=2) basic transitions
+</span>	<span class="k">transition</span> <span class="n">trans</span> <span class="p">(</span><span class="n">paramType</span> <span class="nb">$p1</span><span class="p">,</span> <span class="n">paramType2</span> <span class="nb">$p2</span><span class="p">)</span> <span class="p">[</span><span class="nb">$p1</span> <span class="o">!=</span> <span class="nb">$p2</span><span class="p">]</span> <span class="p">{</span>
+		<span class="n">variable</span> <span class="o">=</span> <span class="nb">$p1</span> <span class="o">+</span> <span class="nb">$p2</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>

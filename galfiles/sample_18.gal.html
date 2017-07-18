@@ -1,0 +1,56 @@
+<span class="nb">$N</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">..</span><span class="nb">$N</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">// A participant : can hold the token. Other behavior is not modeled.
+</span><span class="k">gal</span> <span class="nf">Participant</span><span class="p">(</span><span class="nb">$TOKEN</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">hasToken</span><span class="o">=</span><span class="nb">$TOKEN</span><span class="p">;</span>
+	
+	<span class="k">transition</span> <span class="n">get</span> <span class="p">[</span><span class="n">hasToken</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="k">label</span> <span class="s">"get"</span> <span class="p">{</span>
+		<span class="n">hasToken</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">transition</span> <span class="n">put</span> <span class="p">[</span><span class="n">hasToken</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="k">label</span> <span class="s">"put"</span> <span class="p">{</span>
+		<span class="n">hasToken</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">transition</span> <span class="n">reset</span> <span class="p">[</span><span class="nb">true</span><span class="p">]</span> <span class="k">label</span> <span class="s">"reset"</span> <span class="p">{</span>
+		<span class="n">hasToken</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="p">}</span>		
+<span class="p">}</span>
+<span class="k">composite</span> <span class="n">Collaboration</span> <span class="p">{</span>
+	<span class="c1">// the leader starts and ends cycles
+</span>	<span class="n">Participant</span> <span class="n">leader</span><span class="p">(</span><span class="nb">$TOKEN</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+	<span class="c1">// A ring of participants
+</span>	<span class="n">Participant</span> <span class="p">[</span><span class="nb">$N</span><span class="p">]</span> <span class="n">ring</span><span class="p">;</span>
+
+	<span class="c1">// our leader gives the token to a random participant
+</span>	<span class="k">synchronization</span> <span class="nf">start</span> <span class="p">(</span><span class="n">index</span> <span class="nb">$i</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">ring</span><span class="p">[</span><span class="nb">$i</span><span class="p">].</span><span class="s">"put"</span><span class="p">;</span>
+		<span class="n">leader</span><span class="p">.</span><span class="s">"get"</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="c1">// There is a topological ring of participants
+</span>	<span class="k">synchronization</span> <span class="nf">passToken</span> <span class="p">(</span><span class="n">index</span> <span class="nb">$i</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">ring</span><span class="p">[</span><span class="nb">$i</span><span class="p">].</span><span class="s">"get"</span><span class="p">;</span>
+		<span class="n">ring</span><span class="p">[(</span><span class="nb">$i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span> <span class="nb">$N</span><span class="p">].</span><span class="s">"put"</span><span class="p">;</span>		
+	<span class="p">}</span>
+	
+	<span class="c1">// The reset is a broadcast : the leader gets the token back forcefully
+</span>	<span class="k">synchronization</span> <span class="n">reset</span> <span class="p">{</span>
+		<span class="n">leader</span><span class="p">.</span><span class="s">"put"</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="nb">$i</span> <span class="o">:</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">ring</span><span class="p">[</span><span class="nb">$i</span><span class="p">].</span><span class="s">"reset"</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="c1">// the condition used is random/meaningless ;
+</span>	<span class="c1">// this example shows if/abort used to make complex synchronization
+</span>	<span class="k">synchronization</span> <span class="n">passFast</span> <span class="p">(</span><span class="n">index</span> <span class="nb">$i</span><span class="p">,</span> <span class="n">index</span> <span class="nb">$j</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span> <span class="nb">$i</span><span class="o">!=</span><span class="nb">$j</span> <span class="o">&amp;&amp;</span> <span class="p">(</span> <span class="nb">$i</span><span class="o">==</span><span class="mi">0</span> <span class="o">||</span> <span class="nb">$j</span> <span class="o">==</span> <span class="nb">$i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span> <span class="p">{</span>
+			<span class="n">ring</span><span class="p">[</span><span class="nb">$i</span><span class="p">].</span><span class="s">"get"</span><span class="p">;</span>
+			<span class="n">ring</span><span class="p">[</span><span class="nb">$j</span><span class="p">].</span><span class="s">"put"</span><span class="p">;</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="k">abort</span><span class="p">;</span>
+		<span class="p">}</span>		
+	<span class="p">}</span> 
+	
+<span class="p">}</span>
+
+<span class="k">main</span> <span class="n">Collaboration</span><span class="p">;</span>
