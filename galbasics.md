@@ -264,8 +264,9 @@ The abort statement is mainly used to model transition relations where Boolean c
 
 The following example shows a use of abort to model the transition relation of a Time Petri net with two places a and b, and a transition t that moves tokens from a to b, with earliest firing time _eft_ and latest firing time _lft_. Time cannot elapse if an enabled transition has reached its latest firing time, but this test is complex, particularly when there are many transitions. Use of abort allows to concisely represent the semantics.
 
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
 {% include_relative galfiles/abort.gal.html %}
-
+</code></pre></figure>
 
 
 
