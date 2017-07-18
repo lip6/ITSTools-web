@@ -290,5 +290,5 @@ This model when instantiated is still compact as shown here. Compare to what a [
 
 {% highlight C %}
 {% include_relative galfiles/vendingsimple.flat.gal %}
-{% endhighlight %}](http://mcc.lip6.fr)
+{% endhighlight %}
 
