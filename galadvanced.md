@@ -17,7 +17,7 @@ These features are also less well maintained and tested than the main set of fea
 using these features, but you might indeed encounter some.
 
 We have three features in this "advanced category"
-1. Hotbit encoding : this is a GAL to GAL rewriting that takes certain tagged variables with domain __0..n-1__and rewrites them
+1. Hotbit encoding : this is a GAL to GAL rewriting that takes certain tagged variables with domain __0..n-1__ and rewrites them
 to __n__ Boolean variables. This might favor locality in a symbolic encoding hence help the symbolic solvers.
 
 The next two features are only available when working with the symbolic solver (its-reach,...) and generally
