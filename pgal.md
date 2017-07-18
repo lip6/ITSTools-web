@@ -262,17 +262,51 @@ We then apply simplifications, currently we do the following rather trivial simp
 
 Parameter separation consists in rewriting conjunction of choices (as expressed by transitions with several parameters) to sequence of choices where possible.
 
-De-generalizing parametric transitions that bear a large number of parameters can produce very large GAL specifications. In general, degeneralization produces as many transitions as the size of the cartesian product of the domains of the formal parameters. But in many case, the full combinatorial unfolding can be avoided, allowing a compact transition representation while preserving semantics.
+De-generalizing parametric transitions that bear a large number of parameters can produce very large GAL specifications. 
+In general, degeneralization produces as many transitions as the size of the cartesian product of the domains of the formal parameters. 
+But in many case, the full combinatorial unfolding can be avoided, allowing a compact transition representation while preserving semantics.
 
-A transition has two independent parameters if it contains no statement that uses both parameters. Such a transition can be split into two labelled sub-transitions, one for each parameter, the semantics being preserved by calling the labels of these two sub-transitions. Statements are moved to the appropriate sub-transitions depending on the parameter they rely on. We thus obtain three transitions: the modified original one, that calls the sub-transitions and has no more parameter, and the sub-transitions, each of which has a single parameter. If the domain sizes of both parameters are called $r_1$ and $r_2$, we obtain after the instantiation of the parameters $r_1 + r_2 + 1$ transitions instead of $r1 \times r_2$. Thanks to the sequence and call statements, the semantics is preserved.
+A transition has two independent parameters if it contains no statement that uses both parameters. 
+Such a transition can be split into two labelled sub-transitions, one for each parameter, the semantics
+ being preserved by calling the labels of these two sub-transitions. Statements are moved to the
+  appropriate sub-transitions depending on the parameter they rely on. 
+  
+We thus obtain three transitions: the modified original one, that calls the sub-transitions and has no more parameter, 
+and the sub-transitions, each of which has a single parameter. 
+If the domain sizes of both parameters are called __r1__ and __r2__,
+ we obtain after the instantiation of the parameters __r_1 + r_2 + 1__ transitions instead of __r1 * r_2__.
+ Thanks to the sequence and call statements, the semantics is preserved.
 
-More generally, the detection of the parameters to be separated in a given transition is done by building an hypergraph, whose nodes are parameters and where an hyperedge is added for each statement, connecting together all the parameters used in it. We then consider the connectivity graph between parameters induced by this hypergraph. If a parameter $p$ has no neighbor, it can be separated: a new transition with parameter $p$ and a new label $l_p$ is built, whose body is the sequence of statements that depend on $p$. These statements are replaced in the original transition by a call the label $l_p$. Similarly, a parameter $p_1$ that has a single neighbor $p_2$ can also be separated. We similarly build a transition with the statements depending upon $p_1$ alone or $p_1$ and $p_2$. This transition bears both parameters $p_1$ and $p_2$, and is labelled with a new label $l_{p_2}$. Parameter $p_1$ can then be removed from the original transition, and the relevant statements be replaced by a call to label $l_{p_2}$. The procedure can be iterated on the simplified original transition, where $p_2$ may now be separable too. Instantiation will also instantiate $p_2$ in $l_{p_2}$, so as to ensure consistency for the values of $p_2$ across the separated transitions.
+More generally, the detection of the parameters to be separated in a given transition is done by building an hypergraph,
+ whose nodes are parameters and where an hyperedge is added for each statement, connecting together all the parameters used in it. 
+ We then consider the connectivity graph between parameters induced by this hypergraph. 
+ 
+ If a parameter __$p__ has no neighbor, it can be separated:
+  a new transition with parameter __$p__ and a new label __"lp"__ is built, whose body is the sequence of statements that depend on __$p__.
 
-This procedure has low complexity, depending on the size of the parametric GAL. It is applied before instantiation of the parameters. Relying on the distributivity between sequential and parallel composition, it helps producing transition relation expressed as sequences of parallel compositions, yielding much more compact representations than an expanded parallel composition of sequences (such as used by LTSmin). This factored representation would not be efficient without the ability of symbolic operations to deal with parallel composition natively. One may see this transform as a manner of delaying the computation of the combinatorial number of instantiations until symbolic evaluation time, where the symbolic data structures help with the combinatorics.
+These statements are replaced in the original transition by a call the label __"lp"__. 
+
+Similarly, a parameter __$p1__ that has a single neighbor __$p2__ can also be separated. 
+We similarly build a transition with the statements depending upon __$p1__ alone or on both __$p1__ and __$p2__. 
+This transition bears both parameters __$p1__ and __$p2__, and is labelled with a new label __"lp2"__. 
+Parameter __$p1__ can then be removed from the original transition, and the relevant statements be
+ replaced by a call to label __"lp2"__. 
+ The procedure can be iterated on the simplified original transition, where __$p2__ may now be separable too. 
+ Instantiation will also instantiate __$p2__ in __"lp2"__, so as to ensure consistency for the values of __$p2__ across the separated transitions.
+ 
+
+This procedure has low complexity, depending on the size of the parametric GAL. 
+It is applied before instantiation of the parameters. 
+Relying on the distributivity between sequential and parallel composition, it helps producing transition relation
+ expressed as sequences of parallel compositions, yielding much more compact representations
+  than an expanded parallel composition of sequences (such as used by LTSmin). 
+  
+  This factored representation would not be efficient without the ability of symbolic operations to deal with parallel composition natively. 
+  One may see this transform as a manner of delaying the computation of the combinatorial number of instantiations until
+   symbolic evaluation time, where the symbolic data structures help with the combinatorics.
 
 This example transition of a colored Petri net taken from [this VendingMachine example](http://mcc.lip6.fr/pdf/DrinkVendingMachine-form.pdf) of the 
 [Model checking contest at Petri nets](http://mcc.lip6.fr) shows how this reduction works in practice.
-
 
 This is an extract of the [full model](galfiles/drink-vending-2-col.gal). Before separation, we have many independent parameters. In fact here all parameters are independent, since no statement simultaneously uses two parameters. Furthermore parameters $o1 $o2 and $o3 play a very symmetric role.
 
@@ -286,7 +320,8 @@ After separation (and fusion of isomorphic effects on $o1 $o2 and $o3) we obtain
 {% include_relative galfiles/vendingsimple.sep.gal.html %}
 </code></pre></figure>
 
-This model when instantiated is still compact as shown here. Compare to what a [plain instantiation ](galfiles/vendingsimple.inst.gal) obtains; obviously when applicable this approach helps to scale as it can avoid exponential blowups in specification size.
+This model when instantiated is still compact as shown here. Compare to what a [plain instantiation ](galfiles/vendingsimple.inst.gal) obtains;
+ obviously when applicable this approach helps to scale as it can avoid exponential blowups in specification size.
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c">
 {% include_relative galfiles/vendingsimple.flat.gal.html %}
