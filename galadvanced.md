@@ -7,7 +7,29 @@ permalink: galadvanced.html
 summary: GAL Advanced Concepts.
 ---
 
-### [](http://mcc.lip6.fr)<a name="hotbitrewrite"></a>5.4 Hotbit transformation
+# Advanced GAL Features
+
+This page presents some advanced features of GAL, which have been introduced in the language but are not supported 
+by all verification toolchains. While they still currently are functional, they might be removed in future iterations
+of the tool unless more use cases are found for them.
+
+These features are less well maintained than the main set of features, please report any difficulties you might encounter
+using these features.
+
+We have three features in this "advanced category"
+1. Hotbit encoding : this is a GAL to GAL rewriting that takes certain tagged variables with domain __0..n-1__and rewrites them
+to __n__ Boolean variables. This might favor locality in a symbolic encoding hence help the symbolic solvers.
+
+
+The next two features are only available when working with the symbolic solver (its-reach,...) and generally
+do not mix well with Composite nor are they heavily tested. 
+
+2. Fixpoint statement : enables to perform a fixpoint computation over a set of states. 
+3. Transient predicate : this optional abstraction predicate designates states that are transient, 
+they are not reported as reachable states though they may be traversed. 
+
+
+## Hotbit transformation
 
 When the specification contains hotbit variables or arrays they are rewritten as plain variables.
 
@@ -70,8 +92,7 @@ For each unique $i$ index expression found,
 *   reads after writes and successive writes to a hotbit variable within a single transition are currently not supported. We place a syntactic restriction on the specification to enforce this rule. Handling these cases would be possible but requires a lot of care in the general case (tracking values across assignments) and does not correspond to the usage patterns encountered for good hotbit variable candidates.
 
 
-
-#### <a name="fixpoint"></a>f) Fixpoint action
+## Fixpoint action
 
 The fixpoint action allows to apply a given sequence of statements until convergence is obtained. Note that this is convergence of the set of successor states, i.e. fixpoint returns a set of states such that applying the body of the fixpoint statement to this set yields the set itself. This operator is similar to Kleene-star closure of langage theory. It can be used to simulate mu (least fixpoint) and nu (greatest fixpoint) operators of [modal mu-calculi](https://en.wikipedia.org/wiki/Modal_%CE%BC-calculus).
 
@@ -85,7 +106,7 @@ The example implements a least fixpoint using elapse. The transition "id" allows
 {% include_relative galfiles/fixpoint.gal.html %}
 </code></pre></figure>
 
-### <a name="transient"></a>3.8 Transient predicate
+## Transient predicate
 
 <span class="galElement">TRANSIENT</span> is a keyword that modifies the semantics of a GAL system to accelerate over states satisfying the Transient predicate. When the transient predicate is false (which is the default assumption if no transient predicate is provided), the basic semantics where transitions produce successors in one step is used. However, any state that satisfies the transient predicate will be abstracted away and replaced by its successors by any enabled transition. The transition relation succ becomes : ( notTransient + succ o transient ) * . In other words, states satisfying the transient predicate are not considered part of the final state space, they are simply intermediate steps where another transition should be fired immediately. A limitation of this mechanism is that cycles of transient states (zeno style behavior) are considered ill-formed, and typically may cause the model-checking procedure to livelock. It is also an error if the initial state satisfies the transient predicate.
 
