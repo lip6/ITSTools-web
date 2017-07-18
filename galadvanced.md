@@ -13,13 +13,12 @@ This page presents some advanced features of GAL, which have been introduced in 
 by all verification toolchains. While they still currently are functional, they might be removed in future iterations
 of the tool unless more use cases are found for them.
 
-These features are less well maintained than the main set of features, please report any difficulties you might encounter
-using these features.
+These features are also less well maintained and tested than the main set of features, please report any difficulties you might encounter
+using these features, but you might indeed encounter some.
 
 We have three features in this "advanced category"
 1. Hotbit encoding : this is a GAL to GAL rewriting that takes certain tagged variables with domain __0..n-1__and rewrites them
 to __n__ Boolean variables. This might favor locality in a symbolic encoding hence help the symbolic solvers.
-
 
 The next two features are only available when working with the symbolic solver (its-reach,...) and generally
 do not mix well with Composite nor are they heavily tested. 
