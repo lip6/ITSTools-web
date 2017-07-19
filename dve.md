@@ -32,7 +32,7 @@ Analysis is performed by first translating the model to [GAL](gal.md). The actua
 The translation builds GAL variables for DVE global variables, a variable holding the state of each process, a variable corresponding to each process local variable. 
 The variables corresponding to process states have an integer domain : we use indexes to the state declarations in the DVE specification (in the same order, starting from 0).
 
-For channels, two cases are possible : if data is transmitted in the channel a crossproduct of all sender to receiver combinations is built,
+For channels, two cases are possible : if data is transmitted in the channel a cross-product of all sender to receiver combinations is built,
  otherwise a pure label based synchronization scheme is used. 
  
 Due to limits on GAL parameter declarations, for which domains must be a priori known, data transmission cannot be encoded directly using labels in GAL when message domain is unknown a priori.
@@ -50,7 +50,7 @@ Note that in the flat model, variables that are in fact constants will be remove
 There are three ways to model-check DVE models with the ITS-tools :
 * The more recent translation path is built using metamodels and embedded in Eclipse.
 It includes some nice error checking, e.g. raising errors on inconsistent examples of the BEEM benchmark. 
-It also exploits GAL to GAL rewritings that may simplify significantly the model prior to analysis. This is the currently recommended aproach.
+It also exploits GAL to GAL rewritings that may simplify significantly the model prior to analysis. This is the currently recommended approach.
 	* Right click a DVE file in eclipse, then find the "DVE to GAL -> Transform to GAL" menu entry. Make sure to refresh the containing folder (F5) so that you see the resulting file in eclipse.
 * The command-line its-tools (its-reach, its-ctl, its-ltl) accept DVE models natively with flag "-t DVE". 
 Internally a translation to GAL is performed, run without "--quiet" flag to see the resulting model.
@@ -59,7 +59,7 @@ The translation also differs in several small respects with the Eclipse translat
 	* Run the command line its-tools with "-i mymodel.dve -t DVE"
 * A third path is open to read DVE models through LTSmin ETF format. ETF is relatively compact representation of the state graph that LTSmin can build.
 When this succeeds (i.e. LTSMin manages to build the state space) subsequent model-checking using the ETF input tends to be faster than using the original DVE input. 
-Note that its-reach is known to succeed using DVE input for many models where LTSmin fails (mostly in presence of synchronization barriers that impact a lorge number of variables in their support). 
+Note that its-reach is known to succeed using DVE input for many models where LTSmin fails (mostly in presence of synchronization barriers that impact a large number of variables in their support). 
 	* First run [LTSmin **dve2lts-sym** tool](http://fmt.cs.utwente.nl/tools/ltsmin/doc/dve2lts-sym.html) to build an ETF, then use flag "-t ETF" to pass the file to its-tools. 
 	* This path through ETF is mandatory to activate TGTA (testing automata) approaches for LTL (see [LTSmin bridges](ltsmin.md) page).
 	
