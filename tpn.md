@@ -133,7 +133,7 @@ If you select the newly imported model, you will see it has children which are t
 ![download](images/flattenVar.png)
 
 
-# Model-checking TPN
+## Model-checking TPN
 
 There are three options currently possible :
 * Export your model to GAL, add properties in the resulting GAL file, and run the GAL model-checking tools.
@@ -144,7 +144,7 @@ This is the older option to access its-tools model-checking, but it works well o
 * Export your models to Tina or Romeo and analyze them with those tools. 
 You get dense time analysis as well as simulation for your nets, but you need to "flatten" compositions of nets.
 
-## Export to GAL
+### Export to GAL
 
 It is also possible to export a TPN to GAL format, using either the classic one time unit step "elapse" transition,
 or an abstraction called [essential states](https://www.informatik.hu-berlin.de/~popova/es_states.ps).
@@ -153,14 +153,14 @@ To do this, right click the model, then use "Export->Coloane", and choose "GAL f
  essential states abstraction.
 
 
-## Using the Composition tool
+### Using the Composition tool
 
 Start by executing the steps described above in **Defining parameter values** section.
 
 Then in the "Analysis" tab, add you properties and run the analysis, as [described here](composite.html#reachability).
 
 
-## Model Exchange (Tina, Romeo)
+### Model Exchange (Tina, Romeo)
 
 Supporting model exchange across tools is important and useful, especially since Romeo and Tina use different techniques from each other and from
  ITS tools to perform analysis. We support import and export of [Tina](http://projects.laas.fr/tina/) and [Romeo](http://romeo.rts-software.org/) models of TPN.
