@@ -1,72 +1,43 @@
-<html>
-<?php include 'header.md'; ?>
+# Promela specifications.
 
-<h1>Using ITS to build and analyze Promela specifications.</h1>
-<p>
-	ITS-tools is happy to offer support for (a subset of) Promela the original modeling language of Spin.
-	We provide an Xtext based editor 
-	(content-assist, correct as you type...) to edit .dve files and transformation(s) to GAL for analysis.
-</p>
+ITS-tools is happy to offer support for (a subset of) Promela the original modeling language of Spin. 
 
-<a name="toc"></a>
-<?php TableOfContents(__FILE__, 4); ?>
+We provide an Xtext based editor (content-assist, correct as you type...) to edit .dve files and transformation(s) to GAL for analysis.
 
+## Install
 
-<h2><a name="sec:Install"></a>I. Install </h2>
+Please follow [these guidelines](eclipsestart.md) to install ITS modeler.
 
-<p>Please follow [these guidelines](itstools.md#sec:modinst) to install ITS modeler.</p>
-<p>You should now be able to open a .pml file within Eclipse, let it add "Xtext nature" to your project
-to enable the full featured editor.
-</p>
+You should now be able to open a .pml file within Eclipse, let it add "Xtext nature" to your project to enable the full featured editor.
 
-<h2><a name="sec:Promelaeditor"></a>II. Using the Promela editor</h2>
+## Using the Promela editor
 
-<h3><a name="ssec:modelPromela"></a>1. Modeling with Promela</h3>
-<p>In an empty project create or import an existing dve file to get started.
-The syntax is explained on the webpage : [Promela description from Spin homepage](http://spinroot.com)</p>
+### Modeling with Promela
 
-<p> You can also use "File->New->Example...->Coloane Examples->Promela examples" to get a project containing a few tested examples from BEEM benchmark models.</p>
+In an empty project create or import an existing dve file to get started. The syntax is explained on the webpage : [Promela description from Spin homepage](http://spinroot.com)
 
-<p>You can use Ctrl-space to trigger auto-completion, ... In essence it's just a nice Eclipse look-n-feel coloring editor.</p>
+You can also use "File->New->Example...->Coloane Examples->Promela examples" to get a project containing a few tested examples from BEEM benchmark models.
 
+You can use Ctrl-space to trigger auto-completion, ... In essence it's just a nice Eclipse look-n-feel coloring editor.
 
-<div class="toplink" align="right">
-	<a href="#toc">Start of page <img alt="" src="images/up.gif"
-		width="13" height="12" border="0"></a>
-</div>
+### Reading Promela into GAL
 
-<h3><a name="ssec:importPromela"></a>2. Reading Promela into GAL</h3>
+Analysis is performed by first translating the model to [GAL](gal.md). The actual transformation is described here : [Promela translation (french pdf)](./files/PSTL_promela.pdf).
 
-<p>
-Analysis is performed by first translating the model to [GAL](gal.md). The actual transformation
-is described here : [Promela translation (french pdf)](./files/PSTL_promela.pdf).
-<ol>
-<li> Right click the .pml file in Eclipse, then select action "Promela to GAL -> Transform to GAL".
-You can also select a set of files or a folder it will recursively find .pml files. </li>
-<li> You will obtain two GAL image files for each input pml file. One of them contains the translation result, with extension .gal,
-the other is the simplified model .flat.gal you should actually use for verification.
-</li>
-</ol>
-</p>
+1.  Right click the .pml file in Eclipse, then select action "Promela to GAL -> Transform to GAL". You can also select a set of files or a folder it will recursively find .pml files.
+2.  You will obtain two GAL image files for each input pml file. One of them contains the translation result, with extension .gal, the other is the simplified model .flat.gal you should actually use for verification.
 
-<p>The editor only recognizes files with ".pml" extension.</p>
+The editor only recognizes files with ".pml" extension.
 
-<h2><a name="sec:bench"></a>3. Experiments with Promela models</h2>
+## Experiments with Promela models
 
-<p> We have run some benchmark experiments to measure how its-tools handles models from the BEEM
-benchmarks. The models of BEEM in promela format were succesfully read and yielded the correct number of states 
-(i.e. the same as reported by Spin with partial order deactivated).</p>
+We have run some benchmark experiments to measure how its-tools handles models from the BEEM benchmarks. 
+The models of BEEM in promela format were successfully read and yielded the correct number of states (i.e. the same as reported by Spin with partial order deactivated).
 
- 
-<h2><a name="sec:Ack"></a>Acknowledgements </h2>
+This set of models is quite limited in the number of concepts and the portion of the syntax of Promela that is covered however.
 
-The various plugins, the definition of an Promela metamodel and the implementation of the 
-transformation embedded in eclipse were done by Master 1 students of UPMC (2014) :  
-Adrien Becchis, Fjorilda Gjermizi and Julia Wisniewsky under supervision of Yann Thierry-Mieg
- ([see PSTL report in french (pdf)](./files/PSTL_promela.pdf)). Integration and maintenance
- is done by Yann Thierry-Mieg.
-  
-<!-- #EndEditable -->
-<?php include 'footer.md'; ?>
+## Acknowledgements
 
-</html>
+The various plugins, the definition of an Promela metamodel and the implementation of the transformation embedded in eclipse were done by Master 1 students of UPMC (2014) : Adrien Becchis, Fjorilda Gjermizi and Julia Wisniewsky under supervision of Yann Thierry-Mieg ([see PSTL report in french (pdf)](./files/PSTL_promela.pdf)). 
+
+Integration and maintenance is done by Yann Thierry-Mieg.
