@@ -144,7 +144,7 @@ You can also browse the Examples in "File->New->Example->Coloane" to see several
 Binding of a concrete type to an instance, and of a size to a scalar or circular set is accomplished similarly to binding a type of a composite. 
 Please [refer to section "binding parameters to variables"](composite.md#ssec:bind) for more details.
 
-# Analysis of Graphical Composite ITS
+## Analysis of Graphical Composite ITS
 
 Analysis of graphical composite models is done using the __composition tool__.
 
@@ -155,7 +155,7 @@ Then import all the models (.model) of your project into the ITS type referentia
  
 Finally, choose the main model instance, and click the "Analysis" button.
 
-## Reachability
+### Reachability
 
 To analyze models, we first need to create an ITS adapter that will wrap the Time Petri nets into instantiable transition systems.
 Create a "File->New->Other->Coloane->ITS Composition model", Next, give it a name, Finish.
@@ -176,7 +176,7 @@ You should get a service report that indicates some statistics on number of reac
 
 ![download](images/result.jpg)
 
-## CTL
+### CTL
 
 For the CTL service, I'll use examples from the Fischer example. You can get this model by "File->New->Example->Coloane->Fischer's Mutual exclusion" .
 
