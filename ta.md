@@ -1,22 +1,39 @@
+---
+title: Timed Automata
+keywords: gal
+tags: [gal]
+sidebar: home_sidebar
+permalink: composite.html
+summary: Analyzing Timed Automata with ITS tools.
+---
+
 # Using ITS to build and analyze Timed Automata.
 
-ITS-tools is happy to offer support for Timed Automata, in a discrete time setting. Alpha-Stage Warning : this tool is still very young, and may exhibit strange features (read bugs). Some effort has been invested in providing compatibility with the reference Timed Automata tool [Uppaal](http://www.uppaal.org) and providing a decent editing front-end. The plugin offers an Xtext based editor (content-assist, correct as you type...) to edit .xta files which is [the textual syntax of Uppaal v4](http://www.it.uu.se/research/group/darts/uppaal/help.md?file=FileFormats.shtml).
+ITS-tools is happy to offer support for Timed Automata, in a discrete time setting. 
 
-<a name="toc"></a>
+Alpha-Stage Warning : this tool is still very young, and may exhibit strange features (read bugs). 
+Some effort has been invested in providing compatibility with the reference Timed Automata tool [Uppaal](http://www.uppaal.org) and providing a decent editing front-end. The plugin offers an Xtext based editor (content-assist, correct as you type...) to edit .xta files which is [the textual syntax of Uppaal v4](http://www.it.uu.se/research/group/darts/uppaal/help.md?file=FileFormats.shtml).
 
-## <a name="sec:Install"></a>I. Install
+## Install
 
 Please follow [these guidelines](eclipsestart.md) to install ITS modeler.
 
 To obtain an .xta file from Uppaal choose "File... Save As" then give the file a .xta extension.
 
-Please note that this is a very early alpha-release, we appreciate your feedback. We did manage to read in all the models included in Uppaal distribution so there is tested support for variables, templates, template parameters, instantiation, local clocks, locations, transitions, arithmetic, urgent locations, and location invariants. This version currently does not support Function declarations or array variables. There are known issues with global clocks and with commit states currently.
+Please note that this is a very early alpha-release, we appreciate your feedback. 
+We did manage to read in all the models included in Uppaal distribution so there is tested support for variables, templates, template parameters, instantiation, local clocks, locations, transitions, arithmetic, urgent locations, and location invariants. 
 
-## <a name="sec:TPNeditor"></a>II. Using the XTA editor
+This version currently does not support Function declarations or array variables. 
+There are known issues with global clocks and with commit states currently.
 
-### <a name="ssec:modelTPN"></a>1\. Modeling with Discrete Timed Automata
+## Using the XTA editor
 
-In an empty project create or import an existing xta file to get started. The syntax is explained in summarized in the BNF [here](http://people.cs.aau.dk/~adavid/utap/syntax.html) and explained in much more detailed form in [the reference manual](http://www.it.uu.se/research/group/darts/uppaal/help.md?file=System_Descriptions/Model.shtml").
+### Modeling with Discrete Timed Automata
+
+In an empty project create or import an existing xta file to get started. 
+
+The syntax is explained in summarized in the BNF [here](http://people.cs.aau.dk/~adavid/utap/syntax.html) 
+and explained in much more detailed form in [the reference manual](http://www.it.uu.se/research/group/darts/uppaal/help.php?file=System_Descriptions/Introduction.shtml).
 
 You can also use "File->New->Example...->Coloane Examples->Timed Automata" to get a project containing a few tested examples from Uppaal distribution.
 
@@ -24,35 +41,36 @@ You can use Ctrl-space to trigger auto-completion, ... In essence it's just a ni
 
 Note that the interpretation (semantics) will be in discrete time instead of Uppaal's dense time hypothesis. So keep in mind that x < k will be interpreted as x ≤ k-1.
 
-In general, it is preferable to use only open bounds (always use ≤ and ≥ rather than < and >). If this condition is respected, analysis in discrete and dense time settings coincide; hence you are guarantedd to get the same analysis results as with Uppaal.
+In general, it is preferable to use only open bounds (always use ≤ and ≥ rather than < and >). 
+If this condition is respected, analysis in discrete and dense time settings coincide; hence you are guaranteed to get the same analysis results as with Uppaal.
 
 Note that for most models the fact we are using a discrete time setting for analysis is not really significant with regards to analysis results.
 
-<div class="toplink" align="right">[Start of page ![](images/up.gif)](#toc)</div>
-
-### <a name="ssec:importTA"></a>2\. Reading Timed Automata into GAL
+### Reading Timed Automata into GAL
 
 Analysis is performed by first translating the model to [GAL](gal.md). The actual transformation is described here : [Experiments with XTA (pdf)](./files/xta-bench.pdf).
 
 1.  Right click the xta file in Eclipse, then select action "TA to GAL -> Transform to GAL" either Essential States or One-step. You can also select a set of files or a folder it will recursively find .xta files.
 2.  You will obtain two GAL image files for each input xta file. One of them contains the translation result, with extension .pop if it uses essential states semantics, and .one if it uses one time step semantics. The file with extension .flat.gal is a simplified output from the GAL post-analysis rewritings, that can be passed with flag "-t GAL" to command line its-tools.
 
-## <a name="sec:bench"></a>3\. Experiments with Timed Automata
+## Experiments with Timed Automata
 
-We have run some benchmark experiments to measure how its-reach scales with respect to Uppaal on some of these Timed Automata models. Overall, Uppaal is much more resistant to high clock limit values, but its-reach supports much higher number of concurrent processes provided maximum clock values remain small.
+We have run some benchmark experiments to measure how its-reach scales with respect to Uppaal on some of these Timed Automata models. 
+Overall, Uppaal is much more resistant to high clock limit values, but its-reach supports much higher number of concurrent processes provided maximum clock values remain small.
 
-The results of these experiments are reported here : [Experiments with XTA (pdf)](./files/xta-bench.pdf). The rest of this section is technical instructions allowing to reproduce our experiments.
+The results of these experiments are reported here : [Experiments with XTA (pdf)](./files/xta-bench.pdf). 
+The rest of this section is technical instructions allowing to reproduce our experiments.
 
-The benchmark constitutes in 3 models declined with various number of process, and various clock bound settings. In total there are 265 XTA model instances and 530 GAL model instances (one with One-step and one with Essential States semantics).
+The benchmark constitutes in 3 models declined with various number of process, and various clock bound settings. 
+In total there are 265 XTA model instances and 530 GAL model instances (one with One-step and one with Essential States semantics).
 
 The models are taken from [Uppaal benchmark suite](www.it.uu.se/research/group/darts/uppaal/benchmarks/) :
 
-1.  FDDI token ring protocol : (folder hddi) we have three parameters, i number of process, j a multiplier, k a constant. We use definitions : [SA=k, TRTT=(K+i*j)](https://srcdev.lip6.fr/trac/research/thierry/browser/PSTL/GAL/fr.lip6.move.xta.benchmarks/hddi/tokenring.gen.awk). We use sample values : i in "02 03 05 07 10 15 20 25 30", j in "1 2 5 10 20", k in "0 1 10 50".
+1.  FDDI token ring protocol : (folder hddi) we have three parameters, i number of process, j a multiplier, k a constant. We use definitions : [SA=k, TRTT=(K+i*j)](https://github.com/lip6/ITSTools/blob/master/xta/fr.lip6.move.xta.benchmarks/hddi/tokenring.gen.awk). We use sample values : i in "02 03 05 07 10 15 20 25 30", j in "1 2 5 10 20", k in "0 1 10 50".
 2.  Fischer mutual exclusion : (folder fischer) we have two parameters, i the number of process, and K the bound on clocks. We use sample values : i in "02 03 05 07 10 15 20 25 30 50", K in "02 04 08 16"
 3.  CSMA CD Collision Detection : we have two parameters, i the number of process and C the clock definition values. We use : (C == 1) SA = 1, SB = 2, TRTT = 3; (C == 2) SA = 2, SB = 4, TRTT = 8; (C == 3) SA = 13, SB = 26, TRTT = 55; (C == 4) SA = 26, SB = 52, TRTT = 808; Sample values are : i in "02 03 05 07 10 15 20 25 30", C in "1 2 3 4 5".
 
-To reproduce these experiments, you can checkout this project :  
-"svn co https://projets-systeme.lip6.fr/svn/research/thierry/PSTL/GAL/fr.lip6.move.xta.benchmarks", using anonymous/anonymous as login/password pair.
+To reproduce these experiments, you can clone the repository and import this eclipse project : https://github.com/lip6/ITSTools/tree/master/xta/fr.lip6.move.xta.benchmarks  
 
 ##### Generating the benchmark example files.
 
@@ -65,7 +83,8 @@ Once you have these elements,
 
 1.  Run "make gen", this should produce a (large) set of *.xta files.
 2.  To produce the GAL files, we now need to run Eclipse, then select "File->Import->Existing Projects into Workspace" and point it to the root folder you checked out earlier.
-3.  In the project obtained, select the root folder then "right-click->TA to GAL->Transform to GAL (Essential States)". This will recursively apply the transformation to all ".xta" files in subfolders. The transformation is quite long due to the high number of files (and there is no progress monitor, sorry), please be patient (or do it separately for each folder).
+3.  In the project obtained, select the root folder then "right-click->TA to GAL->Transform to GAL (Essential States)". This will recursively apply the transformation to all ".xta" files in subfolders. 
+The transformation is quite long due to the high number of files (and there is no progress monitor, sorry), please be patient (or do it separately for each folder).
 4.  Rinse and repeat : also select translation "Transform to GAL (Time unit Step)"
 5.  Make sure you have indeed built "*.one.flat.gal" (one unit time step) and "*.pop.flat.gal" (Popova's Essential States semantics). You can then quit Eclipse.
 
@@ -85,6 +104,7 @@ Once you have these elements,
 4.  Run "make trace.csv" to have the perl scripts post-analyze the traces to grab relevant info (detect successful runs, timeouts, out of memory, and grab memory and time stats). You will obtain a trace.csv file.
 5.  Open and examine the CSV file using your favorite spreadsheet editor. Running "make stats" will show general stats. Running "make plots" will build graphical scatter plots (eps files) comparing the techniques.
 
-## <a name="sec:Ack"></a>Acknowledgements
+## Acknowledgements
 
-The various plugins and the definition of an XTA metamodel were done by Yann Thierry-Mieg. The transformation was built by Yann Thierry-Mieg and Maximilien Colange.
+The various plugins and the definition of an XTA metamodel were done by Yann Thierry-Mieg. 
+The transformation was built by Yann Thierry-Mieg and Maximilien Colange.
