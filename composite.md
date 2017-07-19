@@ -155,8 +155,6 @@ Then import all the models (.model) of your project into the ITS type referentia
  
 Finally, choose the main model instance, and click the "Analysis" button.
 
-## Analyzing models
-
 ## Reachability
 
 To analyze models, we first need to create an ITS adapter that will wrap the Time Petri nets into instantiable transition systems.

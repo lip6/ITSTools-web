@@ -157,7 +157,7 @@ To do this, right click the model, then use "Export->Coloane", and choose "GAL f
 
 Start by executing the steps described above in **Defining parameter values** section.
 
-Then in the "Analysis" tab, add you properties and run the analysis, as [described here](composite.html#analysis).
+Then in the "Analysis" tab, add you properties and run the analysis, as [described here](composite.html#reachability).
 
 
 ## Model Exchange (Tina, Romeo)
