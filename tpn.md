@@ -172,3 +172,12 @@ you can in most cases flatten them.
 The "Flatten Model" action (described above) will recursively descend into composite definitions to build a single Petri net. 
 
 This TPN can then be exported with "right-click...Export->Coloane->...".
+
+## Export to GAL
+
+It is also possible to export a TPN to GAL format, using either the classic one time unit step "elapse" transition,
+or an abstraction called [essential states](https://www.informatik.hu-berlin.de/~popova/es_states.ps).
+
+To do this, right click the model, then use "Export->Coloane", and choose "GAL file" with or without
+ essential states abstraction.
+
