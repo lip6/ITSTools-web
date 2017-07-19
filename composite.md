@@ -144,3 +144,48 @@ You can also browse the Examples in "File->New->Example->Coloane" to see several
 Binding of a concrete type to an instance, and of a size to a scalar or circular set is accomplished similarly to binding a type of a composite. 
 Please [refer to section "binding parameters to variables"](composite.md#ssec:bind) for more details.
 
+# Analysis of Graphical Composite ITS
+
+Analysis of graphical composite models is done using the __composition tool__.
+
+Select "File->New->Other->Coloane->ITS Composition model" and give it a name.
+
+Then import all the models (.model) of your project into the ITS type referential, by multi-selecting (with ctrl-click and/or shift-click)
+ the models and then drag and drop the group into the "Types Declaration" frame.
+ 
+Finally, choose the main model instance, and click the "Analysis" button.
+
+## Analyzing models
+
+## Reachability
+
+To analyze models, we first need to create an ITS adapter that will wrap the Time Petri nets into instantiable transition systems.
+Create a "File->New->Other->Coloane->ITS Composition model", Next, give it a name, Finish.
+
+![download](images/newcomp.jpg)
+
+From the explorer on the left drag and drop the model(s) you wish to analyze into the "Types Declaration" frame (you can use multi selection). Then specify the various parameter bindings (variables of TPN models, type bindings of composite ITS models) as explained above.
+
+Finally, select the model you want to analyze (usually the top-level model, with an empty offered interface, the full system composition), then click the "Analysis" button, which will setup a new tab in the same pane (switch between tabs at bottom of window).
+
+![download](images/analysis.jpg)
+
+You can now use the ITS reach service for instance: select "ITS reachability" then "Run Service"
+
+![download](images/runservice.jpg)
+
+You should get a service report that indicates some statistics on number of reachable states.
+
+![download](images/result.jpg)
+
+## CTL
+
+For the CTL service, I'll use examples from the Fischer example. You can get this model by "File->New->Example->Coloane->Fischer's Mutual exclusion" .
+
+In the analysis tab, select "CTL check" "then "Add a formula"
+
+![download](images/result.jpg)
+
+Write a CTL formula, then select "Run service" you will obtain true/false results for your formulas.
+
+![download](images/ctlres.jpg)
