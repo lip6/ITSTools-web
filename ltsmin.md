@@ -27,7 +27,7 @@ The PINS interface is directly compatible with the concepts offered in GAL :
 The transformation is thus relatively straightforward, and produces a C file that complies 
 to the PINS interface.
 
-The semantics of GAL reduce to four basic building blocks :
+The semantics of GAL reduce to four basic actions that serve as building blocks :
 * Sequence of actions : the steps within a GAL transition body are sequentially composed
 * Alternative of actions : corresponding to the non deterministic call semantics
 * Assignment : update one variable based on the current state of variables
@@ -50,7 +50,6 @@ This operation may be explosive if the specification features sequences of calls
 The SMT queries are generally fast, but we have to build several matrices with dimension **V x T** or **T x T**, where **V** is the number
  of variables and **T** is the number of deterministic transitions. 
  So this can add up to a lot of SMT calls, particularly when the transition relation is dense (transition supports overlap a lot).
-
 
 ### How to build a PINS model
 
