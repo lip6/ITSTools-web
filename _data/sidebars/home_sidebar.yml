@@ -53,6 +53,9 @@ entries:
     - title: Graphical Composite
       url: /composite.html
       output: web
+    - title: (Colored) PNML
+      url: /pnml.html
+      output: web
     - title: Timed Automata/Uppaal
       url: /ta.html
       output: web  
