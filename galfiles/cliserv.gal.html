@@ -25,14 +25,15 @@
 <span class="p">}</span>
 <span class="k">gal</span> <span class="n">Server</span> <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">state</span> <span class="o">=</span><span class="nb">$IDLE</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">treating</span> <span class="o">=</span> <span class="nb">$NCLIENT</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">treating</span> <span class="o">=</span> <span class="nb">$NCLIENT</span><span class="p">;</span> 
 	<span class="k">transition</span> <span class="n">recv</span> <span class="p">(</span><span class="n">clients_t</span>  <span class="nb">$c</span><span class="p">)</span> <span class="p">[</span><span class="n">state</span><span class="o">==</span><span class="nb">$IDLE</span><span class="p">]</span> <span class="k">label</span> <span class="s">"recvReq"</span> <span class="p">(</span><span class="nb">$c</span><span class="p">){</span>
 		<span class="n">state</span> <span class="o">=</span> <span class="nb">$WAIT</span><span class="p">;</span>
 		<span class="n">treating</span> <span class="o">=</span> <span class="nb">$c</span><span class="p">;</span>
 	<span class="p">}</span>
 	<span class="k">transition</span> <span class="n">treated</span> <span class="p">(</span><span class="n">clients_t</span>  <span class="nb">$c</span><span class="p">)</span> <span class="p">[</span><span class="n">state</span><span class="o">==</span><span class="nb">$WAIT</span> <span class="o">&amp;&amp;</span> <span class="n">treating</span><span class="o">==</span><span class="nb">$c</span><span class="p">]</span> <span class="k">label</span> <span class="s">"treated"</span><span class="p">(</span><span class="nb">$c</span><span class="p">){</span>
 		<span class="n">state</span> <span class="o">=</span> <span class="nb">$IDLE</span><span class="p">;</span>
-	<span class="p">}</span>
+		<span class="n">treating</span><span class="o">=</span><span class="nb">$NCLIENT</span><span class="p">;</span> <span class="c1">// back to empty
+</span>	<span class="p">}</span>
 <span class="p">}</span>
 <span class="k">composite</span> <span class="n">ClientServer</span> <span class="p">{</span>
 	<span class="n">Client</span> <span class="p">[</span><span class="nb">$NCLIENT</span><span class="p">]</span> <span class="n">clients</span> <span class="p">;</span>

@@ -25,13 +25,14 @@ gal Buffer {
 }
 gal Server {
 	int state =$IDLE;
-	int treating = $NCLIENT;
+	int treating = $NCLIENT; 
 	transition recv (clients_t  $c) [state==$IDLE] label "recvReq" ($c){
 		state = $WAIT;
 		treating = $c;
 	}
 	transition treated (clients_t  $c) [state==$WAIT && treating==$c] label "treated"($c){
 		state = $IDLE;
+		treating=$NCLIENT; // back to empty
 	}
 }
 composite ClientServer {
