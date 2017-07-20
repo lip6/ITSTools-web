@@ -15,7 +15,7 @@ entries:
       url: /eclipsestart.html
       output: web  
     - title: Running the tool
-      url: /firstrun.html
+      url: /running.html
       output: web
   - title: Guarded Action Language
     output: web

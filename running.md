@@ -3,7 +3,7 @@ title: Running ITS Tools from Eclipse
 keywords: gal
 tags: [gal]
 sidebar: home_sidebar
-permalink: firstrun.html
+permalink: running.html
 summary: How to run and configure ITS tools
 ---
 
