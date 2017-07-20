@@ -187,7 +187,32 @@ compactly complex synchronization patterns.
 
 In this case the property is true again, every Pong eventually ends up getting a ball since there are as many Ping as Pong players.
 
+## Parameters in Composite
 
+Please note that [parameters](pgal.md) are particularly useful in the context of Composite definitions, particularly 
+* when using arrays
+* when adding arguments to labels
 
+Parameters are introduced on [this page](pgal.md), this section presents a small example using parameters.
 
+This example models a system with a number of clients accessing a server.
+
+There are two buffers, that store the client id.
+One is used to send requests to the server, and the other to return the message to the right client
+
+Here we modeled a situation with $NCLI clients, 1 server, 1 send buffer (a single memory cell, shared amongst everybody, blocking if full) 1 receive buffer.
+
+This example can be adapted easily to multiple servers, multiple buffers etc...
+You could have an array of buffers instead, or make the buffer more complex with room for several messages.
+
+We could also have several servers fighting to treat the requests, if we model the servers 
+in a more symmetric way to the clients in the composite, with an array of them.
+
+The basic idea in this model is to use parameters to work with different instances and identify them.
+This idea is used in two different ways, with the basic client instances (no id built-in, their cell index is contextual) and the server (storing an id).
+Both can be useful.
+  
+<figure class="highlight"><pre><code class="language-c" data-lang="c">
+{% include_relative galfiles/cliserv.gal.html %}
+</code></pre></figure>
 

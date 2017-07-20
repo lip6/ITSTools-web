@@ -1,0 +1,64 @@
+$NCLIENT=3;
+typedef clients_t=0..$NCLIENT-1;
+
+$IDLE = 0 ;
+$WAIT =1 ;
+
+gal  Client {
+	int state =$IDLE;
+	transition send [state==$IDLE] label "send"{
+		state = $WAIT;
+	}
+	transition recv [state==$WAIT] label "recv"{
+		state = $IDLE;
+	}
+}
+gal Buffer {
+	// represents empty
+	int id=$NCLIENT;
+	transition put(clients_t $c) [id == $NCLIENT] label "put"($c){
+		id = $c;
+	}
+	transition get(clients_t $c) [id == $c] label "get"($c) {
+		id = $NCLIENT;
+	}
+}
+gal Server {
+	int state =$IDLE;
+	int treating = $NCLIENT;
+	transition recv (clients_t  $c) [state==$IDLE] label "recvReq" ($c){
+		state = $WAIT;
+		treating = $c;
+	}
+	transition treated (clients_t  $c) [state==$WAIT && treating==$c] label "treated"($c){
+		state = $IDLE;
+	}
+}
+composite ClientServer {
+	Client [$NCLIENT] clients ;
+    
+    Buffer sendB;
+    Buffer recvB;
+
+    Server serv;
+
+    synchronization  s1(clients_t $c) {
+		clients[$c]."send";
+		sendB."put"($c);
+	}
+	synchronization  s2(clients_t $c) {
+		serv."recvReq"($c);
+		sendB."get"($c);
+	}
+	synchronization  s3(clients_t $c) {
+		serv."treated"($c);
+		recvB."put"($c);
+	}
+	synchronization  s4(clients_t $c) {
+		clients[$c]."recv";
+		recvB."get"($c);
+	}
+}
+main ClientServer;
+
+
