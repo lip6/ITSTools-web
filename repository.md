@@ -32,7 +32,7 @@ e.g. For project **https://github.com/lip6/libDDD** the page would be at **https
 The Readme visible on each project's homepage also gives a link to it.
 
 For build purposes, we also have some repositories set up to build our dependencies :
-* [ITS-Tools-dependencies](https://github.com/yanntm/ITS-Tools-Dependencies) 
+* [ITS-Tools-dependencies](https://github.com/yanntm/ITS-Tools-Dependencies) : z3, yices
 * [LTSmin-binaryBuilds](https://github.com/yanntm/LTSmin-BinaryBuilds) : slightly hacked LTSmin
 * [Spot-binaryBuilds](https://github.com/yanntm/Spot-BinaryBuilds) : subset of Spot is built
 * [mccmodels](https://github.com/yanntm/pnmcc-models-2017mccmodels) : MCC models repackaged and patched
