@@ -67,18 +67,6 @@ entries:
       output: web
     - title: LTSmin bridges
       url : /ltsmin.html
-      output: web
-  - title: Flags and Options
-    output: web
-    folderitems:
-    - title: Eclipse Settings
-      url: /tpn.html
-      output: web
-    - title: Command line flags
-      url: /clflags.html
-      output: web
-    - title: Developer Install
-      url: /devinstall.html
       output: web          
   - title: libDDD c++ library
     output: web
@@ -90,13 +78,13 @@ entries:
     output: web
     folderitems:
     - title: Symbolic Model-checking 
-      url: /itstools.html
+      url: /libits.html
       output: web
   - title: its-reach
     output: web
     folderitems:
-    - title: Introduction
-      url: /ctl.html
+    - title: Safety model-checker
+      url: /reach.html
       output: web
   - title: its-ctl
     output: web
@@ -118,5 +106,14 @@ entries:
     folderitems:
     - title: Wrapper for Eclipse
       url: /itscl.html
+      output: web
+  - title: Developer's Corner
+    output: web
+    folderitems:
+    - title: Index of Github Repositories
+      url: /repository.html
+      output: web
+    - title: Developer Install
+      url: /devinstall.html
       output: web
       
