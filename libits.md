@@ -96,7 +96,7 @@ libits is our model-checking library built on top of libddd and offering support
 
 LibITS is packaged using gnu autotools.
 
-You can download the current release (v. 1.9) from here: [LibITS download page](https://lip6.github.io/libITS/)
+You can download the current release from here: [LibITS download page](https://lip6.github.io/libITS/)
 
 The package distribution uses GNU autotools, simply extract then in the root installation folder type.
 
