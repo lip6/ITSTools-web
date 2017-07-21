@@ -25,7 +25,7 @@ its-ctl is stable, it has been used notably in the [project Neoppod](https://pro
 
 ## Obtaining its-ctl
 
-You can download the current release as well as binaries from here: [LibITS download page](https://lip6.github.io/ITS-CTL/)
+You can download the current release as well as binaries from here: [ITS-CTL download page](https://lip6.github.io/ITS-CTL/)
 
 The latest source version of its-ctl can be obtained from GitHub at _https://github.com/lip6/ITS-CTL_. 
 

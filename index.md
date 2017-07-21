@@ -36,7 +36,8 @@ Our eclipse front-end offers rich textual editor (or graphical for Petri nets) f
 If you'd prefer to use a command line tool, that is also possible using our
 [pre-packaged ITS-tools for Windows, Linux or MacOS](https://yanntm.github.io/ITS-commandline/index.html).   
 
-ITS-tools includes its own symbolic model-checker powered by [Hierarchical Set Decision Diagrams](libddd.md), but can also use an SMT solver such as [Yices](http://yices.csl.sri.com/) or [Z3](https://github.com/Z3Prover/z3) to perform 
+ITS-tools includes its own symbolic model-checker powered by [Hierarchical Set Decision Diagrams](libddd.md), 
+but can also use an SMT solver such as [Yices](http://yices.csl.sri.com/) or [Z3](https://github.com/Z3Prover/z3) to perform 
 [BMC](https://www.google.com/search?q=An+Analysis+of+SAT-based+Model+Checking+Techniques+in+an+industrial)/
 [K-Induction](https://www.google.com/search?q=Checking+safety+properties+using+induction+and+a+SAT-solver), and export models with fine grain [partial order](https://en.wikipedia.org/wiki/Partial_order_reduction) analysis for use in the excellent multi-core  model-checker [LTSmin](http://fmt.cs.utwente.nl/tools/ltsmin/) that offers its own solution engines.
 
