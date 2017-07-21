@@ -167,7 +167,7 @@ SDD specific options :
 
 This tool performs CTL verification on state-space of ITS
  CTL specific options for  package itsctl 0.1
-*    -ctl `[CTL formulas file]`  MANDATORY : give path to a file containing CTL formulae 
+* -ctl `[CTL formulas file]`  MANDATORY : give path to a file containing CTL formulae
 	* Optionally, if the `[CTL formulas file]` provided is the string DEADLOCK, the tool will compute and return the number of deadlocks.
 	* Optionally, if the `[CTL formulas file]` provided is the string TIMELOCK, the tool will compute and return the number of timelocks, i.e. states in which time is the only event that can occur.
 * --witness to ask for a witness/counter-example path to be produced (may be much more difficult than just proving/disproving)
