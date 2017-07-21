@@ -33,7 +33,7 @@ Note that to build from the git, you need autotools and to invoke "autoreconf -v
 Due to various dependencies, building from git requires some configuration settings. 
 
 Remember, configure --help is your friend, and you can also have a look at the configuration settings of 
-our [Travis continuous integration server](https://github.com/lip6/ITS-CTL/blob/master/.travis.yml) 
+our [Travis continuous integration server](https://github.com/lip6/ITS-CTL/blob/master/.travis.yml#L67) 
 or [AppVeyor for Windows](https://github.com/lip6/ITS-CTL/blob/master/appveyor.yml) for inspiration on how to invoke configure.
 
 The only dependencies are libDDD and libITS that you need to deploy first.
