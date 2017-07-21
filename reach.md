@@ -65,17 +65,17 @@ You can also use the [eclipse front-end](running.md) to produce valid command li
 MANDATORY Options :
 *    -i path : specifies the path to input model file
 *    -t {CAMI,PROD,ROMEO,ITSXML,ETF,DLL,NDLL,DVE,GAL,CGAL} : specifies format of the input model file : 
-             * CAMI : CAMI format (for P/T nets) is the native Petri net format of CPN-AMI
-             * PROD : PROD format (for P/T nets) is the native format of PROD
-             * ROMEO : an XML format (for Time Petri nets) that is the native format of Romeo
-             * UROMEO : Romeo format with additional constraints: all places named, with different names.
-             * ITSXML : a native XML format (for ANY kind of ITS) for this tool. These files allow to point to other files.
-             * ETF : Extended Table Format is the native format used by LTSmin, built from many front-ends.
-             * DLL : use a dynamic library that provides a function "void loadModel (Model &,int)" typically written using the manipulation APIs. See demo/ folder.
-             * NDLL : same as DLL, but expect input formatted as size:lib.so. See demo/ folder.
-             * DVE : Divine is a modelling language similar to Promela.
-             * GAL : Guarded Action Language.
-             * CGAL : Guarded Action Language + Composite/ITS textual syntax. File must contain a main declaration.
+	* CAMI : CAMI format (for P/T nets) is the native Petri net format of CPN-AMI
+	* PROD : PROD format (for P/T nets) is the native format of PROD
+	* ROMEO : an XML format (for Time Petri nets) that is the native format of Romeo
+	* UROMEO : Romeo format with additional constraints: all places named, with different names.
+	* ITSXML : a native XML format (for ANY kind of ITS) for this tool. These files allow to point to other files.
+	* ETF : Extended Table Format is the native format used by LTSmin, built from many front-ends.
+	* DLL : use a dynamic library that provides a function "void loadModel (Model &,int)" typically written using the manipulation APIs. See demo/ folder.
+	* NDLL : same as DLL, but expect input formatted as size:lib.so. See demo/ folder.
+	* DVE : Divine is a modelling language similar to Promela.
+	* GAL : Guarded Action Language.
+	* CGAL : Guarded Action Language + Composite/ITS textual syntax. File must contain a main declaration.
 
 Additional Options and Settings:
 *     --trace-states : if set, this option will force to print intermediate states (up to print limit) when showing traces. 
@@ -95,23 +95,22 @@ Scalar and Circular symmetric composite types options:
 
 
 GAL-based specific options (DVE and GAL):
-*    --gen-order STRAT :  Invoke ordering heuristic to compute a static ordering.
-                         STRAT should be one of the following `[default DEFAULT]`:
-       * DEFAULT         : historical strategy, does not follow labels of 'call' statements
-       * FOLLOW          : follows the labels of 'call' statements
-       * FOLLOW_HALF     : follows the labels of 'call' statements, but with halved weight
-       * FOLLOW_DOUBLE   : follows the labels of 'call' statements, but with doubled weight
-       * FOLLOW_SQUARE   : same as FOLLOW, but uses energy-based costs
-       * FOLLOW_DYN      : follows the labels of 'call' statements, with a cost related to constraint' size
-       * FOLLOW_DYN_SQ   : same as FOLLOW_DYN, but uses energy-based costs
-       * FOLLOW_FDYN     : same as FOLLOW_DYN, but the cost is related to the size for all constraints (even with no 'call')
-       * FOLLOW_FDYN_SQ  : same as FOLLOW_FDYN, but uses energy-based costs
-       * LEXICO          : use the old strategy, based on lexicographical ordering of the variable
+* --gen-order STRAT :  Invoke ordering heuristic to compute a static ordering. STRAT should be one of the following `[default DEFAULT]`:
+	* DEFAULT         : historical strategy, does not follow labels of 'call' statements
+	* FOLLOW          : follows the labels of 'call' statements
+	* FOLLOW_HALF     : follows the labels of 'call' statements, but with halved weight
+	* FOLLOW_DOUBLE   : follows the labels of 'call' statements, but with doubled weight
+	* FOLLOW_SQUARE   : same as FOLLOW, but uses energy-based costs
+	* FOLLOW_DYN      : follows the labels of 'call' statements, with a cost related to constraint' size
+	* FOLLOW_DYN_SQ   : same as FOLLOW_DYN, but uses energy-based costs
+	* FOLLOW_FDYN     : same as FOLLOW_DYN, but the cost is related to the size for all constraints (even with no 'call')
+	* FOLLOW_FDYN_SQ  : same as FOLLOW_FDYN, but uses energy-based costs
+	* LEXICO          : use the old strategy, based on lexicographical ordering of the variable
  
 SDD specific options : 
-    * --no-garbage : disable garbage collection (may be faster, more memory)
-    * --gc-threshold INT : set the threshold for first starting to do gc [DEFAULT:13000 kB=1.3GB]
-    * --fixpoint {BFS,DFS} : this options controls which kind of saturation algorithm is applied. Both are variants of saturation not really full DFS or BFS. [default: BFS]
+* --no-garbage : disable garbage collection (may be faster, more memory)
+* --gc-threshold INT : set the threshold for first starting to do gc [DEFAULT:13000 kB=1.3GB]
+* --fixpoint {BFS,DFS} : this options controls which kind of saturation algorithm is applied. Both are variants of saturation not really full DFS or BFS. [default: BFS]
 
 its-reach specific options for ITSREACH 0.2
 *     --dump-order path : dump the currently used variable order to file designated by path and exit. 
