@@ -3,7 +3,7 @@ title: Timed Automata
 keywords: gal
 tags: [gal]
 sidebar: home_sidebar
-permalink: composite.html
+permalink: ta.html
 summary: Analyzing Timed Automata with ITS tools.
 ---
 
