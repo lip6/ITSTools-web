@@ -105,3 +105,76 @@ The SDD/ITS code for CTL checking is due to Yann Thierry-Mieg, and Silien Hong.
 The witness/counter-example code was written by Yann Thierry-Mieg.
  
 For further credits and version history please browse the repository history.
+
+
+## its-ctl --help
+
+ Instantiable Transition Systems SDD/DDD Analyzer; package ITSREACH 0.2
+
+ This tool performs state-space analysis of Instantiable Transition Systems a.k.a. ITS 
+
+ The reachability set is computed using SDD/DDD of libDDD, the Hierarchical Set Decision Diagram library, 
+ 
+MANDATORY Options :
+*    -i path : specifies the path to input model file
+*    -t {CAMI,PROD,ROMEO,ITSXML,ETF,DLL,NDLL,DVE,GAL,CGAL} : specifies format of the input model file : 
+	* CAMI : CAMI format (for P/T nets) is the native Petri net format of CPN-AMI
+	* PROD : PROD format (for P/T nets) is the native format of PROD
+	* ROMEO : an XML format (for Time Petri nets) that is the native format of Romeo
+	* UROMEO : Romeo format with additional constraints: all places named, with different names.
+	* ITSXML : a native XML format (for ANY kind of ITS) for this tool. These files allow to point to other files.
+	* ETF : Extended Table Format is the native format used by LTSmin, built from many front-ends.
+	* DLL : use a dynamic library that provides a function "void loadModel (Model &,int)" typically written using the manipulation APIs. See demo/ folder.
+	* NDLL : same as DLL, but expect input formatted as size:lib.so. See demo/ folder.
+	* DVE : Divine is a modelling language similar to Promela.
+	* GAL : Guarded Action Language.
+	* CGAL : Guarded Action Language + Composite/ITS textual syntax. File must contain a main declaration.
+
+Additional Options and Settings:
+*     --trace-states : if set, this option will force to print intermediate states (up to print limit) when showing traces. 
+*     --print-limit INT : set the threshold for full printout of states in traces. DD holding more states than threshold will not be printed. [DEFAULT:10 states]
+*     --load-order path : load the variable order from the file designated by path. This order file can be produced with --dump-order. Note this option is not exclusive of --json-order; the model is loaded as usual, then the provided order is applied a posteriori. 
+
+Petri net specific options :
+*     --json-order path : use a JSON encoded hierarchy description file for a Petri net model (CAMI, PROD or ROMEO), such as produced using Neoppod heuristic ordering tools. Note that this option modifies the way the model is loaded. 
+ 
+*     --sdd : privilege SDD storage (Petri net models only).(DEFAULT)
+*     --ddd : privilege DDD (no hierarchy) encoding (Petri net models only).
+
+Scalar and Circular symmetric composite types options:
+*    -ssD2 INT : (depth 2 levels) use 2 level depth for scalar sets. Integer provided defines level 2 block size. [DEFAULT: -ssD2 1]
+*    -ssDR INT : (depth recursive) use recursive encoding for scalar sets. Integer provided defines number of blocks at highest levels.
+*    -ssDS INT : (depth shallow recursive) use alternative recursive encoding for scalar sets. Integer provided defines number of blocks at lowest level.
+
+
+GAL-based specific options (DVE and GAL):
+* --gen-order STRAT :  Invoke ordering heuristic to compute a static ordering. STRAT should be one of the following `[default DEFAULT]`:
+	* DEFAULT         : historical strategy, does not follow labels of 'call' statements
+	* FOLLOW          : follows the labels of 'call' statements
+	* FOLLOW_HALF     : follows the labels of 'call' statements, but with halved weight
+	* FOLLOW_DOUBLE   : follows the labels of 'call' statements, but with doubled weight
+	* FOLLOW_SQUARE   : same as FOLLOW, but uses energy-based costs
+	* FOLLOW_DYN      : follows the labels of 'call' statements, with a cost related to constraint' size
+	* FOLLOW_DYN_SQ   : same as FOLLOW_DYN, but uses energy-based costs
+	* FOLLOW_FDYN     : same as FOLLOW_DYN, but the cost is related to the size for all constraints (even with no 'call')
+	* FOLLOW_FDYN_SQ  : same as FOLLOW_FDYN, but uses energy-based costs
+	* LEXICO          : use the old strategy, based on lexicographical ordering of the variable
+ 
+SDD specific options : 
+* --no-garbage : disable garbage collection (may be faster, more memory)
+* --gc-threshold INT : set the threshold for first starting to do gc [DEFAULT:13000 kB=1.3GB]
+* --fixpoint {BFS,DFS} : this options controls which kind of saturation algorithm is applied. Both are variants of saturation not really full DFS or BFS. [default: BFS]
+
+This tool performs CTL verification on state-space of ITS
+ CTL specific options for  package itsctl 0.1
+*    -ctl `[CTL formulas file]`  MANDATORY : give path to a file containing CTL formulae 
+	* Optionally, if the `[CTL formulas file]` provided is the string DEADLOCK, the tool will compute and return the number of deadlocks.
+	* Optionally, if the `[CTL formulas file]` provided is the string TIMELOCK, the tool will compute and return the number of timelocks, i.e. states in which time is the only event that can occur.
+* --witness to ask for a witness/counter-example path to be produced (may be much more difficult than just proving/disproving)
+* --precise to ask for more precise counter example traces, that include states
+* --fair-time to disallow infinite loops over elapse. More precisely, with this option, time elapse is applied directly after each discrete transition firing (and on initial state).
+* `[--forward]` to force forward CTL model-checking (default)
+* `[--backward]` to force backward CTL model-checking (classic algorithm from 10^20 states & beyond)
+* --quiet : limit output verbosity useful in conjunction with tex output --texline for batch performance runs
+* --legend : show full table legend
+* --help,-h : display this (very helpful) helping help text
