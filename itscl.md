@@ -16,6 +16,6 @@ offer all the features of the EMF based transformations, this project provides a
 
 This functionality is still work in progress.
 
-* [ITS-commandline](https://github.com/yanntm/ITS-commandline) : GitHub repo + readme
-* [Distribution](https://yanntm.github.io/ITS-commandline) : Download page
+* [ITS-commandline](https://github.com/yanntm/ITS-commandline) : GitHub repo 
+* [Distribution](https://yanntm.github.io/ITS-commandline) : Download page + readme
 
