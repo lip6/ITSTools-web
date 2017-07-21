@@ -9,6 +9,8 @@ summary: Exchanging models with LTSmin.
 
 # LTSmin
 
+Warning: This page and the functionality described are still work in progress.
+
 [LTSmin](http://fmt.cs.utwente.nl/tools/ltsmin/) is multi-solution model-checker for a variety of formalisms developped by the Formal Methods and Tools group of Twente University.
 They define an intermediate API called PINS that puts a pivot interface between solution engines and (explicit) transition relations. 
 
