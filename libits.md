@@ -4,7 +4,7 @@ keywords: gal composite
 tags: [gal]
 sidebar: home_sidebar
 permalink: libits.html
-summary: Syntax of Composite in GAL.
+summary: A C++ library for efficient Symbolic Model Checking.
 ---
 
 # libITS C++ library 
