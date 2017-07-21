@@ -83,24 +83,40 @@ entries:
   - title: libDDD c++ library
     output: web
     folderitems:
-    - title: Data and Set DD library
+    - title: Data and Set Decision Diagrams
       url: /libddd.html
       output: web
-  - title: libITS
+  - title: libITS c++ library
+    output: web
+    folderitems:
+    - title: Symbolic Model-checking 
+      url: /itstools.html
+      output: web
+  - title: its-reach
     output: web
     folderitems:
     - title: Introduction
-      url: /itstools.html
+      url: /ctl.html
       output: web
   - title: its-ctl
     output: web
     folderitems:
-    - title: Introduction
-      url: /itstools.html
+    - title: CTL model checker
+      url: /ctl.html
       output: web
   - title: its-ltl
     output: web
     folderitems:
-    - title: Introduction
-      url: /itstools.html
+    - title: LTL model Checker
+      url: /ltl.html
       output: web
+    - title: Choosing an algorihtm
+      url: /ltl_bench.html
+      output: web      
+  - title: its-CommandLine
+    output: web
+    folderitems:
+    - title: Wrapper for Eclipse
+      url: /itscl.html
+      output: web
+      

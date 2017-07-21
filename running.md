@@ -94,7 +94,7 @@ When you select "its-ltl" tool, the *LTL* tab can be used to
 	 generally incomparable (depending on the model and formula, some fail where the other succeeds)   	
    
 
-More information on [its-ltl on its dedicated page](ltl.md).
+More information on [its-ltl on its dedicated page](ltl.md) and on the page [choosing an LTL algorithm](ltl_bench.md)
 
 ## Further analysis
 
