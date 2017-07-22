@@ -167,23 +167,27 @@ Models can be given to its-tools as:
 ### Input Options (mandatory):
 
 *   -i path : specifies the path to the input model file.
-*   -t {CAMI|PROD|ROMEO|ITSXML|ETF|DVE|GAL|DLL|NDLL} : specifies format of the input model file :
+*   -t {CAMI,PROD,ROMEO,ITSXML,ETF,DVE,GAL,DLL,NDLL} : specifies format of the input model file :
     *   CAMI : CAMI format (for P/T nets) is the native Petri net format of [CPN-AMI](http://move.lip6.fr/software/CPNAMI/MANUAL_SERV/index.html)
     *   PROD : PROD format (for P/T nets) is the native format of [PROD](http://www.tcs.hut.fi/Software/prod/)
     *   ROMEO : an XML format (for Time Petri nets) that is the native format of [Romeo](http://romeo.rts-software.org/)
-    *   ITSXML : a native XML format (for ANY kind of ITS) for this tool. These files allow to point to other files and are used as main file for composite definitions. See [this example](https://projets-systeme.lip6.fr/trac/research/libddd/browser/libits/trunk/Samples/ITSXML/philo4/modelMain.xml), the list of formalism/format supported is described [here](https://projets-systeme.lip6.fr/trac/research/libddd/browser/libits/trunk/src/ITSModelXMLLoader.cpp).
+    *   ITSXML : a native XML format (for ANY kind of ITS) for this tool. These files allow to point to other files and are used as main file for composite definitions. See [this example](https://github.com/lip6/libITS/blob/master/Samples/ITSXML/philo4/modelMain.xml), the list of formalism/format supported is described [here](https://github.com/lip6/libITS/blob/master/its/ITSModelXMLLoader.cpp).
     *   ETF : [Extended Table Format](http://fmt.cs.utwente.nl/tools/ltsmin/etf.html) is the native format used by LTSmin, built from many front-ends.
     *   DVE : Divine is a modelling language similar to Promela. Input file should be in [Divine format](http://divine.fi.muni.cz/manual.html#quick-guide-the-dve-specification-language).
     *   GAL : Guarded Action Language. Input file should be in [GAL syntax](gal.php).
     *   DLL : use a dynamic library that provides a function "void loadModel (Model &,int)" typically written using the manipulation APIs. See demo/ folder.
-    *   NDLL : same as DLL, but expect input formatted as size:lib.so. See [demo/ folder](https://projets-systeme.lip6.fr/trac/research/libddd/browser/libits/trunk/demo/philoSumo.cpp) for a usage example. Both DLL and NDLL are used to inject of arbitrary C++ ITS types into the ITSModel.
+    *   NDLL : same as DLL, but expect input formatted as size:lib.so. See [demo/ folder](https://github.com/lip6/libITS/blob/master/demo/philoSumo.cpp) for a usage example. Both DLL and NDLL are used to inject of arbitrary C++ ITS types into the ITSModel.
 
 ### Options related to Variable Order
 
 libits uses static variable orders. These options allow to view or modify the variable order used.
 
-The syntax of a variable order file is a sequence of : (on one line) : #TYPE [nameoftype]  
-followed by variable names one per line, followed by #ENDTYPE on a single line. A single ordering file may contain order of many ITS types. [An example order file.](https://projets-systeme.lip6.fr/trac/research/libddd/browser/libits/trunk/tests/test_models/train4.ord) See also the output of "--dump-order".
+The syntax of a variable order file is a sequence of : (on one line) : #TYPE nameoftype  
+followed by variable names one per line, followed by #ENDTYPE on a single line. 
+A single ordering file may contain order of many ITS types. 
+
+[An example order file.](https://github.com/lip6/libITS/blob/master/tests/test_models/train4.ord) 
+See also the output of "--dump-order".
 
 *   --load-order path : load the variable order from the file designated by path. This order file can be produced with --dump-order. Note this option is not exclusive of --json-order; the model is loaded as usual, then the provided order is applied a posteriori.
 *   --dump-order path : dump the currently used variable order to file designated by path and exit.
@@ -211,7 +215,7 @@ For Petri nets, there is a choice between an SDD encoding, where to each variabl
 
 For Scalar and Circular symmetric composite types, the following options allow to use recursive state encodings. The default setting is "-ssD2 1", i.e. for a Scalar or Circular set of size n, define n SDD variables, one per subcomponent.
 
-*   -ssD2 INT :[DEFAULT: -ssD2 1] (depth 2 levels) use 2 level depth for scalar sets. Integer provided defines level 2 block size.
+*   -ssD2 INT : (DEFAULT: -ssD2 1) (depth 2 levels) use 2 level depth for scalar sets. Integer provided defines level 2 block size.
 *   -ssDR INT : (depth recursive) use recursive encoding for scalar sets. Integer provided defines number of blocks at highest levels.
 *   -ssDS INT : (depth shallow recursive) use alternative recursive encoding for scalar sets. Integer provided defines number of blocks at lowest level.
 
