@@ -24,8 +24,10 @@ topnav_dropdowns:
       folderitems:
         - title: GAL syntax
           url: /gal
+        - title: Composite GAL syntax
+          url: /cgal
         - title: GAL parameters
-          url: /gal
+          url: /pgal
         - title: Property Syntax
           url: /properties
         - title: Bibliography and Related Papers
