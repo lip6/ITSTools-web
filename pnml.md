@@ -32,7 +32,7 @@ The conversion of P/T nets to GAL is quite direct.
 
 The conversion of HLPN follows the same structure, but due to annotations is a bit more involved.
 
-1.  All elementary domains D (also called colors) defined in an HLPN specification are finite (they can be enumerated or defined through ranges etc...). We map each domain declaration to a GAL typedef declaration, containing |D| elements (0 to |D|-1).
+1.  All elementary domains D (also called colors) defined in an HLPN specification are finite (they can be enumerated or defined through ranges etc...). We map each domain declaration to a GAL typedef declaration, containing `|D|` elements (0 to `|D|`-1).
 2.  Each place produces an array, of size consistent with number of different tokens it can contain (i.e. the size of the cross-product of the domain).  
     For instance, if color A is `[1,2]` and color B is `[3,4]`, a place with domain the cross product AxB will produce an array of size 4 (the cells giving the number of occurrences of (1,3), (1,4), (2,3), (2,4) respectively).
 3.  The various expressions corresponding to token references (arc annotations, initial marking definition) are appropriately translated to references in the appropriate array cell. 
