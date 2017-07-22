@@ -17,7 +17,7 @@ entries:
     - title: Running the tool
       url: /running.html
       output: web
-    - title: Biblography
+    - title: Bibliography
       url: /bib.html
       output: web
   - title: Guarded Action Language

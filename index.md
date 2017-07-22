@@ -7,10 +7,7 @@ permalink: index.html
 summary: These brief instructions will help you get started with ITS-tools. The other topics in this help provide additional information use sidebars to navigate.
 ---
 
-
 # Welcome to [ITS-tools](itstools.md) Homepage
-
-WARNING : these pages are work in progress, we are still migrating from [our older homepage](http://ddd.lip6.fr)
 
 ![ITS pivot](images/pivot.png)
 
@@ -55,7 +52,7 @@ We cover a few different scenarios here, if you're unsure just try the eclipse f
 
 [I want to use the command line only](itscl.md)
 
-[I'm interested in contributing](devstart.md)
+[I'm interested in contributing](repository.md)
 
 ## End user oriented documentation
 
@@ -67,7 +64,7 @@ Using [parameters in GAL](pgal.md).
 
 Writing [properties in GAL](properties.md) for invariants, reachability, bounds, CTL or LTL.
 
-A quick guide on [Running the tool] and configuring its options.
+A quick guide on [Running the tool](running.md) and configuring its options.
 
 [Working with Time Petri nets](tpn.md) (compatible with [Tina](http://projects.laas.fr/tina/), [Romeo](http://romeo.rts-software.org/))
 
@@ -90,7 +87,6 @@ A quick guide on [Running the tool] and configuring its options.
 [Scientific papers on the tool and its algorithms.](bib.md)
 
 ## Citing
-
 
 Please cite our [_Symbolic Model-Checking Using ITS-Tools_](https://link.springer.com/chapter/10.1007/978-3-662-46681-0_20) TACAS'15 paper if you are using the tool currently in your research, or a [more specific paper](bib.md) if you are referring to a specific technique we use. 
 
