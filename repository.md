@@ -31,6 +31,11 @@ Most of these repositories have a small GitHub Pages, providing links to binary 
 e.g. For project **https://github.com/lip6/libDDD** the page would be at **https://lip6.github.io/libDDD**.
 The Readme visible on each project's homepage also gives a link to it.
 
+These repositories are meant as examples or tutorials, mostly for students working with or on ITS-tools :
+
+* [ITS-Exercise](https://github.com/yanntm/ITS-Exercise) : an exercise to show symbolic encodings using DD to students. Features some examples of the Hanoi tower problem, as well as an exercise requiring to implement the core operations of a CTL symbolic model-checker.
+* [ITS-Contribution](https://github.com/yanntm/ITS-contribution) : a small but stand-alone contribution to ITS-tools in Eclipse. Fork this project and edit to quickly get a plugin+feature+update site that you can test, to add new features to ITS-Tools.
+
 For build purposes, we also have some repositories set up to build our dependencies :
 * [ITS-Tools-dependencies](https://github.com/yanntm/ITS-Tools-Dependencies) : z3, yices
 * [LTSmin-binaryBuilds](https://github.com/yanntm/LTSmin-BinaryBuilds) : slightly hacked LTSmin
