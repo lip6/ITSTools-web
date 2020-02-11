@@ -70,7 +70,7 @@ Additional options specific to each tool allow to refine the behavior (i.e. sele
 
 The package libits includes a tool to compute reachable state space and answer reachability queries, called its-reach.
 
-Recent and up to date definitions relating to ITS and GAL can be taken from this document [.pdf](./files/gal.pdf)
+Recent and up to date definitions relating to ITS and GAL can be taken from this document [.pdf](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/gal.pdf)
 
 Yann's habilitation thesis also contains up to date definitions and presents an overview of this work [.pdf](https://pages.lip6.fr/Yann.Thierry-Mieg/hdr-ytm.pdf)
 

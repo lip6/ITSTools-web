@@ -19,7 +19,7 @@ An ITS is basically a [labeled Kripke Structure](https://en.wikipedia.org/wiki/K
 
 ## Composite overview
 
-This page presents the concrete syntax of composite GAL, please read [this document](./files/gal.pdf) for a more formal overview of GAL semantics and some of their applications, or my [habilitation thesis](https://pages.lip6.fr/Yann.Thierry-Mieg/hdr-ytm.pdf) for a formal but less technical overview.
+This page presents the concrete syntax of composite GAL, please read [this document](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/gal.pdf) for a more formal overview of GAL semantics and some of their applications, or my [habilitation thesis](https://pages.lip6.fr/Yann.Thierry-Mieg/hdr-ytm.pdf) for a formal but less technical overview.
 
 ### What is a Composite ?
 

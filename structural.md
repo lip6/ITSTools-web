@@ -50,10 +50,10 @@ In these drawings :
 
 Here are some examples we built, all random walk variants are disabled in these runs, so if some properties can proved (with SMT) the support may reduce, but properties that have a counter-example cannot be solved.
 For most of these examples we exhibit what happens for a single property in these conditions. 
-* [EGFr](./files/EGFr-PT-10420_RF10.pdf) : an example with nice prefix of interest reductions despite a complex structure
-* [FMS](./files/FMS-PT-020_RC8.pdf) : an example with a very simple resulting model
-* [Angiogenesis](./fileS/Angiogenesis-PT-05_RC0.pdf) : an example taken from a biological interaction, where SMT based implicit place detection is used to apply further reductions
-* [AirplaneLD](./files/AirplaneLD-PT-0010_RC.pdf) : an example with many formulas initially, we can see the support diminish as properties are proved.
-* [DLCshifumi](./files/DLCshifumi-PT-3b_RC.pdf) : a larger example (7058 places, 9611 transitions initially), run with a small limit of 100 steps (normal setting is 1 million) for counter-example search, and where all the variants of agglomeration rules are not graphically represented (this means "only" 1181 steps out of roughly 15000 are represented). The file is still 100 MB approximately...
+* [EGFr](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/EGFr-PT-10420_RF10.pdf) : an example with nice prefix of interest reductions despite a complex structure
+* [FMS](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/FMS-PT-020_RC8.pdf) : an example with a very simple resulting model
+* [Angiogenesis](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/Angiogenesis-PT-05_RC0.pdf) : an example taken from a biological interaction, where SMT based implicit place detection is used to apply further reductions
+* [AirplaneLD](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/AirplaneLD-PT-0010_RC.pdf) : an example with many formulas initially, we can see the support diminish as properties are proved.
+* [DLCshifumi](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/DLCshifumi-PT-3b_RC.pdf) : a larger example (7058 places, 9611 transitions initially), run with a small limit of 100 steps (normal setting is 1 million) for counter-example search, and where all the variants of agglomeration rules are not graphically represented (this means "only" 1181 steps out of roughly 15000 are represented). The file is still 100 MB approximately...
 
 

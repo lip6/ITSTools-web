@@ -22,7 +22,7 @@ You can use Ctrl-space to trigger auto-completion, ... In essence it's just a ni
 
 ### Reading Promela into GAL
 
-Analysis is performed by first translating the model to [GAL](gal.md). The actual transformation is described here : [Promela translation (french pdf)](./files/PSTL_promela.pdf).
+Analysis is performed by first translating the model to [GAL](gal.md). The actual transformation is described here : [Promela translation (french pdf)](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/PSTL_promela.pdf).
 
 1.  Right click the .pml file in Eclipse, then select action "Promela to GAL -> Transform to GAL". You can also select a set of files or a folder it will recursively find .pml files.
 2.  You will obtain two GAL image files for each input pml file. One of them contains the translation result, with extension .gal, the other is the simplified model .flat.gal you should actually use for verification.
@@ -38,6 +38,6 @@ This set of models is quite limited in the number of concepts and the portion of
 
 ## Acknowledgements
 
-The various plugins, the definition of an Promela metamodel and the implementation of the transformation embedded in eclipse were done by Master 1 students of UPMC (2014) : Adrien Becchis, Fjorilda Gjermizi and Julia Wisniewsky under supervision of Yann Thierry-Mieg ([see PSTL report in french (pdf)](./files/PSTL_promela.pdf)). 
+The various plugins, the definition of an Promela metamodel and the implementation of the transformation embedded in eclipse were done by Master 1 students of UPMC (2014) : Adrien Becchis, Fjorilda Gjermizi and Julia Wisniewsky under supervision of Yann Thierry-Mieg ([see PSTL report in french (pdf)](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/PSTL_promela.pdf)). 
 
 Integration and maintenance is done by Yann Thierry-Mieg.

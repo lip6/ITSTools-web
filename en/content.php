@@ -37,7 +37,7 @@
 	
  <p><h2><a name="package-presentation"></a>2. GAL overview </h2></p>
    
-   This page presents the concrete syntax of GAL, please read [this document](./files/gal.pdf) for a more formal overview of GAL
+   This page presents the concrete syntax of GAL, please read [this document](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/gal.pdf) for a more formal overview of GAL
    semantics and some of their applications.
    
 	<h3><a name="what-is-gal"></a>2.1 An example GAL system </h3>

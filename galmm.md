@@ -31,7 +31,7 @@ You can open them natively using the EcoreTools plugin from standard eclipse dow
 
 ## GAL overview
 
-This page presents the concrete and abstract syntax of GAL, please read [this document](./files/gal.pdf) for a more formal overview of GAL semantics and some of their applications.
+This page presents the concrete and abstract syntax of GAL, please read [this document](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/gal.pdf) for a more formal overview of GAL semantics and some of their applications.
 
 ### Lexer Terminals
 

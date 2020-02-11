@@ -71,13 +71,13 @@ We have run some benchmark experiments to measure how its-tools handles models f
 
 Details on LTL experiments are available here : [LTL benchmarks](ltl_bench.md).
 
-Experiments comparing ITS-tools to SuperProve and LTSmin are reported here : [CAV 2013 paper.](./files/mlhom.pdf)
+Experiments comparing ITS-tools to SuperProve and LTSmin are reported here : [CAV 2013 paper.](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/mlhom.pdf)
 
 Note that on most models of the BEEM benchmark, the number of states remains relatively low (thousands to millions of states), and explicit model-checkers often outperform symbolic approaches quite handily.
 
 ## Acknowledgements
 
-The various plugins, the definition of a DVE metamodel and the implementation of the transformation embedded in eclipse were initiated by Master 1 students of UPMC (2014): Sarah Dahab, Mokrane Kadri and Tahar Ouazib under supervision of Yann Thierry-Mieg ([see PSTL report in french (pdf)](./files/PSTL_dve.pdf)). 
+The various plugins, the definition of a DVE metamodel and the implementation of the transformation embedded in eclipse were initiated by Master 1 students of UPMC (2014): Sarah Dahab, Mokrane Kadri and Tahar Ouazib under supervision of Yann Thierry-Mieg ([see PSTL report in french (pdf)](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/PSTL_dve.pdf)). 
 Integration and maintenance is done by Yann Thierry-Mieg.
 
 The transformation built into libits uses some source code of Divine 2 (grammar, basic parser data structures),

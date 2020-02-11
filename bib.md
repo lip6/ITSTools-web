@@ -6,15 +6,15 @@ GAL and ITS related papers
 ==========================
 
 While some of the SDD related papers below present early versions of the formalism. Recent and up to date
- definitions relating to ITS and GAL can be taken from this document [.pdf](./files/gal.pdf)
+ definitions relating to ITS and GAL can be taken from this document [.pdf](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/gal.pdf)
 
 * (2016) My habilitation thesis contains up to date definitions and presents an overview of this work. 
 _From Symbolic Verification to Domain Specific Languages_ Yann Thierry-Mieg. [.pdf](https://pages.lip6.fr/Yann.Thierry-Mieg/hdr-ytm.pdf)
 * (2015) General overview of ITS-tools _Symbolic Model-Checking Using ITS-Tools_ Yann Thierry-Mieg.  In _Proceedings of the International Conference on Tools and Algorithms for the Construction and Analysis of Systems (TACAS)_, 2015 
-[.pdf](./files/TACAS_2015_author.pdf)
+[.pdf](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/TACAS_2015_author.pdf)
 * (2013) An abstract definition of the mechanisms that allow to evaluate GAL semantics symbolically (no ITS compositions)<br/>
  _Towards Distributed Software Model-Checking using Decision Diagrams._  Maximilien Colange, Souheib Baarir, Fabrice Kordon, and Yann Thierry-Mieg.  In _Proceedings of the International Conference on Computer Aided Verification (CAV'13)_, LNCS, 2013. Springer. 
- [.pdf](./files/mlhom.pdf)
+ [.pdf](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/mlhom.pdf)
 
 ### DDD and SDD Definitions
 

@@ -30,7 +30,7 @@ These [GAL examples](files/gal.zip) translated from the BEEM distribution can he
 
 ## GAL overview
 
-This page presents the concrete syntax of GAL, please read [this document](./files/gal.pdf) for a more formal overview of GAL semantics and some of their applications, or my [habilitation thesis](https://pages.lip6.fr/Yann.Thierry-Mieg/hdr-ytm.pdf) for a formal but less technical overview.
+This page presents the concrete syntax of GAL, please read [this document](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/gal.pdf) for a more formal overview of GAL semantics and some of their applications, or my [habilitation thesis](https://pages.lip6.fr/Yann.Thierry-Mieg/hdr-ytm.pdf) for a formal but less technical overview.
 
 ### What is GAL ?
 

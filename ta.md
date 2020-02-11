@@ -48,7 +48,7 @@ Note that for most models the fact we are using a discrete time setting for anal
 
 ### Reading Timed Automata into GAL
 
-Analysis is performed by first translating the model to [GAL](gal.md). The actual transformation is described here : [Experiments with XTA (pdf)](./files/xta-bench.pdf).
+Analysis is performed by first translating the model to [GAL](gal.md). The actual transformation is described here : [Experiments with XTA (pdf)](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/xta-bench.pdf).
 
 1.  Right click the xta file in Eclipse, then select action "TA to GAL -> Transform to GAL" either Essential States or One-step. You can also select a set of files or a folder it will recursively find .xta files.
 2.  You will obtain two GAL image files for each input xta file. One of them contains the translation result, with extension .pop if it uses essential states semantics, and .one if it uses one time step semantics. The file with extension .flat.gal is a simplified output from the GAL post-analysis rewritings, that can be passed with flag "-t GAL" to command line its-tools.
@@ -58,7 +58,7 @@ Analysis is performed by first translating the model to [GAL](gal.md). The actua
 We have run some benchmark experiments to measure how its-reach scales with respect to Uppaal on some of these Timed Automata models. 
 Overall, Uppaal is much more resistant to high clock limit values, but its-reach supports much higher number of concurrent processes provided maximum clock values remain small.
 
-The results of these experiments are reported here : [Experiments with XTA (pdf)](./files/xta-bench.pdf). 
+The results of these experiments are reported here : [Experiments with XTA (pdf)](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/xta-bench.pdf). 
 The rest of this section is technical instructions allowing to reproduce our experiments.
 
 The benchmark constitutes in 3 models declined with various number of process, and various clock bound settings. 
