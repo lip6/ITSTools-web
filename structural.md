@@ -42,7 +42,8 @@ Many of the rules we use are currently unpublished thus will not (yet) be descri
 Instead we chose a few representative runs and generated graphical representations of rule application through the decision procedure.
 
 In these drawings :
-* places are ovals and transitions are rectangles ; while place names are preserved throughout the transformations, transition names are not (they get reindexed periodically). 
+* The top of each page has a summary of how many places and transitions are left, and which rule is being applied.
+* places are ovals and transitions are rectangles ; while place names are preserved throughout the transformations, transition names are not (they get reindexed periodically otherwise in some cases names could overflow due to agglomerations). 
 * A marked place has its marking in parenthesis after the place name, e.g. `sos1_eps8_e3b1_equals_0(1)` means the place `sos1_eps8_e3b1_equals_0` has one token.
 * Any object with a dashed border is incompletely shown; some arcs relating it to the rest of the model are not shown
 * Red places are places that belong to the support of the property ; we are interested in preserving reachability of states *projected* over these red support places
