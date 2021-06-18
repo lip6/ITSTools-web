@@ -56,5 +56,6 @@ For most of these examples we exhibit what happens for a single property in thes
 * [Angiogenesis](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/Angiogenesis-PT-05_RC0.pdf) : an example taken from a biological interaction, where SMT based implicit place detection is used to apply further reductions
 * [AirplaneLD](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/AirplaneLD-PT-0010_RC.pdf) : an example with many formulas initially, we can see the support diminish as properties are proved.
 * [DLCshifumi](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/DLCshifumi-PT-3b_RC.pdf) : a larger example (7058 places, 9611 transitions initially), run with a small limit of 100 steps (normal setting is 1 million) for counter-example search, and where all the variants of agglomeration rules are not graphically represented (this means "only" 1181 steps out of roughly 15000 are represented). The file is still 100 MB approximately...
+* [ViralEpidemic](https://media.githubusercontent.com/media/lip6/ITSTools-web/master/files/ViralEpidemic-PT-S04D1C1A06-RC.pdf) : a new "surprise" model in 2020, that more basic reduction rules have trouble tackling. Example is reduced to 81/32767 places and 68/49149 transitions. The result is also very trivial to analyze, despite a large support (40 places).
 
 
