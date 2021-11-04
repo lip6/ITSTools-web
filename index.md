@@ -11,9 +11,20 @@ summary: These brief instructions will help you get started with ITS-tools. The 
 
 ![ITS pivot](images/pivot.png)
 
-ITS-tools is an easy to use and powerful [award-winning](http://mcc.lip6.fr/2016/results.php) [model-checker](https://en.wikipedia.org/wiki/Model_checking) supporting Safety, 
+ITS-tools is an easy to use and powerful [award-winning](http://mcc.lip6.fr/results.php) [model-checker](https://en.wikipedia.org/wiki/Model_checking) supporting Safety, 
 [CTL](https://en.wikipedia.org/wiki/Computation_tree_logic) and [LTL](https://en.wikipedia.org/wiki/Linear_temporal_logic) 
 properties for a variety of formalisms. It formally proves system correctness using exhaustive state space exploration.
+
+This tool  won the following awards at the [Model-Checking Contest 2021 edition](https://mcc.lip6.fr/2021/) :
+
+ * Reachability, UpperBounds, GlobalProperties gold : 
+ <img src="http://mcc.lip6.fr/certificates/2021/gold-Reachability-2021.png" alt="Gold Reachability" width="30px" height="30px">  <img src="http://mcc.lip6.fr/certificates/2021/gold-UpperBounds-2021.png" alt="Gold Upper bounds" width="30px" height="30px"> <img src="http://mcc.lip6.fr/certificates/2021/gold-GlobalProperties-2021.png" alt="Gold Global Properties" width="30px" height="30px">
+ 
+ * CTL, LTL silver :  <img src="http://mcc.lip6.fr/certificates/2021/silver-CTL-2021.png" alt="silver CTL" width="30px" height="30px"> <img src="http://mcc.lip6.fr/certificates/2021/silver-LTL-2021.png" alt="silver LTL" width="30px" height="30px">
+ 
+ * StateSpace bronze : <img src="http://mcc.lip6.fr/certificates/2021/bronze-StateSpace-2021.png" alt="Bronze StateSpace" width="30px" height="30px">
+
+It thus was on the podium of *all* categories of the contest, and outright won half of them. See the page https://github.com/yanntm/ITS-Tools-MCC if this is the scenario you are interested in.
 
 ![Screenshot : eclipse](images/screenMain.png)
 
