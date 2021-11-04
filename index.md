@@ -21,7 +21,7 @@ This tool  won the following awards at the [Model-Checking Contest 2021 edition]
  * CTL, LTL silver
  * StateSpace bronze 
  
-It thus was on the podium of *all* categories of the contest, and outright won half of them. See the page https://github.com/yanntm/ITS-Tools-MCC if this is the scenario you are interested in.
+It thus was on the podium of *all* categories of the contest, and outright won half of them. See the [dedicated page for ITS-Tools in MCC](https://github.com/yanntm/ITS-Tools-MCC) if this is the scenario you are interested in.
 
 ![Screenshot : eclipse](images/screenMain.png)
 
@@ -58,9 +58,9 @@ We cover a few different scenarios here, if you're unsure just try the eclipse f
 
 [I want to use the eclipse front-end](eclipsestart.md)
 
-[I want to use the command line Model-Checking Contest edition of the tool]()
+[I want to use the command line Model-Checking Contest edition of the tool](https://github.com/yanntm/ITS-Tools-MCC)
 
-[I want to use the command line symbolic tools only](https://github.com/yanntm/ITS-Tools-MCC)
+[I want to use the command line symbolic tools only](itscl.md)
 
 [I'm interested in contributing](repository.md)
 
