@@ -9,6 +9,8 @@ summary: These brief instructions will help you get started with ITS-tools. The 
 
 # Welcome to [ITS-tools](itstools.md) Homepage
 
+ <img src="images/pivot.png" alt="ITS pivot" width="300px" height="300px" style="max-width: 100%;"> 
+
 ![ITS pivot](images/pivot.png)
 
 ITS-tools is an easy to use and powerful [award-winning](http://mcc.lip6.fr/results.php) [model-checker](https://en.wikipedia.org/wiki/Model_checking) supporting Safety, 
