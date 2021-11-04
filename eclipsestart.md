@@ -7,9 +7,13 @@ permalink: eclipsestart.html
 summary: These brief instructions will help you install the ITS-tools front-end.
 ---
 
+Please note that if you want the command line Model Checking Competition https://mcc.lip6.fr version of the tool you can find it here : https://github.com/yanntm/ITS-Tools-MCC
+
 ## Requirements 
 
-* [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) standard edition (SE)
+* [Java 11 or better](http://www.oracle.com/technetwork/java/javase/downloads/index.html) standard edition (SE)
+
+Note that you will get errors with Java 8; Eclipse platform has moved to Java 11 minimum since 2020-12 release.
 
 That's all really, we build statically linked binaries for major platforms (Win, Linux, OSX) and package them in the release.
 
