@@ -15,7 +15,7 @@ ITS-tools is an easy to use and powerful [award-winning](http://mcc.lip6.fr/resu
 [CTL](https://en.wikipedia.org/wiki/Computation_tree_logic) and [LTL](https://en.wikipedia.org/wiki/Linear_temporal_logic) 
 properties for a variety of formalisms. It formally proves system correctness using exhaustive state space exploration.
 
-This tool  won the following awards at the [Model-Checking Contest 2021 edition](https://mcc.lip6.fr/2021/) :
+This tool  won the following awards at the [Model-Checking Contest 2021 edition](https://mcc.lip6.fr/results.php) :
 
  * Reachability, UpperBounds, GlobalProperties gold 
  * CTL, LTL silver
