@@ -17,9 +17,12 @@ properties for a variety of formalisms. It formally proves system correctness us
 
 This tool  won the following awards at the [Model-Checking Contest 2021 edition](https://mcc.lip6.fr/results.php) :
 
- * Reachability, UpperBounds, GlobalProperties gold 
- * CTL, LTL silver
- * StateSpace bronze 
+ * Reachability, UpperBounds, GlobalProperties gold : 
+ <img src="http://mcc.lip6.fr/certificates/2021/gold-Reachability-2021.png" alt="Gold Reachability" width="30px" height="30px" style="max-width: 100%;">  <img src="http://mcc.lip6.fr/certificates/2021/gold-UpperBounds-2021.png" alt="Gold Upper bounds" width="30px" height="30px" style="max-width: 100%;"> <img src="http://mcc.lip6.fr/certificates/2021/gold-GlobalProperties-2021.png" alt="Gold Global Properties" width="30px" height="30px" style="max-width: 100%;">
+
+ * CTL, LTL silver :  <img src="http://mcc.lip6.fr/certificates/2021/silver-CTL-2021.png" alt="silver CTL" width="30px" height="30px" style="max-width: 100%;"> <img src="http://mcc.lip6.fr/certificates/2021/silver-LTL-2021.png" alt="silver LTL" width="30px" height="30px" style="max-width: 100%;">
+
+ * StateSpace bronze : <img src="http://mcc.lip6.fr/certificates/2021/bronze-StateSpace-2021.png" alt="Bronze StateSpace" width="30px" height="30px" style="max-width: 100%;">
  
 It thus was on the podium of *all* categories of the contest, and outright won half of them. See the [dedicated page for ITS-Tools in MCC](https://github.com/yanntm/ITS-Tools-MCC) if this is the scenario you are interested in.
 
