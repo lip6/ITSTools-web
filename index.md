@@ -9,8 +9,6 @@ summary: These brief instructions will help you get started with ITS-tools. The 
 
 # Welcome to [ITS-tools](itstools.md) Homepage
 
- <img src="images/pivot.png" alt="ITS pivot" width="300px" height="300px" style="max-width: 100%;"> 
-
 ![ITS pivot](images/pivot.png)
 
 ITS-tools is an easy to use and powerful [award-winning](http://mcc.lip6.fr/results.php) [model-checker](https://en.wikipedia.org/wiki/Model_checking) supporting Safety, 
@@ -32,7 +30,7 @@ It thus was on the podium of *all* categories of the contest, and outright won h
 
 Its architecture relies on an abstract contract for formalisms called Instantiable Transition Systems ITS that enables their semantic composition. An ITS is basically a [labeled Kripke Structure](https://en.wikipedia.org/wiki/Kripke_structure) but they can be _instantiated_ and composed (think [Composite DP](https://en.wikipedia.org/wiki/Composite_pattern)).
 
-![composite DP](images/dpcomp.png)
+ <img src="images/dpcomp.png" alt="composite DP in ITS" width="400px" height="300px" style="max-width: 100%;">
 
 Our main concrete formalism is the [Guarded Action Language](gal.md) (GAL), featuring a simple yet user friendly C-like syntax.
 It is very expressive and has simple interleaving semantics suitable for modeling concurrent systems of practically any kind.
